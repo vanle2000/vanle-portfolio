@@ -11,17 +11,18 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme             : "mmistakes/minimal-mistakes"  
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-remote_theme: benbalter/retlab
+# remote_theme             : "benbalter/retlab"
+
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
-title_separator          : "-"
+title                    : "Van Le"
+title_separator          : "Data Scientist | Quantitative & Investment Analysis Enthusiast"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Van Le"
+description              : Personal webpage of Van Le
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -44,13 +45,6 @@ comments:
   utterances:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
-  giscus:
-    repo_id              : # Shown during giscus setup at https://giscus.app
-    category_name        : # Full text name of the category
-    category_id          : # Shown during giscus setup at https://giscus.app
-    discussion_term      : # "pathname" (default), "url", "title", "og:title"
-    reactions_enabled    : # '1' for enabled (default), '0' for disabled
-    theme                : # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
   staticman:
     branch               : # "master"
     endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
@@ -73,20 +67,10 @@ algolia:
 google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
-# SEO Related
-google_site_verification :
-bing_site_verification   :
-naver_site_verification  :
-yandex_site_verification :
-baidu_site_verification  :
 
 # Social Sharing
 twitter:
   username               :
-facebook:
-  username               :
-  app_id                 :
-  publisher              :
 og_image                 : # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
@@ -95,21 +79,16 @@ social:
   name                   : # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
-# Analytics
-analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
-
+# Google analytics ID
+# google_analytics: G-7BE63RZMTW
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Van Le"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  location         : "Chicago, IL"
+  email            : vanle@buffalo.edu
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -141,17 +120,31 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+      url: https://github.com/vanle2000
 
+
+# Contact info. (shown in footer)
+contact: >
+    Contact me via email: <a href="mailto:vanle@buffalo.edu" target="_blank">vanle@buffalo.edu</a><br/>
+
+# Pages shown in navbar
+nav_pages:
+  - name: about
+  - name: projects
+  - name: research
+  - name: publications
+  - name: education
+  - name: misc
+
+# Do you want to group your publications by year? {true/false}
+group_pub_by_year: true
+collections:
+  courses:
+    output: true
+  publications:
+    output: true
+  workshops:
+    output: true
 
 # Reading Files
 include:
@@ -294,7 +287,3 @@ defaults:
       comments: # true
       share: true
       related: true
-
-
-
-
