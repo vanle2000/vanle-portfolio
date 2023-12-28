@@ -1,0 +1,17 @@
+- name: Van Le
+  # photo-small: bazilinskyy-defence.jpg
+  # photo-large: bazilinskyy-cycling.jpg
+  info: New Grad in Computational and Applied Math
+  email: vanle@buffalo.edu
+  github: https://github.com/vanle2000
+  # researchgate: https://www.researchgate.net/profile/
+  # scholar: https://scholar.google.com/citations?user=
+  linkedin: https://www.linkedin.com/in/csai-vanle/
+  # cv: https://github.com/bazilinskyy/bazilinskyy.github.io/blob/master/cv/CV-PavloBazilinskyy.pdf?raw=true
+  number_educ: 4 
+  education1: (9/2022–12/2023) B.A. in🇱Computational and Applied Mathematics at <a href="https://www.buffalo.edu" target="_blank">University at Buffalo</a>
+  education2: (8/2020–5/2022) Biochemistry and Molecular Biology/ Pre-Med track at <a href="https://www.uh.edu" target="_blank">The University of Houston</a>
+  education3: (1/2018–5/2020) A.S. in Chemistry and A.A. in Finance at <a href="https://northseattle.edu" target="_blank">Seattle College</a>
+  education1short: (2022–23)
+  education2short: (2020–22)
+  education3short: (2018–20) 
