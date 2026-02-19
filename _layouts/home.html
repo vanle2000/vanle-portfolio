@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="anna-container">
-  <section class="anna-hero">
-    <div class="anna-hero__left">
-      <h1 class="anna-name">{{ site.title }}</h1>
-      <p class="anna-tagline">{{ site.description }}</p>
+<div class="container">
+  <section class="hero">
+    <div class="hero__left">
+      <h1 class="name">{{ site.title }}</h1>
+      <p class="tagline">{{ site.description }}</p>
 
-      <div class="anna-social">
+      <div class="social">
         {% if site.author.links %}
           {% for l in site.author.links %}
             {% if l.url %}
@@ -19,26 +19,26 @@ layout: default
       </div>
     </div>
 
-    <div class="anna-hero__right">
-      <img class="anna-photo" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+    <div class="hero__right">
+      <img class="photo" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
     </div>
   </section>
 
-  <section class="anna-two-col">
+  <section class="two-col">
     <div>
       <h2>Passions</h2>
-      <div class="anna-body">
+      <div class="body">
         {{ content }}
       </div>
     </div>
 
     <div>
       <h2>Latest Updates</h2>
-      <div class="anna-updates">
+      <div class="updates">
         {% for post in site.posts limit:3 %}
-          <div class="anna-update">
-            <div class="anna-update__title">{{ post.title }}</div>
-            <div class="anna-update__date">{{ post.date | date: "%B %Y" }}</div>
+          <div class="update">
+            <div class="update__title">{{ post.title }}</div>
+            <div class="update__date">{{ post.date | date: "%B %Y" }}</div>
           </div>
         {% endfor %}
       </div>
