@@ -20,12 +20,12 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Van Le"
+title                    : "Elizabeth (Van) Le"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Van Le"
-description              : Data Scientist | Quantitative & Investment Analysis Enthusiast
+name                     : "Elizabeth (Van) Le"
+description              : Data Scientist | Business Intelligent Engineer
 domain                   : vanle2000.github.io
-url                      : "https://vanle2000.github.io"
+url                      : "https://elizabethvanle.com/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -86,15 +86,15 @@ social:
 
 # Site Author
 author:
-  name             : "Van Le"
+  name             : "Elizabeth (Van) Le"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data Scientist | Quantitative Analyst"
-  location         : "Chicago, IL"
-  email            : "vanle@buffalo.edu"
+  bio              : "Data Scientist | Analytics Engineer | BI Engineer turning data into strategic insights"
+  location         : "Houston, TX"
+  email            : "lethaovann28@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:vanle@buffalo.edu"
+      url: "mailto:lethaovann28@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -125,8 +125,7 @@ nav_pages:
   - name: about
   - name: projects
   - name: research
-  - name: publications
-  - name: education
+  - name: cv
   - name: misc
 
 # Do you want to group your publications by year? {true/false}
