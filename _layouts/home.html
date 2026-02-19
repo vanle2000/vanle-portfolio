@@ -1,22 +1,47 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
+<div class="anna-container">
+  <section class="anna-hero">
+    <div class="anna-hero__left">
+      <h1 class="anna-name">{{ site.title }}</h1>
+      <p class="anna-tagline">{{ site.description }}</p>
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+      <div class="anna-social">
+        {% if site.author.links %}
+          {% for l in site.author.links %}
+            {% if l.url %}
+              <a class="anna-social__link" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+    <div class="anna-hero__right">
+      <img class="anna-photo" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+    </div>
+  </section>
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
+  <section class="anna-two-col">
+    <div>
+      <h2>Passions</h2>
+      <div class="anna-body">
+        {{ content }}
+      </div>
+    </div>
+
+    <div>
+      <h2>Latest Updates</h2>
+      <div class="anna-updates">
+        {% for post in site.posts limit:3 %}
+          <div class="anna-update">
+            <div class="anna-update__title">{{ post.title }}</div>
+            <div class="anna-update__date">{{ post.date | date: "%B %Y" }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 </div>
-
-{% include paginator.html %}
