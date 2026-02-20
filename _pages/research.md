@@ -4,4 +4,4 @@ permalink: /research/
 layout: single
 author_profile: false
 ---
-Your research themes + cards (next steps below).
+Your research themes + cards
