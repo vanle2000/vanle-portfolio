@@ -8,7 +8,7 @@ minimal_mistakes_skin: "contrast"
 # Site
 locale: "en-US"
 title: "Elizabeth (Van) Le"
-description: "Data Scientist | Business Intelligence Engineer"
+description: "Data Scientist | Data Analyst | Business Intelligence Engineer"
 url: "https://elizabethvanle.com"
 baseurl: ""
 
@@ -27,7 +27,7 @@ author:
     - label: "GitHub"
       url: "https://github.com/vanle2000/"
     - label: "LinkedIn"
-      url: "https://www.linkedin.com/in/YOUR_LINKEDIN/"
+      url: "https://www.linkedin.com/in/elizabethvanle/"
 
 # Build
 include:
