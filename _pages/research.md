@@ -207,6 +207,75 @@ classes: wide
 .pub-badge.under-review { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
 .pub-badge.published { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
 
+/* Research interest narrative */
+.interest-statement {
+  margin-bottom: 3rem;
+}
+
+.interest-statement__lead {
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: #334155;
+  max-width: 720px;
+  margin: 0 0 1.5rem;
+}
+
+.interest-statement__sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0 0 1.1rem;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.focus-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: border-color 0.15s;
+}
+
+.focus-item:hover { border-color: #c7d2fe; }
+
+.focus-num {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #4f46e5;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  padding-top: 0.1rem;
+}
+
+.focus-body {}
+
+.focus-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.focus-desc {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 640px) { .focus-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 640px) {
   .lab-card__header { flex-direction: column; }
   .lab-card__meta { text-align: left; }
@@ -220,36 +289,53 @@ classes: wide
 <!-- ── Research Interests ──────────────────────────────────────────────────── -->
 <p class="rs-label">Research Interests</p>
 
-<div class="interest-grid">
-  <div class="int-card">
-    <div class="int-card__icon">&#119983;</div>
-    <p class="int-card__title">Probabilistic Modeling</p>
-    <p class="int-card__desc">Bayesian inference, uncertainty quantification, and calibrated prediction for decision-relevant outputs.</p>
-  </div>
-  <div class="int-card">
-    <div class="int-card__icon">&#127760;</div>
-    <p class="int-card__title">Latent Variable Methods</p>
-    <p class="int-card__desc">Deep learning representations and understanding what models learn beyond surface-level accuracy.</p>
-  </div>
-  <div class="int-card">
-    <div class="int-card__icon">&#129302;</div>
-    <p class="int-card__title">LLM &amp; Agentic Systems</p>
-    <p class="int-card__desc">Applying large language models to structured data tasks, tool-augmented reasoning, and workflow automation.</p>
-  </div>
-  <div class="int-card">
-    <div class="int-card__icon">&#128200;</div>
-    <p class="int-card__title">Statistical Inference at Scale</p>
-    <p class="int-card__desc">Experiment design, causal inference, and hypothesis testing on massive, real-world datasets.</p>
-  </div>
-  <div class="int-card">
-    <div class="int-card__icon">&#129516;</div>
-    <p class="int-card__title">Computational Biophysics</p>
-    <p class="int-card__desc">Molecular dynamics simulation and data-driven modeling of protein-membrane interactions.</p>
-  </div>
-  <div class="int-card">
-    <div class="int-card__icon">&#128138;</div>
-    <p class="int-card__title">Nanomedicine &amp; Pharmacometabolomics</p>
-    <p class="int-card__desc">Data analysis pipelines for targeted drug delivery systems and mass spectrometry imaging workflows.</p>
+<div class="interest-statement">
+  <p class="interest-statement__lead">
+    My current work is primarily applied. I am building a research direction around how data, analytics systems, and AI tools shape the quality of decisions made by people and organizations.
+  </p>
+  <p class="interest-statement__sub">Current areas of focus:</p>
+  <div class="focus-grid">
+
+    <div class="focus-item">
+      <span class="focus-num">01</span>
+      <div class="focus-body">
+        <p class="focus-title">Causal Inference &amp; Experiment Design</p>
+        <p class="focus-desc">
+          Designing and analyzing experiments in business and operational settings where randomization is constrained, data is observational, and decisions have real costs. Interested in difference-in-differences, regression discontinuity, and matched observational designs applied outside academic contexts.
+        </p>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <span class="focus-num">02</span>
+      <div class="focus-body">
+        <p class="focus-title">Business Intelligence Engineering for Decision Support</p>
+        <p class="focus-desc">
+          How BI systems, metric frameworks, and semantic layers are structured to produce reliable, consistent signals for decision makers. Focused on the gap between raw data availability and the trustworthiness of the numbers that reach a dashboard or a report.
+        </p>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <span class="focus-num">03</span>
+      <div class="focus-body">
+        <p class="focus-title">Human-AI Collaboration in Analytics Workflows</p>
+        <p class="focus-desc">
+          How analysts and AI tools interact in practice: where automation improves decisions, where it introduces new failure modes, and how to design workflows that keep humans in the right position in the loop. Interested in agentic systems applied to structured data tasks.
+        </p>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <span class="focus-num">04</span>
+      <div class="focus-body">
+        <p class="focus-title">Quantifying Uncertainty Under Chaotic Data</p>
+        <p class="focus-desc">
+          Standardizing how uncertainty is measured, communicated, and propagated in pipelines built on noisy, incomplete, or shifting data distributions. Interested in calibration, conformal prediction, and Bayesian methods as alternatives to point-estimate reporting.
+        </p>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -340,6 +426,15 @@ classes: wide
     <p class="pub-card__venue">
       <em>JoVE (Journal of Visualized Experiments)</em>, e65712 &middot; 2023
     </p>
+  </div>
+
+  <div class="pub-card pending">
+    <p class="pub-card__title">
+      Liu Lab &mdash; University of Houston
+      <span class="pub-badge under-review">Updating</span>
+    </p>
+    <p class="pub-card__authors">Publication details in progress.</p>
+    <p class="pub-card__venue"><em>College of Pharmacy, University of Houston</em></p>
   </div>
 
 </div>
