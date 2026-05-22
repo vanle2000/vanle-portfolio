@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p class="proj-card__desc">
         20-year CDC surveillance pipeline across 900K records and 50 states. State-level K-Means clustering
         on row-normalized disease profiles. Logistic Regression mortality predictor and Random Forest
-        risk classifier with honest imbalance-aware evaluation — macro F1, not misleading raw accuracy.
+        risk classifier with honest imbalance-aware evaluation  -  macro F1, not misleading raw accuracy.
       </p>
       <div class="proj-card__result">Silhouette=0.635 &middot; Mortality AUC=0.73 &middot; Macro F1=0.85 (not 0.9999 raw accuracy)</div>
       <div class="proj-card__tags">
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p class="proj-card__desc">
         26,000 Boston Marathon runners. Custom KDEBayesClassifier using Gaussian KDE and Bayes theorem
         for gender classification. 2-D KDE (finish time and age) outperforms 1-D by 12pp.
-        Linear regression from 5K split achieves R&#178;=0.85 — adding age and gender barely moves the number,
+        Linear regression from 5K split achieves R&#178;=0.85  -  adding age and gender barely moves the number,
         which is itself the key finding.
       </p>
       <div class="proj-card__result">2-D KDE accuracy=77.5% &middot; Linear regression R&#178;=0.85 &middot; 26 unit tests</div>

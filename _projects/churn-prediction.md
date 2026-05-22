@@ -1,4 +1,4 @@
----
+﻿---
 title: "Customer Churn Prediction"
 category: "ML & Predictive Modeling"
 tags: ["XGBoost", "SMOTE", "SHAP", "Scikit-learn", "Precision@K", "Python", "Pandas"]
@@ -10,7 +10,7 @@ github: "https://github.com/vanle2000/Churn-Predictive-Modeling"
 
 Customer acquisition costs 5–7× more than retention. Yet most companies only act after a customer is already gone.
 
-Standard churn models optimize for accuracy or AUC on imbalanced datasets — that's the wrong objective. A model that achieves 95% accuracy on a dataset where 85% of customers stay has learned to always predict "no churn." It captures no value.
+Standard churn models optimize for accuracy or AUC on imbalanced datasets  -  that's the wrong objective. A model that achieves 95% accuracy on a dataset where 85% of customers stay has learned to always predict "no churn." It captures no value.
 
 The real business questions are:
 - Which customers are in the top decile of churn risk **right now**?
@@ -19,7 +19,7 @@ The real business questions are:
 
 ## Dataset
 
-IBM Telco Customer Churn dataset: **7,043 customers, 21 features**. Target imbalance: ~26% churners vs. 74% retained — significant enough to invalidate raw accuracy as a metric.
+IBM Telco Customer Churn dataset: **7,043 customers, 21 features**. Target imbalance: ~26% churners vs. 74% retained  -  significant enough to invalidate raw accuracy as a metric.
 
 ## Pipeline
 
@@ -41,7 +41,7 @@ Three models compared under identical evaluation protocol:
 | Random Forest | ~0.86 | ~0.65 | Positive |
 | XGBoost + SMOTE | ~0.87 | ~0.67 | Highest |
 
-SMOTE applied to the training fold only within each stratified CV split — no data leakage.
+SMOTE applied to the training fold only within each stratified CV split  -  no data leakage.
 
 **Evaluation Framework**
 
@@ -61,14 +61,14 @@ At `k=0.10` (top 10% targeted): ~67% true churners captured, ROI positive at $50
 
 **SHAP Explainability**
 
-Every customer in the high-risk segment gets a waterfall SHAP plot explaining exactly which features pushed their score up or down. This is what makes the output actionable for a CRM or retention team — not just a ranked list, but a reason.
+Every customer in the high-risk segment gets a waterfall SHAP plot explaining exactly which features pushed their score up or down. This is what makes the output actionable for a CRM or retention team  -  not just a ranked list, but a reason.
 
 ## Key Insights
 
 - **Tenure is the dominant signal**: customers in months 1–12 churn at 3× the rate of customers past month 24
 - **Month-to-month contracts** carry the single highest SHAP value for churn risk
 - **Fiber optic users** with high monthly charges and no tech support are the highest-risk segment
-- **Adding online security or backup services** is negatively correlated with churn — retention programs that bundle these services have an identifiable effect
+- **Adding online security or backup services** is negatively correlated with churn  -  retention programs that bundle these services have an identifiable effect
 
 ## Architecture
 
@@ -85,7 +85,7 @@ Run with: `make data && make train`
 
 ## What Would Be Explored Next
 
-- Add calibration (isotonic regression / Platt scaling) so predicted probabilities reflect true churn rates — enabling revenue forecasting, not just ranking
+- Add calibration (isotonic regression / Platt scaling) so predicted probabilities reflect true churn rates  -  enabling revenue forecasting, not just ranking
 - Replace static holdout with rolling-window evaluation to detect model drift over time
 - Extend SHAP to cluster customers by *reason for churn* (price-sensitive vs. service-quality vs. engagement-driven) to support differentiated retention plays
 - Integrate with CRM API to auto-generate retention task queue ranked by expected ROI

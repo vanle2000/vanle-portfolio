@@ -1,5 +1,5 @@
 ﻿// =============================================================================
-// Portfolio Design System — Bold Visual Identity + Smooth Animations
+// Portfolio Design System  -  Bold Visual Identity + Smooth Animations
 // =============================================================================
 
 // ── Keyframes ────────────────────────────────────────────────────────────────
@@ -20,8 +20,8 @@
   100% { background-position: 200% center; }
 }
 @keyframes borderGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(79,70,229,0); }
-  50%       { box-shadow: 0 0 24px 4px rgba(79,70,229,0.14); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(2,132,199,0); }
+  50%       { box-shadow: 0 0 24px 4px rgba(2,132,199,0.14); }
 }
 @keyframes slideInLeft {
   from { opacity: 0; transform: translateX(-16px); }
@@ -78,7 +78,7 @@ body {
   transition: color 0.2s;
 }
 
-.site-title:hover { color: #4f46e5; }
+.site-title:hover { color: #0284c7; }
 
 .greedy-nav { background: transparent; box-shadow: none; border: none; }
 
@@ -103,14 +103,14 @@ body {
   transform: translateX(-50%) scaleX(0);
   width: 60%;
   height: 2px;
-  background: #4f46e5;
+  background: #0284c7;
   border-radius: 2px;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .greedy-nav a:hover {
-  color: #4f46e5;
-  background: rgba(79,70,229,0.06);
+  color: #0284c7;
+  background: rgba(2,132,199,0.06);
 }
 
 .greedy-nav a:hover::after { transform: translateX(-50%) scaleX(1); }
@@ -147,7 +147,7 @@ body {
 
 .author__avatar img:hover {
   transform: scale(1.03);
-  box-shadow: 0 8px 30px rgba(79,70,229,0.15);
+  box-shadow: 0 8px 30px rgba(2,132,199,0.15);
 }
 
 .author__name {
@@ -168,7 +168,7 @@ body {
   transition: color 0.2s, transform 0.2s;
   display: inline-block;
 }
-.author__urls li a:hover { color: #4f46e5; transform: translateX(3px); }
+.author__urls li a:hover { color: #0284c7; transform: translateX(3px); }
 
 // ── Typography ────────────────────────────────────────────────────────────────
 h1, h2, h3, h4 {
@@ -192,12 +192,12 @@ h3 { font-size: 1.05rem; margin-top: 1.75rem; font-weight: 700; }
 p { color: #334155; font-size: 0.94rem; line-height: 1.78; margin-bottom: 1rem; }
 
 a {
-  color: #4f46e5;
+  color: #0284c7;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-a:hover { color: #3730a3; }
+a:hover { color: #0369a1; }
 
 hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
 
@@ -237,17 +237,17 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
 }
 
 .cat-btn:hover {
-  border-color: #a5b4fc;
-  color: #4f46e5;
-  background: #eef2ff;
+  border-color: #7dd3fc;
+  color: #0284c7;
+  background: #e0f2fe;
   transform: translateY(-1px);
 }
 
 .cat-btn.active {
-  background: #4f46e5;
-  border-color: #4f46e5;
+  background: #0284c7;
+  border-color: #0284c7;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+  box-shadow: 0 4px 12px rgba(2,132,199,0.3);
 }
 
 // ── Category section ──────────────────────────────────────────────────────────
@@ -313,15 +313,15 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
   position: absolute;
   inset: 0;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(79,70,229,0.04) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(2,132,199,0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
 .proj-card:hover {
-  border-color: #a5b4fc;
-  box-shadow: 0 8px 32px rgba(79,70,229,0.12), 0 2px 8px rgba(0,0,0,0.04);
+  border-color: #7dd3fc;
+  box-shadow: 0 8px 32px rgba(2,132,199,0.12), 0 2px 8px rgba(0,0,0,0.04);
   transform: translateY(-4px);
 }
 
@@ -343,7 +343,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #4f46e5, #818cf8);
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
   border-radius: 12px 12px 0 0;
   transform: scaleX(0);
   transform-origin: left;
@@ -358,7 +358,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #4f46e5;
+  color: #0284c7;
   margin-bottom: 0.55rem;
   margin-top: 0.25rem;
 }
@@ -378,7 +378,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
 .proj-card__title a {
   color: inherit;
   text-decoration: none;
-  background-image: linear-gradient(#4f46e5, #4f46e5);
+  background-image: linear-gradient(#0284c7, #0284c7);
   background-size: 0 1.5px;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -386,7 +386,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
 }
 
 .proj-card:hover .proj-card__title a {
-  color: #4f46e5;
+  color: #0284c7;
   background-size: 100% 1.5px;
 }
 
@@ -443,9 +443,9 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
 }
 
 .proj-card:hover .ptag {
-  background: #eef2ff;
-  color: #4338ca;
-  border-color: #c7d2fe;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-color: #bae6fd;
 }
 
 .proj-card__footer {
@@ -461,7 +461,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.72rem;
   font-weight: 600;
-  color: #4f46e5;
+  color: #0284c7;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -469,7 +469,7 @@ hr { border: none; border-top: 1px solid #f1f5f9; margin: 2.5rem 0; }
   transition: gap 0.2s, color 0.2s;
 }
 
-.proj-link:hover { color: #3730a3; gap: 0.5rem; text-decoration: none; }
+.proj-link:hover { color: #0369a1; gap: 0.5rem; text-decoration: none; }
 
 .proj-link .arrow {
   display: inline-block;
@@ -591,15 +591,15 @@ tbody tr:hover td { background: #f8fafc; }
 }
 
 .btn--primary {
-  background: #4f46e5;
-  border-color: #4f46e5;
+  background: #0284c7;
+  border-color: #0284c7;
 }
 
 .btn--primary:hover {
-  background: #3730a3;
-  border-color: #3730a3;
+  background: #0369a1;
+  border-color: #0369a1;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+  box-shadow: 0 4px 12px rgba(2,132,199,0.3);
 }
 
 // ── Section labels ────────────────────────────────────────────────────────────

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Marathon Performance Analysis"
 category: "Statistical ML & Sports Analytics"
 tags: ["SciPy KDE", "Bayes Theorem", "KNN", "Linear Regression", "SGD", "Python", "NumPy"]
@@ -8,7 +8,7 @@ github: "https://github.com/vanle2000/Analysis-marathon-result-and-predict-perfo
 
 ## The Problem
 
-Boston Marathon data contains 26,000 runners with split times, finish times, gender, and age. The intuitive assumption — that age and gender significantly improve finish time prediction — turns out to be empirically weak once early split performance is known.
+Boston Marathon data contains 26,000 runners with split times, finish times, gender, and age. The intuitive assumption  -  that age and gender significantly improve finish time prediction  -  turns out to be empirically weak once early split performance is known.
 
 This project addresses two questions with different modeling approaches:
 
@@ -17,13 +17,13 @@ This project addresses two questions with different modeling approaches:
 
 ## Custom KDEBayesClassifier
 
-The gender classifier is built from scratch — no scikit-learn classifier. It implements Bayes' theorem using **Gaussian Kernel Density Estimation** as the likelihood function:
+The gender classifier is built from scratch  -  no scikit-learn classifier. It implements Bayes' theorem using **Gaussian Kernel Density Estimation** as the likelihood function:
 
 ```python
 P(Gender | FinishTime, Age) ∝ P(FinishTime, Age | Gender) × P(Gender)
 ```
 
-Where `P(FinishTime, Age | Gender)` is estimated via 2-D KDE over the training population for each gender class. This is a probabilistic, non-parametric approach — it doesn't assume any distribution shape and naturally handles the multi-modal finish time distributions that appear in marathon data.
+Where `P(FinishTime, Age | Gender)` is estimated via 2-D KDE over the training population for each gender class. This is a probabilistic, non-parametric approach  -  it doesn't assume any distribution shape and naturally handles the multi-modal finish time distributions that appear in marathon data.
 
 **Custom sklearn-compatible implementation**: `KDEBayesClassifier` follows the `fit(X, y)` / `predict(X)` / `predict_proba(X)` interface. This means it works inside `cross_val_score`, `GridSearchCV`, and pipelines.
 
@@ -44,9 +44,9 @@ Linear regression from the **5K split time** alone:
 - **R² = 0.85** with a single feature
 - Adding age and gender: R² improves by only 0.02–0.03
 
-This is itself the key finding: **early pacing is almost entirely determinative**. A runner's 5K split captures their fitness level, their chosen pace strategy, and their environmental conditions — adding demographic variables adds almost no information once you know how they ran the first 5 kilometers.
+This is itself the key finding: **early pacing is almost entirely determinative**. A runner's 5K split captures their fitness level, their chosen pace strategy, and their environmental conditions  -  adding demographic variables adds almost no information once you know how they ran the first 5 kilometers.
 
-The regression was fit with both ordinary least squares and **SGD (stochastic gradient descent)** to validate convergence — results are identical, confirming the OLS solution is correct.
+The regression was fit with both ordinary least squares and **SGD (stochastic gradient descent)** to validate convergence  -  results are identical, confirming the OLS solution is correct.
 
 ## Testing
 
@@ -59,16 +59,16 @@ tests/
 └── test_regression.py       ← R² threshold assertions, coefficient sign checks
 ```
 
-Testing a custom ML implementation is non-trivial — the tests validate that the KDE integrates to approximately 1.0 across the feature space (probabilistic consistency check) and that predicted probabilities sum to 1 per sample.
+Testing a custom ML implementation is non-trivial  -  the tests validate that the KDE integrates to approximately 1.0 across the feature space (probabilistic consistency check) and that predicted probabilities sum to 1 per sample.
 
 ## Key Insights
 
-- **Pacing discipline, not demographics, determines finish time** — a runner who goes out too fast in the first 5K sees compounding degradation that demographics cannot predict away
+- **Pacing discipline, not demographics, determines finish time**  -  a runner who goes out too fast in the first 5K sees compounding degradation that demographics cannot predict away
 - **Boston's qualifying standard** creates a selection effect: the age-performance curves are compressed compared to a general marathon because slow runners aren't present
-- **Men's and women's distributions overlap significantly** in the 3:30–4:30 range — any single-feature classifier will have high error in this region regardless of sophistication
+- **Men's and women's distributions overlap significantly** in the 3:30–4:30 range  -  any single-feature classifier will have high error in this region regardless of sophistication
 
 ## What Would Be Explored Next
 
 - Model the time series of splits (5K, 10K, 15K...) with a sequence model to detect "blow-up" events earlier in the race
-- Apply the KDEBayes approach to multi-class classification (age group) rather than binary gender — requires extending to joint 3-D KDE
+- Apply the KDEBayes approach to multi-class classification (age group) rather than binary gender  -  requires extending to joint 3-D KDE
 - Investigate whether the 5K→finish R²=0.85 holds at the elite tier (sub-3:00) or whether elite performance is qualitatively different

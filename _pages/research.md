@@ -1,4 +1,4 @@
----
+﻿---
 title: "Research"
 permalink: /research/
 layout: single
@@ -445,7 +445,7 @@ classes: wide
 
   <div class="pub-card pending">
     <p class="pub-card__title">
-      Liu Lab &mdash; University of Houston
+      Liu Lab  -  University of Houston
       <span class="pub-badge under-review">Updating</span>
     </p>
     <p class="pub-card__authors">Publication details in progress.</p>

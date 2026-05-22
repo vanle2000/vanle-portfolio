@@ -12,16 +12,16 @@ $header-font-family: $sans-serif;
 $doc-font-size:     16;
 
 // ── Colors ─────────────────────────────────────────────────────────────────
-$text-color:             #1e293b;
-$muted-text-color:       #64748b;
-$background-color:       #ffffff;
-$code-background-color:  #f8fafc;
+$text-color:             #0f172a;
+$muted-text-color:       #475569;
+$background-color:       #F8FAFC;
+$code-background-color:  #f0f9ff;
 $border-color:           #e2e8f0;
-$footer-background-color:#f8fafc;
-$primary-color:          #4f46e5;
-$link-color:             #4f46e5;
-$focus-color:            #4f46e5;
-$active-color:           #eef2ff;
+$footer-background-color:#f0f9ff;
+$primary-color:          #0284c7;
+$link-color:             #0284c7;
+$focus-color:            #0284c7;
+$active-color:           #e0f2fe;
 
 @import "minimal-mistakes";
 @import "custom-font";

@@ -1,4 +1,4 @@
----
+﻿---
 title: "GitHub Support Operations Analytics"
 category: "Business Intelligence Engineering"
 tags: ["SQL Server", "SQLAlchemy", "VADER NLP", "Power BI", "Star Schema", "ETL", "Python", "Azure Data Studio"]
@@ -8,7 +8,7 @@ github: "https://github.com/vanle2000/GitHub-support-operations-analytics"
 
 ## The Problem
 
-GitHub hosts 100M+ repositories and processes millions of developer support interactions every year. When a developer files an issue, how quickly it gets addressed determines whether they contribute again — or quietly disappear.
+GitHub hosts 100M+ repositories and processes millions of developer support interactions every year. When a developer files an issue, how quickly it gets addressed determines whether they contribute again  -  or quietly disappear.
 
 Support teams had no systematic way to:
 - Identify which repositories were consistently breaching SLA thresholds (>24h first response)
@@ -16,7 +16,7 @@ Support teams had no systematic way to:
 - Predict which currently-open tickets were at highest risk before it happened
 - Connect support performance metrics to contributor retention outcomes
 
-Without this visibility, high-traffic repositories were experiencing unmeasured developer churn — contributors who filed one issue, got a slow or frustrating response, and never came back.
+Without this visibility, high-traffic repositories were experiencing unmeasured developer churn  -  contributors who filed one issue, got a slow or frustrating response, and never came back.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ Designed in SQL Server / Azure Data Studio with five core tables:
 
 | Table | Description |
 |-------|-------------|
-| `Fact_Tickets` | One row per issue — timestamps, resolution status, TTFR |
+| `Fact_Tickets` | One row per issue  -  timestamps, resolution status, TTFR |
 | `Dim_Repositories` | Repo metadata, health score, contributor tier |
 | `Dim_Authors` | Contributor history, retention label |
 | `Fact_Sentiment` | Initial + final sentiment per ticket, shift delta |
@@ -38,7 +38,7 @@ The ETL pipeline (Python + SQLAlchemy + pyodbc) ingests raw GitHub issue metadat
 
 **VADER Sentiment Tracking**
 
-VADER was selected over transformer-based models for its high performance on technical shorthand and short-form text — at a fraction of the compute cost.
+VADER was selected over transformer-based models for its high performance on technical shorthand and short-form text  -  at a fraction of the compute cost.
 
 - `Initial_Sentiment`: scored from first issue body text
 - `Final_Sentiment`: scored from last comment before close
@@ -59,15 +59,15 @@ Breach_Probability = (Time_Risk × 0.5) + (Comment_Risk × 0.3) + (Label_Weight 
 - **Comment_Risk**: each additional comment adds 5% complexity risk (capped at 40%)
 - **Label_Weight**: security/vulnerability = 1.5×, critical-bug = 1.4×, enhancement = 0.3×
 
-Five tiers: CRITICAL / HIGH / MEDIUM / LOW / MINIMAL — stored with timestamp for trend analysis.
+Five tiers: CRITICAL / HIGH / MEDIUM / LOW / MINIMAL  -  stored with timestamp for trend analysis.
 
 ## Power BI Dashboard
 
 Three report pages, each designed for a different audience:
 
-- **Executive Pulse** — real-time SLA achievement rate and retention trends (C-suite)
-- **Toxic Repo Health Map** — quadrant scatter: response time vs. retention rate per repository
-- **Contributor Funnel** — conversion from first-time author → repeat contributor → maintainer
+- **Executive Pulse**  -  real-time SLA achievement rate and retention trends (C-suite)
+- **Toxic Repo Health Map**  -  quadrant scatter: response time vs. retention rate per repository
+- **Contributor Funnel**  -  conversion from first-time author → repeat contributor → maintainer
 
 The Health Score formula driving the quadrant:
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Financial Reconciliation Analytics"
 category: "Business Intelligence Engineering"
 tags: ["Python", "SQL", "Pandas", "Financial Analytics", "ETL", "Variance Detection"]
@@ -8,13 +8,13 @@ github: "https://github.com/vanle2000/Financial-Reconciliation-Analytics"
 
 ## The Problem
 
-Financial data reconciliation is one of the most error-prone and time-consuming tasks in accounting and tax workflows. When data flows from multiple source systems — payroll, invoicing, banking, ERP — discrepancies accumulate silently until they surface at reporting time, often under deadline pressure.
+Financial data reconciliation is one of the most error-prone and time-consuming tasks in accounting and tax workflows. When data flows from multiple source systems  -  payroll, invoicing, banking, ERP  -  discrepancies accumulate silently until they surface at reporting time, often under deadline pressure.
 
 The manual process: export CSVs from each system, open in Excel, VLOOKUP or filter row-by-row, flag mismatches, email back and forth. This creates:
 - Audit trails that live in email threads, not databases
 - Error-prone manual comparison on large datasets
 - No systematic flagging of anomaly types or variance thresholds
-- No reproducible pipeline — every reconciliation is a one-off
+- No reproducible pipeline  -  every reconciliation is a one-off
 
 ## Solution
 
@@ -44,7 +44,7 @@ src/
 Records are matched across systems in three passes:
 1. **Exact match**: transaction ID or reference number (highest confidence)
 2. **Fuzzy match**: amount + date within tolerance window (catches formatting differences)
-3. **Unmatched**: records present in one system but not the other — highest-priority flags
+3. **Unmatched**: records present in one system but not the other  -  highest-priority flags
 
 **Variance Classification**
 
@@ -64,10 +64,10 @@ The final report is structured for direct submission to tax and financial adviso
 
 ## What Makes This Different
 
-Most reconciliation tools require you to configure their schema to yours. This pipeline is code — every matching rule, tolerance threshold, and reason code is version-controlled, reproducible, and auditable. A reconciliation run from six months ago can be re-run identically with `make reconcile --date 2024-06-30`.
+Most reconciliation tools require you to configure their schema to yours. This pipeline is code  -  every matching rule, tolerance threshold, and reason code is version-controlled, reproducible, and auditable. A reconciliation run from six months ago can be re-run identically with `make reconcile --date 2024-06-30`.
 
 ## What Would Be Explored Next
 
-- Add ML-based anomaly detection to flag structurally unusual transactions — not just mismatches, but records that look like outliers even within a matched pair
+- Add ML-based anomaly detection to flag structurally unusual transactions  -  not just mismatches, but records that look like outliers even within a matched pair
 - Extend to real-time reconciliation via database CDC (change data capture) rather than batch exports
 - Build a lightweight dashboard to track exception rates over time and detect when a source system is degrading in data quality

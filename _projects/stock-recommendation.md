@@ -1,4 +1,4 @@
----
+﻿---
 title: "Stock Recommendation System"
 category: "Data Engineering & ML"
 tags: ["PySpark", "TensorFlow", "FastAPI", "LinearSVR", "Autoencoder", "Docker", "Walk-forward CV", "PCA"]
@@ -13,13 +13,13 @@ Building a stock recommendation system has two distinct challenges that most toy
 1. **Price prediction**: given a stock's technical indicators today, predict tomorrow's closing price
 2. **Stock similarity**: given a portfolio holding, find other stocks that behave similarly across market regimes
 
-Both problems are technically interesting. Both are also easy to do wrong — and the wrong version produces metrics that look impressive while being meaningless (or worse, misleading in production).
+Both problems are technically interesting. Both are also easy to do wrong  -  and the wrong version produces metrics that look impressive while being meaningless (or worse, misleading in production).
 
 ## The Data Leakage Problem
 
-The first version of this system used a standard 80/20 train/test split and reported **R² = 0.997** for LinearSVR price prediction. That number is real — and completely misleading.
+The first version of this system used a standard 80/20 train/test split and reported **R² = 0.997** for LinearSVR price prediction. That number is real  -  and completely misleading.
 
-Time-series data has temporal structure. If you train on 2018–2023 data and test on randomly shuffled samples from the same period, the model has seen the future. Financial time series are highly autocorrelated — yesterday's price is the strongest predictor of today's price. A standard split lets the model learn this leak.
+Time-series data has temporal structure. If you train on 2018–2023 data and test on randomly shuffled samples from the same period, the model has seen the future. Financial time series are highly autocorrelated  -  yesterday's price is the strongest predictor of today's price. A standard split lets the model learn this leak.
 
 **Fix: Walk-Forward Validation**
 
@@ -61,11 +61,11 @@ LinearSVR selected over neural networks for this task: the feature space is smal
 
 ### Layer 3: Recommendation Engine (Autoencoder)
 
-A deep learning autoencoder encodes each stock's behavioral profile into a **latent vector** — a compressed representation of how it moves across market regimes.
+A deep learning autoencoder encodes each stock's behavioral profile into a **latent vector**  -  a compressed representation of how it moves across market regimes.
 
 Architecture: `Input(5) → Dense(32) → Dense(16) → Dense(8) → Dense(16) → Dense(32) → Output(5)`
 
-Recommendations use **cosine similarity** between latent vectors. Two stocks are "similar" if they behave alike in latent space — not just if they're in the same sector.
+Recommendations use **cosine similarity** between latent vectors. Two stocks are "similar" if they behave alike in latent space  -  not just if they're in the same sector.
 
 **Offline evaluation** (since we can't A/B test in a simulation):
 - Ground truth: forward return correlation over the next 30 days
@@ -98,7 +98,7 @@ tests/
 
 ## What Would Be Explored Next
 
-- Replace LinearSVR with a Temporal Fusion Transformer — designed for multi-horizon time-series forecasting with attention-based feature importance
+- Replace LinearSVR with a Temporal Fusion Transformer  -  designed for multi-horizon time-series forecasting with attention-based feature importance
 - Add market regime detection (HMM or change-point detection) so recommendations adapt during high-volatility periods
-- Replace cosine similarity with a learned similarity metric using contrastive learning — stocks that tend to move together in real portfolios as positive pairs
+- Replace cosine similarity with a learned similarity metric using contrastive learning  -  stocks that tend to move together in real portfolios as positive pairs
 - Add real-time streaming via Kafka + Flink for live indicator updates during market hours
