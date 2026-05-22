@@ -1,10 +1,529 @@
 ---
-layout: home
+layout: single
 title: ""
 permalink: /
-author_profile: true
+author_profile: false
+classes: wide
 ---
 
-I build end-to-end data systems — from raw pipelines to production ML — that turn messy data into decisions people can act on.
+<style>
+/* ── Page reset ──────────────────────────────────────────────────────────── */
+.page__content { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
 
-Currently focused on data science, analytics engineering, and BI: predictive modeling, experiment design, and the infrastructure that makes analysis reproducible and trustworthy at scale.
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.hero {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 3rem;
+}
+
+.hero__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4f46e5;
+  margin-bottom: 0.85rem;
+}
+
+.hero__name {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.hero__title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.hero__title strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+.hero__seeking {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 99px;
+  padding: 0.32rem 0.9rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #166534;
+  margin-bottom: 1.75rem;
+}
+
+.hero__seeking::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-dot 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.role-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  border: 1.5px solid #e2e8f0;
+  color: #475569;
+  background: #f8fafc;
+}
+
+.role-badge.primary {
+  border-color: #c7d2fe;
+  color: #4338ca;
+  background: #eef2ff;
+}
+
+.hero__bio {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #334155;
+  max-width: 680px;
+  margin: 0;
+}
+
+.hero__links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+  transition: all 0.15s;
+}
+
+.hero__link:hover {
+  color: #4f46e5;
+  border-color: #c7d2fe;
+  background: #eef2ff;
+  text-decoration: none;
+}
+
+/* ── Section ─────────────────────────────────────────────────────────────── */
+.section { margin-bottom: 3rem; }
+
+.section__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* ── Research interests ───────────────────────────────────────────────────── */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+
+.interest-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  transition: border-color 0.15s;
+}
+
+.interest-card:hover { border-color: #c7d2fe; }
+
+.interest-card__icon { font-size: 1.25rem; margin-bottom: 0.45rem; }
+
+.interest-card__title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.2rem;
+}
+
+.interest-card__desc {
+  font-size: 0.75rem;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Selected projects ────────────────────────────────────────────────────── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+  gap: 1.1rem;
+}
+
+.work-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.35rem 1.4rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.work-card:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 4px 24px rgba(79,70,229,0.08);
+  transform: translateY(-2px);
+}
+
+.work-card.coming-soon {
+  opacity: 0.75;
+  background: #fafafa;
+}
+
+.work-card.coming-soon:hover { transform: none; box-shadow: none; border-color: #e2e8f0; }
+
+.work-card__type {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4f46e5;
+  margin-bottom: 0.5rem;
+}
+
+.work-card.coming-soon .work-card__type { color: #94a3b8; }
+
+.work-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.work-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-card__title a:hover { color: #4f46e5; }
+
+.work-card__desc {
+  font-size: 0.83rem;
+  color: #475569;
+  line-height: 1.62;
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+
+.work-card__result {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #065f46;
+  background: #f0fdf4;
+  border-left: 3px solid #34d399;
+  padding: 0.28rem 0.6rem;
+  border-radius: 0 5px 5px 0;
+  margin-bottom: 0.9rem;
+  line-height: 1.4;
+}
+
+.work-card.coming-soon .work-card__result {
+  color: #92400e;
+  background: #fffbeb;
+  border-left-color: #fbbf24;
+}
+
+.work-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+  margin-bottom: 0.9rem;
+}
+
+.wtag {
+  font-size: 0.67rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.work-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.work-link {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #4f46e5;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: gap 0.15s;
+}
+
+.work-link:hover { text-decoration: none; gap: 0.45rem; }
+.work-link:hover { color: #3730a3; }
+
+.coming-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.6rem;
+  border-radius: 99px;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .hero__name { font-size: 1.9rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .interests-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
+<div class="page__content">
+
+<section class="hero">
+  <p class="hero__eyebrow">Data Scientist · Business Intelligence Engineer · Analytics</p>
+  <h1 class="hero__name">Van Le</h1>
+  <p class="hero__title">
+    <strong>Tax Data Analyst &amp; Business Analyst</strong> at M&amp;T Tax Firm &middot; 1.5 years &middot; Houston, TX
+  </p>
+
+  <div class="hero__seeking">
+    Open to new roles &mdash; BIE, Data Analytics, Data Science
+  </div>
+
+  <div class="hero__roles">
+    <span class="role-badge primary">Business Intelligence Engineer</span>
+    <span class="role-badge primary">Data Analytics</span>
+    <span class="role-badge primary">Data Scientist</span>
+    <span class="role-badge">Junior / L3 level</span>
+    <span class="role-badge">Full-time &middot; Remote or Houston, TX</span>
+  </div>
+
+  <p class="hero__bio">
+    I build data pipelines, predictive models, and analytics systems that connect to real decisions.
+    At M&amp;T Tax Firm I've spent 1.5 years translating financial records into structured reporting and decision support.
+    Outside of work I build end-to-end ML projects at scale — from 10M-row PySpark pipelines to production FastAPI services with offline evaluation.
+    My longer-term interest is in probabilistic modeling, latent variable methods, and LLM applications.
+  </p>
+
+  <div class="hero__links">
+    <a class="hero__link" href="/vanle-portfolio/about/">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.029 10 8 10c-2.03 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/></svg>
+      About
+    </a>
+    <a class="hero__link" href="https://github.com/vanle2000" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a class="hero__link" href="https://www.linkedin.com/in/elizabethvanle/" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      LinkedIn
+    </a>
+    <a class="hero__link" href="/vanle-portfolio/cv/">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/></svg>
+      CV
+    </a>
+  </div>
+</section>
+
+<!-- ── Research Interests ───────────────────────────────────────────────────── -->
+<section class="section">
+  <p class="section__label">Research Interests</p>
+  <div class="interests-grid">
+
+    <div class="interest-card">
+      <div class="interest-card__icon">&#119983;</div>
+      <p class="interest-card__title">Probabilistic Modeling</p>
+      <p class="interest-card__desc">Bayesian inference, uncertainty quantification, and calibrated prediction for decision-relevant outputs.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-card__icon">&#127760;</div>
+      <p class="interest-card__title">Latent Variable Methods</p>
+      <p class="interest-card__desc">Deep learning representations, autoencoders, and understanding what models learn beyond their outputs.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-card__icon">&#129302;</div>
+      <p class="interest-card__title">LLM &amp; Agentic Systems</p>
+      <p class="interest-card__desc">Applying large language models to structured data tasks, tool-augmented reasoning, and workflow automation.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-card__icon">&#128200;</div>
+      <p class="interest-card__title">Statistical Inference at Scale</p>
+      <p class="interest-card__desc">Experiment design, causal inference, and hypothesis testing on massive, messy, real-world datasets.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Selected Work ───────────────────────────────────────────────────────── -->
+<section class="section">
+  <p class="section__label">Selected Work</p>
+  <div class="work-grid">
+
+    <!-- BIE -->
+    <div class="work-card">
+      <p class="work-card__type">Business Intelligence Engineering</p>
+      <h3 class="work-card__title">
+        <a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+          GitHub Support Operations Analytics
+        </a>
+      </h3>
+      <p class="work-card__desc">
+        End-to-end BI platform on a SQL Server star schema (ETL via SQLAlchemy).
+        VADER NLP measures sentiment shift per ticket lifecycle to flag frustrated users.
+        A statistical SLA breach model scores open tickets in real time across five risk tiers.
+        Power BI dashboard with quadrant analysis of toxic repositories.
+      </p>
+      <div class="work-card__result">12-hour response threshold predicts 3.5x lift in contributor retention</div>
+      <div class="work-card__tags">
+        <span class="wtag">SQL Server</span>
+        <span class="wtag">SQLAlchemy</span>
+        <span class="wtag">VADER NLP</span>
+        <span class="wtag">Power BI</span>
+        <span class="wtag">Star Schema</span>
+        <span class="wtag">ETL</span>
+      </div>
+      <div class="work-card__footer">
+        <a class="work-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+          View project &#8594;
+        </a>
+      </div>
+    </div>
+
+    <!-- Data Pipeline -->
+    <div class="work-card">
+      <p class="work-card__type">Data Pipeline &amp; ML Engineering</p>
+      <h3 class="work-card__title">
+        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          Stock Recommendation System
+        </a>
+      </h3>
+      <p class="work-card__desc">
+        PySpark pipeline over 10M OHLCV records across 3,600+ NASDAQ equities.
+        20+ technical indicators engineered, PCA compression to 5 components, walk-forward validated LinearSVR price predictor.
+        Deep learning autoencoder for latent-space content-based similarity.
+        Deployed as FastAPI REST service with Precision@5 and NDCG@5 offline evaluation.
+      </p>
+      <div class="work-card__result">LinearSVR R&#178;=0.997 under walk-forward CV &middot; FastAPI production service</div>
+      <div class="work-card__tags">
+        <span class="wtag">PySpark</span>
+        <span class="wtag">TensorFlow</span>
+        <span class="wtag">FastAPI</span>
+        <span class="wtag">LinearSVR</span>
+        <span class="wtag">Autoencoder</span>
+        <span class="wtag">Docker</span>
+      </div>
+      <div class="work-card__footer">
+        <a class="work-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          View project &#8594;
+        </a>
+      </div>
+    </div>
+
+    <!-- ML -->
+    <div class="work-card">
+      <p class="work-card__type">Machine Learning</p>
+      <h3 class="work-card__title">
+        <a href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
+          Customer Churn Prediction
+        </a>
+      </h3>
+      <p class="work-card__desc">
+        Binary classification pipeline on Telco data (7,043 customers).
+        XGBoost with SMOTE, evaluated on Precision@K and a net ROI simulation rather than raw accuracy.
+        SHAP explanations per customer for retention team action.
+        Top 10% of model scores contains ~67% true churners at $50/contact cost.
+      </p>
+      <div class="work-card__result">Precision@10%&#8776;67% &middot; Positive ROI at $50 intervention cost &middot; SHAP attribution</div>
+      <div class="work-card__tags">
+        <span class="wtag">XGBoost</span>
+        <span class="wtag">SMOTE</span>
+        <span class="wtag">SHAP</span>
+        <span class="wtag">Scikit-learn</span>
+        <span class="wtag">Precision@K</span>
+      </div>
+      <div class="work-card__footer">
+        <a class="work-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
+          View project &#8594;
+        </a>
+      </div>
+    </div>
+
+    <!-- Tableau - Coming Soon -->
+    <div class="work-card coming-soon">
+      <p class="work-card__type">Data Visualization</p>
+      <h3 class="work-card__title">Tableau Public Health Dashboard</h3>
+      <p class="work-card__desc">
+        Interactive Tableau dashboard for the CDC Chronic Disease Indicators dataset.
+        State-level choropleth maps, 20-year disease trend lines, demographic breakdowns by race and gender, and risk tier distribution across all 50 states.
+        Designed for public health analysts to identify high-priority intervention targets.
+      </p>
+      <div class="work-card__result">In progress &middot; CDC CDI dataset &middot; 900K records &middot; 50 states &middot; 2001&#8211;2021</div>
+      <div class="work-card__tags">
+        <span class="wtag">Tableau Public</span>
+        <span class="wtag">CDC Open Data</span>
+        <span class="wtag">Choropleth</span>
+        <span class="wtag">Public Health</span>
+      </div>
+      <div class="work-card__footer">
+        <span class="coming-badge">&#9679; In Progress</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
