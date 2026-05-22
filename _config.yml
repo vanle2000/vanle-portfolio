@@ -29,9 +29,16 @@ author:
     - label: "LinkedIn"
       url: "https://www.linkedin.com/in/elizabethvanle/"
 
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
 # Build
 include:
   - _pages
+  - _projects
 
 exclude:
   - vendor
@@ -88,3 +95,10 @@ defaults:
       comments: false
       share: false
       related: false
+
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+      author_profile: false

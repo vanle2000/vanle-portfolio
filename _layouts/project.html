@@ -1,0 +1,378 @@
+﻿---
+layout: default
+---
+<style>
+/* Project page full-width layout */
+.proj-page { min-height: 100vh; background: var(--bg-primary, #F8F7F4); }
+
+.proj-page__hero {
+  background: #0F0F0F;
+  padding: 5rem 4rem 4rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.proj-page__hero-inner { max-width: 1200px; margin: 0 auto; }
+
+.proj-page__back {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: #6b7280;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+  letter-spacing: 0.04em;
+}
+.proj-page__back:hover { color: #a5b4fc; text-decoration: none; }
+
+.proj-page__cat {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #818cf8;
+  margin-bottom: 1rem;
+}
+
+.proj-page__title {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #F8F7F4;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 1.25rem;
+}
+
+.proj-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.proj-page__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.proj-page__tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #9ca3af;
+  letter-spacing: 0.02em;
+}
+
+.proj-page__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.proj-page__btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 7px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.proj-page__btn--primary {
+  background: #4f46e5;
+  color: #fff;
+  border: 1.5px solid #4f46e5;
+}
+.proj-page__btn--primary:hover {
+  background: #3730a3;
+  border-color: #3730a3;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(79,70,229,0.35);
+}
+
+.proj-page__btn--ghost {
+  background: transparent;
+  color: #9ca3af;
+  border: 1.5px solid rgba(255,255,255,0.15);
+}
+.proj-page__btn--ghost:hover {
+  color: #F8F7F4;
+  border-color: rgba(255,255,255,0.4);
+  text-decoration: none;
+}
+
+/* Result bar */
+.proj-page__result {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6ee7b7;
+  background: rgba(52,211,153,0.08);
+  border-left: 3px solid #34d399;
+  padding: 0.55rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin-top: 1.75rem;
+  line-height: 1.5;
+  max-width: 760px;
+}
+
+/* Content area */
+.proj-page__body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 4rem 6rem;
+  display: grid;
+  grid-template-columns: 1fr min(680px, 100%);
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .proj-page__body { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 4rem; }
+  .proj-page__hero { padding: 4rem 1.5rem 3rem; }
+}
+
+.proj-page__content {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #334155;
+  min-width: 0;
+}
+
+.proj-page__content h1 { display: none; }
+
+.proj-page__content h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.proj-page__content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.proj-page__content p { margin-bottom: 1rem; color: #334155; }
+
+.proj-page__content ul, .proj-page__content ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.proj-page__content li { margin-bottom: 0.35rem; color: #334155; }
+
+.proj-page__content code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8em;
+  background: #f1f5f9;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  color: #be123c;
+}
+
+.proj-page__content pre {
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.proj-page__content pre code {
+  background: transparent;
+  color: #e2e8f0;
+  padding: 0;
+  font-size: 0.82rem;
+}
+
+.proj-page__content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.25rem 0;
+}
+
+.proj-page__content thead th {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-weight: 600;
+}
+
+.proj-page__content tbody td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: top;
+}
+
+.proj-page__content tbody tr:last-child td { border-bottom: none; }
+.proj-page__content tbody tr:hover td { background: #f8fafc; }
+
+.proj-page__content blockquote {
+  border-left: 3px solid #4f46e5;
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0;
+  background: #f8faff;
+  border-radius: 0 6px 6px 0;
+  font-style: normal;
+  color: #475569;
+}
+
+.proj-page__content strong { color: #1e293b; font-weight: 700; }
+.proj-page__content a { color: #4f46e5; }
+.proj-page__content a:hover { color: #3730a3; }
+.proj-page__content hr { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+
+/* Sidebar info card */
+.proj-page__sidebar {}
+
+.info-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.4rem;
+  position: sticky;
+  top: 80px;
+  font-size: 0.83rem;
+}
+
+.info-card__label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 0.35rem;
+}
+
+.info-card__value {
+  font-size: 0.85rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.info-card__tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-bottom: 1.25rem; }
+
+.info-card__tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.info-card__link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #4f46e5;
+  text-decoration: none;
+  padding: 0.55rem 0.85rem;
+  border: 1.5px solid #c7d2fe;
+  border-radius: 6px;
+  background: #eef2ff;
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+.info-card__link:hover {
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+  text-decoration: none;
+}
+</style>
+
+<div class="proj-page">
+
+  <div class="proj-page__hero">
+    <div class="proj-page__hero-inner">
+      <a class="proj-page__back" href="{{ site.baseurl }}/projects/">&#8592; All Projects</a>
+      <p class="proj-page__cat">{{ page.category }}</p>
+      <h1 class="proj-page__title">{{ page.title }}</h1>
+      <div class="proj-page__tags">
+        {% for tag in page.tags %}
+          <span class="proj-page__tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% if page.result %}
+        <div class="proj-page__result">{{ page.result }}</div>
+      {% endif %}
+      <div class="proj-page__actions" style="margin-top:2rem;">
+        {% if page.github %}
+          <a class="proj-page__btn proj-page__btn--primary" href="{{ page.github }}" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            View on GitHub
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-page__body">
+    <div class="proj-page__content">
+      {{ content }}
+    </div>
+    <aside class="proj-page__sidebar">
+      <div class="info-card">
+        <p class="info-card__label">Category</p>
+        <p class="info-card__value">{{ page.category }}</p>
+        <p class="info-card__label">Tech Stack</p>
+        <div class="info-card__tags">
+          {% for tag in page.tags %}
+            <span class="info-card__tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% if page.github %}
+          <a class="info-card__link" href="{{ page.github }}" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Open Repository
+          </a>
+        {% endif %}
+      </div>
+    </aside>
+  </div>
+
+</div>

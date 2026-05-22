@@ -95,8 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Python</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/github-analytics/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -105,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Business Intelligence Engineering</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
+        <a href="/vanle-portfolio/projects/financial-reconciliation/">
           Financial Reconciliation Analytics
         </a>
       </h3>
@@ -122,8 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Financial Analytics</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/financial-reconciliation/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -162,8 +168,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Precision@K</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/churn-prediction/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -190,8 +199,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Scikit-learn</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/chronic-disease/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -219,8 +231,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">SGD</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/marathon-performance/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -248,8 +263,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Walk-forward CV</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/stock-recommendation/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
@@ -291,8 +309,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">NASDAQ API</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          View on GitHub <span class="arrow">&#8594;</span>
+        <a class="proj-link" href="/vanle-portfolio/projects/stock-recommendation/">
+          Case Study <span class="arrow">&#8594;</span>
+        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          GitHub
         </a>
       </div>
     </div>
