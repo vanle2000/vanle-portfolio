@@ -327,16 +327,18 @@ classes: wide
 
 <div class="pub-list">
 
-  <div class="pub-card pending">
+  <div class="pub-card">
     <p class="pub-card__title">
-      Publication details coming soon
-      <span class="pub-badge under-review">In Progress</span>
+      <a href="https://www.jove.com/t/65712" target="_blank">
+        Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies
+      </a>
+      <span class="pub-badge published">Published</span>
     </p>
     <p class="pub-card__authors">
-      Author list to be added.
+      O. Campbell, <strong>V. Le</strong>, A. Aguirre, V. Monje-Galvan
     </p>
     <p class="pub-card__venue">
-      Venue to be confirmed.
+      <em>JoVE (Journal of Visualized Experiments)</em>, e65712 &middot; 2023
     </p>
   </div>
 
