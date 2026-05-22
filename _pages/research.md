@@ -7,7 +7,7 @@ classes: wide
 ---
 
 <style>
-.research-wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+.research-wrap { max-width: 900px; margin: 0 auto; padding: 3.5rem clamp(2rem, 6vw, 4rem) 5rem; }
 
 /* Section labels */
 .rs-label {

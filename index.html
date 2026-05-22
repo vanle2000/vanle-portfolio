@@ -7,241 +7,235 @@ classes: wide
 ---
 
 <style>
-/* ── Page reset ──────────────────────────────────────────────────────────── */
-.page__content { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
-
 /* ── Hero ────────────────────────────────────────────────────────────────── */
-.hero {
-  padding: 3.5rem 0 2.5rem;
-  border-bottom: 1px solid #e0f2fe;
-  margin-bottom: 3rem;
+.hero-section {
+  padding: 7rem clamp(2rem, 8vw, 7rem) 6rem;
+  background: #0f172a;
 }
 
-.hero__eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #0284c7;
-  margin-bottom: 0.85rem;
-}
-
-.hero__name {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin: 0 0 1.25rem;
-}
-
-.hero__roles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.75rem;
-}
-
-.role-badge {
-  font-size: 0.75rem;
+.hero-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 0.3rem 0.8rem;
-  border-radius: 6px;
-  border: 1.5px solid #e2e8f0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin: 0 0 1.5rem;
+  display: block;
+}
+
+.hero-name {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 800;
+  color: #f1f5f9;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0 0 1.75rem;
+}
+
+.hero-tagline {
+  font-size: clamp(0.88rem, 1.4vw, 1.05rem);
+  font-weight: 400;
   color: #475569;
-  background: #f8fafc;
+  letter-spacing: 0.03em;
+  margin: 0 0 2.5rem;
 }
 
-.role-badge.primary {
-  border-color: #bae6fd;
-  color: #0369a1;
-  background: #e0f2fe;
-}
-
-.hero__bio {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: #334155;
-  max-width: 680px;
+.hero-bio {
+  font-size: 1rem;
+  line-height: 1.78;
+  color: #94a3b8;
+  max-width: 580px;
   margin: 0;
 }
 
-/* ── Section ─────────────────────────────────────────────────────────────── */
-.section { margin-bottom: 3rem; }
+/* ── Selected Work ───────────────────────────────────────────────────────── */
+.work-section {
+  padding: 5.5rem clamp(2rem, 8vw, 7rem);
+  background: #F8FAFC;
+}
 
-.section__label {
-  font-size: 0.68rem;
+.sec-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.67rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: #94a3b8;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #f1f5f9;
+  display: block;
+  margin-bottom: 2.5rem;
 }
 
-/* ── Selected projects ────────────────────────────────────────────────────── */
-.work-grid {
+.work-list { border-top: 1px solid #e2e8f0; }
+
+.work-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
-  gap: 1.1rem;
+  grid-template-columns: 3.5rem 1fr 210px;
+  gap: 2rem;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  align-items: start;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
 }
 
-.work-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 1.35rem 1.4rem 1.15rem;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  position: relative;
+.work-row:hover { background: rgba(2,132,199,0.035); text-decoration: none; }
+.work-row.coming { opacity: 0.6; cursor: default; }
+.work-row.coming:hover { background: transparent; }
+
+.work-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: 0.05em;
+  padding-top: 0.3rem;
 }
 
-.work-card:hover {
-  border-color: #bae6fd;
-  box-shadow: 0 4px 24px rgba(2,132,199,0.1);
-  transform: translateY(-2px);
-}
+.work-body { min-width: 0; }
 
-.work-card.coming-soon { opacity: 0.75; background: #fafafa; }
-.work-card.coming-soon:hover { transform: none; box-shadow: none; border-color: #e2e8f0; }
-
-.work-card__type {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.work-type {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #0284c7;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.45rem;
 }
 
-.work-card.coming-soon .work-card__type { color: #94a3b8; }
-
-.work-card__title {
-  font-size: 1rem;
+.work-title {
+  font-size: 1.1rem;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.work-row:hover .work-title { color: #0284c7; }
+
+.work-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.work-desc {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.68;
+  margin: 0 0 0.8rem;
+}
+
+.work-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+
+.wtag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+.work-meta { padding-top: 0.3rem; text-align: right; }
+
+.work-result {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.67rem;
+  color: #059669;
+  font-weight: 600;
+  line-height: 1.55;
+  margin: 0 0 0.6rem;
+}
+
+.work-gh {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.15s;
+}
+
+.work-gh:hover { color: #0284c7; text-decoration: none; }
+
+.work-badge {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #92400e;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ── Research Interests ──────────────────────────────────────────────────── */
+.research-section {
+  padding: 5.5rem clamp(2rem, 8vw, 7rem);
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.int-card {
+  padding: 1.35rem 1.4rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  transition: border-color 0.15s;
+}
+
+.int-card:hover { border-color: #bae6fd; }
+
+.int-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin: 0 0 0.55rem;
+  letter-spacing: 0.05em;
+}
+
+.int-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.3rem;
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
 
-.work-card__title a { color: inherit; text-decoration: none; }
-.work-card__title a:hover { color: #0284c7; }
-
-.work-card__desc {
-  font-size: 0.83rem;
-  color: #475569;
-  line-height: 1.62;
-  margin: 0 0 1rem;
-  flex-grow: 1;
-}
-
-.work-card__result {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: #065f46;
-  background: #f0fdf4;
-  border-left: 3px solid #34d399;
-  padding: 0.28rem 0.6rem;
-  border-radius: 0 5px 5px 0;
-  margin-bottom: 0.9rem;
-  line-height: 1.4;
-}
-
-.work-card.coming-soon .work-card__result {
-  color: #92400e;
-  background: #fffbeb;
-  border-left-color: #fbbf24;
-}
-
-.work-card__tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-bottom: 0.9rem; }
-
-.wtag {
-  font-size: 0.67rem;
-  font-weight: 600;
-  padding: 0.15rem 0.5rem;
-  border-radius: 99px;
-  background: #f1f5f9;
-  color: #475569;
-}
-
-.work-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-}
-
-.work-link {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: #0284c7;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: gap 0.15s, color 0.15s;
-}
-
-.work-link:hover { text-decoration: none; gap: 0.45rem; color: #0369a1; }
-
-.coming-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 0.22rem 0.6rem;
-  border-radius: 99px;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  color: #92400e;
-  letter-spacing: 0.04em;
-}
-
-/* ── Research interests ───────────────────────────────────────────────────── */
-.interests-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.85rem;
-}
-
-.interest-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 1rem 1.1rem;
-  transition: border-color 0.15s;
-}
-
-.interest-card:hover { border-color: #bae6fd; }
-
-.interest-card__icon { font-size: 1.25rem; margin-bottom: 0.45rem; }
-
-.interest-card__title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 0.2rem;
-}
-
-.interest-card__desc {
+.int-desc {
   font-size: 0.75rem;
   color: #64748b;
-  line-height: 1.45;
+  line-height: 1.58;
   margin: 0;
 }
 
-/* ── Let's Connect ────────────────────────────────────────────────────────── */
-.connect-section { padding-bottom: 2.5rem; }
+/* ── Let's Connect ───────────────────────────────────────────────────────── */
+.connect-section {
+  padding: 5.5rem clamp(2rem, 8vw, 7rem);
+  background: #F8FAFC;
+  border-top: 1px solid #e2e8f0;
+}
 
 .connect-desc {
   font-size: 0.92rem;
   color: #475569;
-  margin-bottom: 1.5rem;
-  max-width: 560px;
+  margin: 0.75rem 0 1.75rem;
+  max-width: 500px;
   line-height: 1.7;
 }
 
@@ -272,189 +266,138 @@ classes: wide
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
-@media (max-width: 700px) {
-  .hero__name { font-size: 1.9rem; }
-  .work-grid { grid-template-columns: 1fr; }
-  .interests-grid { grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) {
+  .work-row { grid-template-columns: 3rem 1fr; }
+  .work-meta { display: none; }
+  .interest-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .hero-name { font-size: 3rem; }
+  .interest-grid { grid-template-columns: 1fr; }
   .connect-links { flex-direction: column; }
 }
 </style>
 
-<div class="page__content">
-
-<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
-<section class="hero">
-  <p class="hero__eyebrow">Data Scientist &middot; Business Intelligence Engineer &middot; Analytics</p>
-  <h1 class="hero__name">Van Le</h1>
-
-  <div class="hero__roles">
-    <span class="role-badge primary">Business Intelligence Engineer</span>
-    <span class="role-badge primary">Data Analytics</span>
-    <span class="role-badge primary">Data Scientist</span>
-    <span class="role-badge">Junior / L3 level</span>
-    <span class="role-badge">Full-time &middot; Remote or Houston, TX</span>
-  </div>
-
-  <p class="hero__bio">
+<!-- ── Hero ─────────────────────────────────────────────────────────────────── -->
+<section class="hero-section">
+  <span class="hero-tag">Portfolio</span>
+  <h1 class="hero-name">Van Le</h1>
+  <p class="hero-tagline">Business Intelligence Engineer &nbsp;&middot;&nbsp; Analytics Engineer &nbsp;&middot;&nbsp; Data Scientist</p>
+  <p class="hero-bio">
     I build data pipelines, predictive models, and analytics systems that connect to real decisions.
     Outside of work I build end-to-end ML projects at scale, from 10M-row PySpark pipelines to production FastAPI services with offline evaluation.
     My longer-term interest is in probabilistic modeling, latent variable methods, and LLM applications.
   </p>
 </section>
 
-<!-- ── Selected Work ───────────────────────────────────────────────────────── -->
-<section class="section">
-  <p class="section__label">Selected Work</p>
-  <div class="work-grid">
+<!-- ── Selected Work ─────────────────────────────────────────────────────────── -->
+<section class="work-section">
+  <span class="sec-label">Selected Work</span>
+  <div class="work-list">
 
-    <div class="work-card">
-      <p class="work-card__type">Business Intelligence Engineering</p>
-      <h3 class="work-card__title">
-        <a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-          GitHub Support Operations Analytics
-        </a>
-      </h3>
-      <p class="work-card__desc">
-        End-to-end BI platform on a SQL Server star schema (ETL via SQLAlchemy).
-        VADER NLP measures sentiment shift per ticket lifecycle to flag frustrated users.
-        A statistical SLA breach model scores open tickets in real time across five risk tiers.
-        Power BI dashboard with quadrant analysis of toxic repositories.
-      </p>
-      <div class="work-card__result">12-hour response threshold predicts 3.5x lift in contributor retention</div>
-      <div class="work-card__tags">
-        <span class="wtag">SQL Server</span>
-        <span class="wtag">SQLAlchemy</span>
-        <span class="wtag">VADER NLP</span>
-        <span class="wtag">Power BI</span>
-        <span class="wtag">Star Schema</span>
-        <span class="wtag">ETL</span>
+    <div class="work-row" onclick="window.location='/vanle-portfolio/projects/github-analytics/'">
+      <span class="work-num">01</span>
+      <div class="work-body">
+        <p class="work-type">Business Intelligence Engineering</p>
+        <h3 class="work-title"><a href="/vanle-portfolio/projects/github-analytics/" onclick="event.stopPropagation()">GitHub Support Operations Analytics</a></h3>
+        <p class="work-desc">End-to-end BI platform on a SQL Server star schema. VADER NLP measures sentiment shift per ticket lifecycle. Real-time SLA risk scoring across five tiers. Power BI quadrant dashboard of repository health versus contributor retention.</p>
+        <div class="work-tags">
+          <span class="wtag">SQL Server</span><span class="wtag">SQLAlchemy</span><span class="wtag">VADER NLP</span><span class="wtag">Power BI</span><span class="wtag">ETL</span><span class="wtag">Python</span>
+        </div>
       </div>
-      <div class="work-card__footer">
-        <a class="work-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-          View project &#8594;
-        </a>
+      <div class="work-meta">
+        <p class="work-result">12h response threshold predicts 3.5x lift in contributor retention</p>
+        <a class="work-gh" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank" onclick="event.stopPropagation()">GitHub &#8599;</a>
       </div>
     </div>
 
-    <div class="work-card">
-      <p class="work-card__type">Data Pipeline &amp; ML Engineering</p>
-      <h3 class="work-card__title">
-        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          Stock Recommendation System
-        </a>
-      </h3>
-      <p class="work-card__desc">
-        PySpark pipeline over 10M OHLCV records across 3,600+ NASDAQ equities.
-        20+ technical indicators engineered, PCA compression to 5 components, walk-forward validated LinearSVR price predictor.
-        Deep learning autoencoder for latent-space content-based similarity.
-        Deployed as FastAPI REST service with Precision@5 and NDCG@5 offline evaluation.
-      </p>
-      <div class="work-card__result">LinearSVR R&#178;=0.997 under walk-forward CV &middot; FastAPI production service</div>
-      <div class="work-card__tags">
-        <span class="wtag">PySpark</span>
-        <span class="wtag">TensorFlow</span>
-        <span class="wtag">FastAPI</span>
-        <span class="wtag">LinearSVR</span>
-        <span class="wtag">Autoencoder</span>
-        <span class="wtag">Docker</span>
+    <div class="work-row" onclick="window.location='/vanle-portfolio/projects/stock-recommendation/'">
+      <span class="work-num">02</span>
+      <div class="work-body">
+        <p class="work-type">Data Pipeline &amp; ML Engineering</p>
+        <h3 class="work-title"><a href="/vanle-portfolio/projects/stock-recommendation/" onclick="event.stopPropagation()">Stock Recommendation System</a></h3>
+        <p class="work-desc">PySpark pipeline over 10M+ OHLCV records across 3,600 NASDAQ equities. Walk-forward validated LinearSVR price predictor. Deep learning autoencoder for latent-space content-based similarity. FastAPI production service with Precision@5 and NDCG@5 offline evaluation.</p>
+        <div class="work-tags">
+          <span class="wtag">PySpark</span><span class="wtag">TensorFlow</span><span class="wtag">FastAPI</span><span class="wtag">Walk-forward CV</span><span class="wtag">Docker</span>
+        </div>
       </div>
-      <div class="work-card__footer">
-        <a class="work-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          View project &#8594;
-        </a>
+      <div class="work-meta">
+        <p class="work-result">R&#178;=0.997 under walk-forward CV &middot; 45 tests</p>
+        <a class="work-gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank" onclick="event.stopPropagation()">GitHub &#8599;</a>
       </div>
     </div>
 
-    <div class="work-card">
-      <p class="work-card__type">Machine Learning</p>
-      <h3 class="work-card__title">
-        <a href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-          Customer Churn Prediction
-        </a>
-      </h3>
-      <p class="work-card__desc">
-        Binary classification pipeline on Telco data (7,043 customers).
-        XGBoost with SMOTE, evaluated on Precision@K and a net ROI simulation rather than raw accuracy.
-        SHAP explanations per customer for retention team action.
-        Top 10% of model scores contains ~67% true churners at $50/contact cost.
-      </p>
-      <div class="work-card__result">Precision@10%&#8776;67% &middot; Positive ROI at $50 intervention cost &middot; SHAP attribution</div>
-      <div class="work-card__tags">
-        <span class="wtag">XGBoost</span>
-        <span class="wtag">SMOTE</span>
-        <span class="wtag">SHAP</span>
-        <span class="wtag">Scikit-learn</span>
-        <span class="wtag">Precision@K</span>
+    <div class="work-row" onclick="window.location='/vanle-portfolio/projects/chronic-disease/'">
+      <span class="work-num">03</span>
+      <div class="work-body">
+        <p class="work-type">Machine Learning &amp; Public Health</p>
+        <h3 class="work-title"><a href="/vanle-portfolio/projects/chronic-disease/" onclick="event.stopPropagation()">Chronic Disease Risk Intelligence</a></h3>
+        <p class="work-desc">20-year CDC surveillance pipeline across 900K records and 50 states. K-Means clustering on row-normalized disease profiles. Logistic Regression mortality predictor and Random Forest risk classifier with honest imbalance-aware evaluation.</p>
+        <div class="work-tags">
+          <span class="wtag">Random Forest</span><span class="wtag">KMeans</span><span class="wtag">GeoPandas</span><span class="wtag">Scikit-learn</span><span class="wtag">Plotly</span>
+        </div>
       </div>
-      <div class="work-card__footer">
-        <a class="work-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-          View project &#8594;
-        </a>
+      <div class="work-meta">
+        <p class="work-result">Silhouette=0.635 &middot; AUC=0.73 &middot; Macro F1=0.85</p>
+        <a class="work-gh" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank" onclick="event.stopPropagation()">GitHub &#8599;</a>
       </div>
     </div>
 
-    <div class="work-card coming-soon">
-      <p class="work-card__type">Data Visualization</p>
-      <h3 class="work-card__title">Tableau Public Health Dashboard</h3>
-      <p class="work-card__desc">
-        Interactive Tableau dashboard for the CDC Chronic Disease Indicators dataset.
-        State-level choropleth maps, 20-year disease trend lines, demographic breakdowns by race and gender, and risk tier distribution across all 50 states.
-        Designed for public health analysts to identify high-priority intervention targets.
-      </p>
-      <div class="work-card__result">In progress &middot; CDC CDI dataset &middot; 900K records &middot; 50 states &middot; 2001&#8211;2021</div>
-      <div class="work-card__tags">
-        <span class="wtag">Tableau Public</span>
-        <span class="wtag">CDC Open Data</span>
-        <span class="wtag">Choropleth</span>
-        <span class="wtag">Public Health</span>
+    <div class="work-row coming">
+      <span class="work-num">04</span>
+      <div class="work-body">
+        <p class="work-type">Data Visualization</p>
+        <h3 class="work-title">Tableau Public Health Dashboard</h3>
+        <p class="work-desc">Interactive Tableau dashboard for the CDC Chronic Disease Indicators dataset. State-level choropleth maps, 20-year trend lines, demographic breakdowns by race and gender across all 50 states.</p>
+        <div class="work-tags">
+          <span class="wtag">Tableau</span><span class="wtag">CDC Data</span><span class="wtag">Choropleth</span><span class="wtag">Public Health</span>
+        </div>
       </div>
-      <div class="work-card__footer">
-        <span class="coming-badge">&#9679; In Progress</span>
+      <div class="work-meta">
+        <span class="work-badge">&#9679; In Progress</span>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ── Research Interests ───────────────────────────────────────────────────── -->
-<section class="section">
-  <p class="section__label">Research Interests</p>
-  <div class="interests-grid">
+<!-- ── Research Interests ─────────────────────────────────────────────────────── -->
+<section class="research-section">
+  <span class="sec-label">Research Interests</span>
+  <div class="interest-grid">
 
-    <div class="interest-card">
-      <div class="interest-card__icon">&#119983;</div>
-      <p class="interest-card__title">Probabilistic Modeling</p>
-      <p class="interest-card__desc">Bayesian inference, uncertainty quantification, and calibrated prediction for decision-relevant outputs.</p>
+    <div class="int-card">
+      <p class="int-num">01</p>
+      <p class="int-title">Causal Inference &amp; Experiment Design</p>
+      <p class="int-desc">Designing experiments in operational settings where randomization is constrained and decisions carry real costs.</p>
     </div>
 
-    <div class="interest-card">
-      <div class="interest-card__icon">&#127760;</div>
-      <p class="interest-card__title">Latent Variable Methods</p>
-      <p class="interest-card__desc">Deep learning representations, autoencoders, and understanding what models learn beyond their outputs.</p>
+    <div class="int-card">
+      <p class="int-num">02</p>
+      <p class="int-title">Human-AI Collaboration</p>
+      <p class="int-desc">How analysts and AI tools interact in practice: where automation improves decisions and where it introduces failure modes.</p>
     </div>
 
-    <div class="interest-card">
-      <div class="interest-card__icon">&#129302;</div>
-      <p class="interest-card__title">LLM &amp; Agentic Systems</p>
-      <p class="interest-card__desc">Applying large language models to structured data tasks, tool-augmented reasoning, and workflow automation.</p>
+    <div class="int-card">
+      <p class="int-num">03</p>
+      <p class="int-title">Uncertainty Quantification</p>
+      <p class="int-desc">Calibration, conformal prediction, and Bayesian methods as alternatives to point-estimate reporting in noisy pipelines.</p>
     </div>
 
-    <div class="interest-card">
-      <div class="interest-card__icon">&#128200;</div>
-      <p class="interest-card__title">Statistical Inference at Scale</p>
-      <p class="interest-card__desc">Experiment design, causal inference, and hypothesis testing on massive, messy, real-world datasets.</p>
+    <div class="int-card">
+      <p class="int-num">04</p>
+      <p class="int-title">AI Fairness &amp; Safety</p>
+      <p class="int-desc">Bias measurement in production ML, misuse prevention in Gen AI, and governance frameworks for accountable deployment.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ── Let's Connect ──────────────────────────────────────────────────────── -->
-<section class="section connect-section">
-  <p class="section__label">Let's Connect</p>
-  <p class="connect-desc">
-    Open to roles in Business Intelligence Engineering, Data Analytics, and Data Science.
-    Based in Houston, TX and open to remote opportunities.
-  </p>
+<!-- ── Let's Connect ──────────────────────────────────────────────────────────── -->
+<section class="connect-section">
+  <span class="sec-label">Let's Connect</span>
+  <p class="connect-desc">Open to roles in Business Intelligence Engineering, Data Analytics, and Data Science. Based in Houston, TX and open to remote opportunities.</p>
   <div class="connect-links">
     <a class="connect-link" href="mailto:lethaovann28@gmail.com">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
@@ -470,5 +413,3 @@ classes: wide
     </a>
   </div>
 </section>
-
-</div>

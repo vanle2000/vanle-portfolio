@@ -1,4 +1,4 @@
----
+﻿---
 title: "Projects"
 permalink: /projects/
 layout: single
@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
+<div class="projects-page-wrap">
 
 <!-- Category filter tabs -->
 <div class="cat-filter">
@@ -301,3 +303,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 </div>
+
+</div><!-- /projects-page-wrap -->
