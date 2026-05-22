@@ -37,7 +37,7 @@ classes: wide
   transition: border-color 0.15s;
 }
 
-.int-card:hover { border-color: #c7d2fe; }
+.int-card:hover { border-color: #bae6fd; }
 .int-card__icon { font-size: 1.2rem; margin-bottom: 0.4rem; }
 .int-card__title { font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.2rem; }
 .int-card__desc { font-size: 0.74rem; color: #64748b; line-height: 1.45; margin: 0; }
@@ -73,11 +73,11 @@ classes: wide
 .lab-card__name a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1.5px solid #c7d2fe;
+  border-bottom: 1.5px solid #bae6fd;
   transition: color 0.15s, border-color 0.15s;
 }
 
-.lab-card__name a:hover { color: #4f46e5; border-color: #4f46e5; }
+.lab-card__name a:hover { color: #0284c7; border-color: #0284c7; }
 
 .lab-card__pi {
   font-size: 0.8rem;
@@ -85,7 +85,7 @@ classes: wide
   margin: 0;
 }
 
-.lab-card__pi a { color: #4f46e5; text-decoration: none; }
+.lab-card__pi a { color: #0284c7; text-decoration: none; }
 .lab-card__pi a:hover { text-decoration: underline; }
 
 .lab-card__meta {
@@ -134,7 +134,7 @@ classes: wide
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #4f46e5;
+  background: #0284c7;
   flex-shrink: 0;
   margin-top: 0.6rem;
 }
@@ -153,7 +153,7 @@ classes: wide
 }
 
 .pub-card {
-  border-left: 3px solid #4f46e5;
+  border-left: 3px solid #0284c7;
   padding: 0.9rem 1.1rem;
   background: #fafafa;
   border-radius: 0 8px 8px 0;
@@ -172,8 +172,8 @@ classes: wide
   line-height: 1.4;
 }
 
-.pub-card__title a { color: inherit; text-decoration: none; border-bottom: 1px solid #c7d2fe; }
-.pub-card__title a:hover { color: #4f46e5; }
+.pub-card__title a { color: inherit; text-decoration: none; border-bottom: 1px solid #bae6fd; }
+.pub-card__title a:hover { color: #0284c7; }
 
 .pub-card__authors {
   font-size: 0.78rem;
@@ -235,11 +235,6 @@ classes: wide
   gap: 1rem;
 }
 
-/* 5th item spans full width so it doesn't sit orphaned */
-.focus-item:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-}
-
 .focus-item {
   display: flex;
   gap: 1rem;
@@ -250,12 +245,12 @@ classes: wide
   transition: border-color 0.15s;
 }
 
-.focus-item:hover { border-color: #c7d2fe; }
+.focus-item:hover { border-color: #bae6fd; }
 
 .focus-num {
   font-size: 0.68rem;
   font-weight: 800;
-  color: #4f46e5;
+  color: #0284c7;
   letter-spacing: 0.05em;
   flex-shrink: 0;
   padding-top: 0.1rem;
@@ -314,16 +309,6 @@ classes: wide
     <div class="focus-item">
       <span class="focus-num">02</span>
       <div class="focus-body">
-        <p class="focus-title">Business Intelligence Engineering for Decision Support</p>
-        <p class="focus-desc">
-          How BI systems, metric frameworks, and semantic layers are structured to produce reliable, consistent signals for decision makers. Focused on the gap between raw data availability and the trustworthiness of the numbers that reach a dashboard or a report.
-        </p>
-      </div>
-    </div>
-
-    <div class="focus-item">
-      <span class="focus-num">03</span>
-      <div class="focus-body">
         <p class="focus-title">Human-AI Collaboration in Analytics Workflows</p>
         <p class="focus-desc">
           How analysts and AI tools interact in practice: where automation improves decisions, where it introduces new failure modes, and how to design workflows that keep humans in the right position in the loop. Interested in agentic systems applied to structured data tasks.
@@ -332,7 +317,7 @@ classes: wide
     </div>
 
     <div class="focus-item">
-      <span class="focus-num">04</span>
+      <span class="focus-num">03</span>
       <div class="focus-body">
         <p class="focus-title">Quantifying Uncertainty Under Chaotic Data</p>
         <p class="focus-desc">
@@ -342,7 +327,7 @@ classes: wide
     </div>
 
     <div class="focus-item">
-      <span class="focus-num">05</span>
+      <span class="focus-num">04</span>
       <div class="focus-body">
         <p class="focus-title">AI Fairness, Safety, and Responsible Use</p>
         <p class="focus-desc">
@@ -398,8 +383,8 @@ classes: wide
         <a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Liu Lab</a>
       </p>
       <p class="lab-card__pi">
-        Principal Investigator: <a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Dr. Xinli Liu</a>
-        &middot; Department of Pharmacological and Pharmaceutical Sciences, College of Pharmacy, University of Houston
+        Principal Investigator: <a href="https://www.uh.edu/pharmacy/about-us/directory-home/pps-faculty/xinli-liu/" target="_blank">Dr. Xinli Liu</a>
+        &middot; The Institute for Drug Education and Research, College of Pharmacy, University of Houston
       </p>
     </div>
     <div class="lab-card__meta">
@@ -433,7 +418,6 @@ classes: wide
       <a href="https://www.jove.com/t/65712" target="_blank">
         Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies
       </a>
-      <span class="pub-badge published">Published</span>
     </p>
     <p class="pub-card__authors">
       O. Campbell, <strong>V. Le</strong>, A. Aguirre, V. Monje-Galvan
@@ -441,15 +425,6 @@ classes: wide
     <p class="pub-card__venue">
       <em>JoVE (Journal of Visualized Experiments)</em>, e65712 &middot; 2023
     </p>
-  </div>
-
-  <div class="pub-card pending">
-    <p class="pub-card__title">
-      Liu Lab  -  University of Houston
-      <span class="pub-badge under-review">Updating</span>
-    </p>
-    <p class="pub-card__authors">Publication details in progress.</p>
-    <p class="pub-card__venue"><em>College of Pharmacy, University of Houston</em></p>
   </div>
 
 </div>

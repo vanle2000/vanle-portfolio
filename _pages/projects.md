@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Projects"
 permalink: /projects/
 layout: single
@@ -8,7 +8,6 @@ classes: wide
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // ── Category filter ──────────────────────────────────────────────────────
   var btns = document.querySelectorAll(".cat-btn");
   var sections = document.querySelectorAll(".cat-section");
 
@@ -29,24 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ── Scroll reveal ────────────────────────────────────────────────────────
   var cards = document.querySelectorAll(".proj-card");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry, i) {
         if (entry.isIntersecting) {
-          setTimeout(function () {
-            entry.target.classList.add("visible");
-          }, i * 60);
+          setTimeout(function () { entry.target.classList.add("visible"); }, i * 60);
           io.unobserve(entry.target);
         }
       });
     }, { threshold: 0.08 });
-
-    cards.forEach(function (card) {
-      card.classList.add("reveal");
-      io.observe(card);
-    });
+    cards.forEach(function (card) { card.classList.add("reveal"); io.observe(card); });
   }
 });
 </script>
@@ -66,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="cat-header">
     <span class="cat-label">Business Intelligence &amp; Product Analytics</span>
     <span class="cat-line"></span>
-    <span class="cat-count">2 projects</span>
+    <span class="cat-count">1 project</span>
   </div>
   <div class="proj-grid">
 
@@ -74,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Business Intelligence Engineering</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+        <a href="/vanle-portfolio/projects/github-analytics/">
           GitHub Support Operations Analytics
         </a>
       </h3>
@@ -95,41 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Python</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/github-analytics/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
         <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-          GitHub
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-card__accent"></div>
-      <p class="proj-card__type">Business Intelligence Engineering</p>
-      <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/financial-reconciliation/">
-          Financial Reconciliation Analytics
-        </a>
-      </h3>
-      <p class="proj-card__desc">
-        Automated financial data reconciliation pipeline for detecting variance and discrepancies between source systems.
-        Produces structured, audit-ready reporting outputs for tax and financial advisory workflows.
-        Built on Pandas and SQL with modular processing stages for each reconciliation step.
-      </p>
-      <div class="proj-card__result">Automated reconciliation pipeline &middot; Variance detection and flagging across source systems</div>
-      <div class="proj-card__tags">
-        <span class="ptag">Python</span>
-        <span class="ptag">SQL</span>
-        <span class="ptag">Pandas</span>
-        <span class="ptag">Financial Analytics</span>
-      </div>
-      <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/financial-reconciliation/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
-          GitHub
+          GitHub &#8594;
         </a>
       </div>
     </div>
@@ -142,53 +101,22 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="cat-header">
     <span class="cat-label">Machine Learning &amp; Predictive Modeling</span>
     <span class="cat-line"></span>
-    <span class="cat-count">4 projects</span>
+    <span class="cat-count">3 projects</span>
   </div>
   <div class="proj-grid">
 
     <div class="proj-card">
       <div class="proj-card__accent"></div>
-      <p class="proj-card__type">Classification &amp; Business ROI</p>
-      <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-          Customer Churn Prediction
-        </a>
-      </h3>
-      <p class="proj-card__desc">
-        Binary classification pipeline on Telco data (7,043 customers). XGBoost with SMOTE augmentation,
-        evaluated through Precision@K and a net ROI simulation rather than raw accuracy.
-        SHAP explanations per customer. Top 10% of model scores contains ~67% true churners at $50 per contact cost.
-      </p>
-      <div class="proj-card__result">Precision@10%&#8776;67% &middot; Positive ROI at $50 intervention &middot; SHAP attribution per customer</div>
-      <div class="proj-card__tags">
-        <span class="ptag">XGBoost</span>
-        <span class="ptag">SMOTE</span>
-        <span class="ptag">SHAP</span>
-        <span class="ptag">Scikit-learn</span>
-        <span class="ptag">Precision@K</span>
-      </div>
-      <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/churn-prediction/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-          GitHub
-        </a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-card__accent"></div>
       <p class="proj-card__type">Public Health &amp; Risk Classification</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
+        <a href="/vanle-portfolio/projects/chronic-disease/">
           Chronic Disease Risk Intelligence
         </a>
       </h3>
       <p class="proj-card__desc">
         20-year CDC surveillance pipeline across 900K records and 50 states. State-level K-Means clustering
         on row-normalized disease profiles. Logistic Regression mortality predictor and Random Forest
-        risk classifier with honest imbalance-aware evaluation  -  macro F1, not misleading raw accuracy.
+        risk classifier with honest imbalance-aware evaluation, macro F1, not misleading raw accuracy.
       </p>
       <div class="proj-card__result">Silhouette=0.635 &middot; Mortality AUC=0.73 &middot; Macro F1=0.85 (not 0.9999 raw accuracy)</div>
       <div class="proj-card__tags">
@@ -199,11 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Scikit-learn</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/chronic-disease/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
         <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
-          GitHub
+          GitHub &#8594;
         </a>
       </div>
     </div>
@@ -212,14 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Statistical ML &amp; Sports Analytics</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
+        <a href="/vanle-portfolio/projects/marathon-performance/">
           Marathon Performance Analysis
         </a>
       </h3>
       <p class="proj-card__desc">
         26,000 Boston Marathon runners. Custom KDEBayesClassifier using Gaussian KDE and Bayes theorem
         for gender classification. 2-D KDE (finish time and age) outperforms 1-D by 12pp.
-        Linear regression from 5K split achieves R&#178;=0.85  -  adding age and gender barely moves the number,
+        Linear regression from 5K split achieves R&#178;=0.85, adding age and gender barely moves the number,
         which is itself the key finding.
       </p>
       <div class="proj-card__result">2-D KDE accuracy=77.5% &middot; Linear regression R&#178;=0.85 &middot; 26 unit tests</div>
@@ -231,11 +156,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">SGD</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/marathon-performance/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
         <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
-          GitHub
+          GitHub &#8594;
         </a>
       </div>
     </div>
@@ -244,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Deep Learning &amp; Recommendation</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+        <a href="/vanle-portfolio/projects/stock-recommendation/">
           Stock Recommendation System
         </a>
       </h3>
@@ -263,11 +185,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Walk-forward CV</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/stock-recommendation/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
         <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          GitHub
+          GitHub &#8594;
         </a>
       </div>
     </div>
@@ -288,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Large-scale Data Pipeline</p>
       <h3 class="proj-card__title">
-        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+        <a href="/vanle-portfolio/projects/stock-recommendation/">
           Stock Market Data Pipeline
         </a>
       </h3>
@@ -309,11 +228,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">NASDAQ API</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link" href="/vanle-portfolio/projects/stock-recommendation/">
-          Case Study <span class="arrow">&#8594;</span>
-        </a>
         <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          GitHub
+          GitHub &#8594;
         </a>
       </div>
     </div>
