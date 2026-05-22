@@ -3,5 +3,343 @@ title: "Research"
 permalink: /research/
 layout: single
 author_profile: false
+classes: wide
 ---
-Your research themes + cards
+
+<style>
+.research-wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Section labels */
+.rs-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0 0 1.75rem;
+}
+
+/* Interest cards */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 3rem;
+}
+
+.int-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  transition: border-color 0.15s;
+}
+
+.int-card:hover { border-color: #c7d2fe; }
+.int-card__icon { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.int-card__title { font-size: 0.82rem; font-weight: 700; color: #1e293b; margin-bottom: 0.2rem; }
+.int-card__desc { font-size: 0.74rem; color: #64748b; line-height: 1.45; margin: 0; }
+
+/* Lab cards */
+.lab-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.6rem 1.75rem;
+  margin-bottom: 1.25rem;
+  background: #fff;
+}
+
+.lab-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.lab-card__left {}
+
+.lab-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.lab-card__name a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1.5px solid #c7d2fe;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.lab-card__name a:hover { color: #4f46e5; border-color: #4f46e5; }
+
+.lab-card__pi {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.lab-card__pi a { color: #4f46e5; text-decoration: none; }
+.lab-card__pi a:hover { text-decoration: underline; }
+
+.lab-card__meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.lab-card__period {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+
+.lab-card__role {
+  font-size: 0.73rem;
+  color: #64748b;
+  margin-top: 0.3rem;
+  text-align: right;
+}
+
+/* Research statement list */
+.research-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.research-list li {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: #334155;
+  line-height: 1.65;
+}
+
+.research-list li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4f46e5;
+  flex-shrink: 0;
+  margin-top: 0.6rem;
+}
+
+.research-list li strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Publications */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.pub-card {
+  border-left: 3px solid #4f46e5;
+  padding: 0.9rem 1.1rem;
+  background: #fafafa;
+  border-radius: 0 8px 8px 0;
+  border-top: 1px solid #f1f5f9;
+  border-right: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pub-card.pending { border-left-color: #f59e0b; }
+
+.pub-card__title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.25rem;
+  line-height: 1.4;
+}
+
+.pub-card__title a { color: inherit; text-decoration: none; border-bottom: 1px solid #c7d2fe; }
+.pub-card__title a:hover { color: #4f46e5; }
+
+.pub-card__authors {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0 0 0.25rem;
+  line-height: 1.5;
+}
+
+.pub-card__authors strong { color: #334155; font-weight: 600; }
+
+.pub-card__venue {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.pub-card__venue em { font-style: italic; color: #64748b; }
+
+.pub-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.pub-badge.under-review { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.pub-badge.published { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+@media (max-width: 640px) {
+  .lab-card__header { flex-direction: column; }
+  .lab-card__meta { text-align: left; }
+  .lab-card__role { text-align: left; }
+  .interest-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<div class="research-wrap">
+
+<!-- ── Research Interests ──────────────────────────────────────────────────── -->
+<p class="rs-label">Research Interests</p>
+
+<div class="interest-grid">
+  <div class="int-card">
+    <div class="int-card__icon">&#119983;</div>
+    <p class="int-card__title">Probabilistic Modeling</p>
+    <p class="int-card__desc">Bayesian inference, uncertainty quantification, and calibrated prediction for decision-relevant outputs.</p>
+  </div>
+  <div class="int-card">
+    <div class="int-card__icon">&#127760;</div>
+    <p class="int-card__title">Latent Variable Methods</p>
+    <p class="int-card__desc">Deep learning representations and understanding what models learn beyond surface-level accuracy.</p>
+  </div>
+  <div class="int-card">
+    <div class="int-card__icon">&#129302;</div>
+    <p class="int-card__title">LLM &amp; Agentic Systems</p>
+    <p class="int-card__desc">Applying large language models to structured data tasks, tool-augmented reasoning, and workflow automation.</p>
+  </div>
+  <div class="int-card">
+    <div class="int-card__icon">&#128200;</div>
+    <p class="int-card__title">Statistical Inference at Scale</p>
+    <p class="int-card__desc">Experiment design, causal inference, and hypothesis testing on massive, real-world datasets.</p>
+  </div>
+  <div class="int-card">
+    <div class="int-card__icon">&#129516;</div>
+    <p class="int-card__title">Computational Biophysics</p>
+    <p class="int-card__desc">Molecular dynamics simulation and data-driven modeling of protein-membrane interactions.</p>
+  </div>
+  <div class="int-card">
+    <div class="int-card__icon">&#128138;</div>
+    <p class="int-card__title">Nanomedicine &amp; Pharmacometabolomics</p>
+    <p class="int-card__desc">Data analysis pipelines for targeted drug delivery systems and mass spectrometry imaging workflows.</p>
+  </div>
+</div>
+
+<!-- ── Research Experience ────────────────────────────────────────────────── -->
+<p class="rs-label">Research Experience</p>
+
+<!-- Monje Lab -->
+<div class="lab-card">
+  <div class="lab-card__header">
+    <div class="lab-card__left">
+      <p class="lab-card__name">
+        <a href="https://monjegroup.myportfolio.com/" target="_blank">Monje Lab</a>
+      </p>
+      <p class="lab-card__pi">
+        Principal Investigator: <a href="https://engineering.buffalo.edu/chemical-biological/people/faculty-directory.host.html/content/shared/engineering/chemical-biological/profiles/faculty/monje-viviana.detail.html" target="_blank">Dr. Viviana Monje-Galvan</a>
+        &middot; Department of Chemical and Biological Engineering, University at Buffalo
+      </p>
+    </div>
+    <div class="lab-card__meta">
+      <span class="lab-card__period">2022 &ndash; 2023</span>
+      <p class="lab-card__role">Undergraduate Researcher</p>
+    </div>
+  </div>
+  <ul class="research-list">
+    <li>
+      <strong>Molecular Dynamics Data Analysis.</strong>
+      Processed and analyzed large-scale MD simulation trajectories of lipid bilayer systems, extracting structural and thermodynamic properties to characterize membrane behavior under physiologically relevant conditions.
+    </li>
+    <li>
+      <strong>Simulation Modeling.</strong>
+      Contributed to constructing and validating all-atom membrane models using CHARMM force fields, parameterizing lipid compositions to replicate organelle-specific membrane environments for computational biophysics studies.
+    </li>
+    <li>
+      <strong>Protein Membrane Modeling with Deep Learning.</strong>
+      Applied deep learning methods to identify patterns in protein-lipid interaction data from MD simulation outputs, supporting classification of membrane protein insertion mechanisms and lipid binding site characterization.
+    </li>
+  </ul>
+</div>
+
+<!-- Liu Lab -->
+<div class="lab-card">
+  <div class="lab-card__header">
+    <div class="lab-card__left">
+      <p class="lab-card__name">
+        <a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Liu Lab</a>
+      </p>
+      <p class="lab-card__pi">
+        Principal Investigator: <a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Dr. Xinli Liu</a>
+        &middot; Department of Pharmacological and Pharmaceutical Sciences, College of Pharmacy, University of Houston
+      </p>
+    </div>
+    <div class="lab-card__meta">
+      <span class="lab-card__period">2020 &ndash; 2022</span>
+      <p class="lab-card__role">Undergraduate Researcher</p>
+    </div>
+  </div>
+  <ul class="research-list">
+    <li>
+      <strong>Targeted Drug Delivery Systems.</strong>
+      Supported research on nanoparticle and nanoconjugate design for tumor-specific drug delivery, contributing to data collection and analysis for preclinical evaluations of novel drug combination systems.
+    </li>
+    <li>
+      <strong>Pharmacometabolomics Data Pipelines.</strong>
+      Assisted with data processing workflows for Mass Spectrometry Imaging (MSI) experiments, applying computational methods to spatial pharmacometabolomics datasets to support drug discovery and development analysis.
+    </li>
+    <li>
+      <strong>Nanomedicine and Drug Resistance.</strong>
+      Contributed to investigations of nanomedicine-based approaches to overcome multidrug resistance in cancer and infectious disease models, including data organization and quantitative analysis of experimental results.
+    </li>
+  </ul>
+</div>
+
+<!-- ── Publications ───────────────────────────────────────────────────────── -->
+<p class="rs-label" style="margin-top: 3rem;">Publications</p>
+
+<div class="pub-list">
+
+  <div class="pub-card pending">
+    <p class="pub-card__title">
+      Publication details coming soon
+      <span class="pub-badge under-review">In Progress</span>
+    </p>
+    <p class="pub-card__authors">
+      Author list to be added.
+    </p>
+    <p class="pub-card__venue">
+      Venue to be confirmed.
+    </p>
+  </div>
+
+</div>
+
+</div>
