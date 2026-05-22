@@ -1,233 +1,366 @@
----
+﻿---
 title: "Projects"
 permalink: /projects/
 layout: single
-author_profile: true
+author_profile: false
 classes: wide
 ---
 
-<style>
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-.project-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1.4rem 1.4rem 1.1rem;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  transition: box-shadow 0.2s ease;
-}
-.project-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-}
-.project-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-.project-card h3 a {
-  text-decoration: none;
-  color: inherit;
-}
-.project-card h3 a:hover { text-decoration: underline; }
-.project-problem {
-  font-size: 0.82rem;
-  color: #666;
-  margin: 0 0 0.6rem;
-  font-style: italic;
-}
-.project-desc {
-  font-size: 0.88rem;
-  color: #333;
-  line-height: 1.55;
-  flex-grow: 1;
-  margin: 0 0 0.8rem;
-}
-.project-result {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #2e7d32;
-  background: #f1f8f1;
-  border-left: 3px solid #4caf50;
-  padding: 0.3rem 0.6rem;
-  border-radius: 0 4px 4px 0;
-  margin: 0 0 0.9rem;
-}
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-  margin-bottom: 0.9rem;
-}
-.tag {
-  font-size: 0.72rem;
-  padding: 0.15rem 0.55rem;
-  border-radius: 12px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-.tag-python  { background: #fff3e0; color: #e65100; }
-.tag-ml      { background: #e8f5e9; color: #2e7d32; }
-.tag-sql     { background: #e3f2fd; color: #1565c0; }
-.tag-nlp     { background: #f3e5f5; color: #6a1b9a; }
-.tag-dl      { background: #fce4ec; color: #880e4f; }
-.tag-viz     { background: #e0f7fa; color: #006064; }
-.tag-api     { background: #fff8e1; color: #f57f17; }
-.tag-spark   { background: #efebe9; color: #4e342e; }
-.btn-github {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.9rem;
-  border: 1.5px solid #333;
-  border-radius: 5px;
-  color: #333;
-  text-decoration: none;
-  margin-top: auto;
-  width: fit-content;
-  transition: background 0.15s;
-}
-.btn-github:hover {
-  background: #333;
-  color: #fff;
-  text-decoration: none;
-}
-.section-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #888;
-  margin: 2.5rem 0 0;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #e0e0e0;
-}
-</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // ── Category filter ──────────────────────────────────────────────────────
+  var btns = document.querySelectorAll(".cat-btn");
+  var sections = document.querySelectorAll(".cat-section");
 
-Data Science and analytics projects built end-to-end — from raw data to production-ready pipelines, models, and APIs.
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var cat = btn.getAttribute("data-cat");
+      btns.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
 
-<p class="section-label">Machine Learning & Data Science</p>
+      sections.forEach(function (sec) {
+        if (cat === "all" || sec.getAttribute("data-cat") === cat) {
+          sec.style.display = "";
+          sec.style.animation = "fadeSlideUp 0.35s ease both";
+        } else {
+          sec.style.display = "none";
+        }
+      });
+    });
+  });
 
-<div class="projects-grid">
+  // ── Scroll reveal ────────────────────────────────────────────────────────
+  var cards = document.querySelectorAll(".proj-card");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, i) {
+        if (entry.isIntersecting) {
+          setTimeout(function () {
+            entry.target.classList.add("visible");
+          }, i * 60);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">Stock Recommendation System</a></h3>
-  <p class="project-problem">How do you find structurally similar stocks across 3,600+ equities at scale?</p>
-  <p class="project-desc">End-to-end equity discovery platform: PySpark pipeline over 10M OHLCV records, 20+ technical indicators, PCA compression, LSTM price prediction, and a deep learning autoencoder for content-based stock similarity search. Deployed as a production FastAPI service with offline evaluation (Precision@5, NDCG@5, correlation lift vs random).</p>
-  <div class="project-result">LinearSVR R²=0.997 · MAPE=13.1% · Walk-forward validated</div>
-  <div class="project-tags">
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-spark">PySpark</span>
-    <span class="tag tag-ml">Scikit-learn</span>
-    <span class="tag tag-dl">TensorFlow</span>
-    <span class="tag tag-nlp">DistilRoBERTa</span>
-    <span class="tag tag-api">FastAPI</span>
+    cards.forEach(function (card) {
+      card.classList.add("reveal");
+      io.observe(card);
+    });
+  }
+});
+</script>
+
+<!-- Category filter tabs -->
+<div class="cat-filter">
+  <button class="cat-btn active" data-cat="all">All Projects</button>
+  <button class="cat-btn" data-cat="bi">BI &amp; Product Analytics</button>
+  <button class="cat-btn" data-cat="ml">ML &amp; Predictive Modeling</button>
+  <button class="cat-btn" data-cat="de">Data Engineering</button>
+  <button class="cat-btn" data-cat="exp">Experimentation &amp; Statistics</button>
+  <button class="cat-btn" data-cat="viz">Data Visualization</button>
+</div>
+
+<!-- ── Business Intelligence & Product Analytics ──────────────────────────── -->
+<div class="cat-section" data-cat="bi">
+  <div class="cat-header">
+    <span class="cat-label">Business Intelligence &amp; Product Analytics</span>
+    <span class="cat-line"></span>
+    <span class="cat-count">2 projects</span>
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
-</div>
+  <div class="proj-grid">
 
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">Customer Churn Prediction</a></h3>
-  <p class="project-problem">Which customers will leave — and is it worth the cost to intervene?</p>
-  <p class="project-desc">Retention ROI optimization pipeline on Telco data (7,043 customers). Stratified 5-fold CV across Logistic Regression, Random Forest, and XGBoost + SMOTE. Evaluated with Precision@K and a net ROI simulation ($50/contact, $500/churner retained) rather than raw accuracy. SHAP explanations for per-customer risk drivers.</p>
-  <div class="project-result">P@10%≈67% · ROI curve across targeting thresholds · SHAP feature attribution</div>
-  <div class="project-tags">
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-ml">XGBoost</span>
-    <span class="tag tag-ml">SMOTE</span>
-    <span class="tag tag-viz">SHAP</span>
-    <span class="tag tag-ml">Scikit-learn</span>
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Business Intelligence Engineering</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+          GitHub Support Operations Analytics
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        End-to-end BI platform on a SQL Server star schema with ETL via SQLAlchemy.
+        VADER NLP tracks sentiment shift across issue lifecycles to flag frustrated contributors.
+        A statistical SLA breach probability model scores all open tickets in real time across five risk tiers.
+        Power BI dashboard with quadrant scatter analysis of repository health versus contributor retention.
+      </p>
+      <div class="proj-card__result">12-hour response threshold predicts 3.5x lift in repeat contributor rate &middot; 12% of repos identified as toxic</div>
+      <div class="proj-card__tags">
+        <span class="ptag">SQL Server</span>
+        <span class="ptag">SQLAlchemy</span>
+        <span class="ptag">VADER NLP</span>
+        <span class="ptag">Power BI</span>
+        <span class="ptag">Star Schema</span>
+        <span class="ptag">ETL</span>
+        <span class="ptag">Python</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Business Intelligence Engineering</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
+          Financial Reconciliation Analytics
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        Automated financial data reconciliation pipeline for detecting variance and discrepancies between source systems.
+        Produces structured, audit-ready reporting outputs for tax and financial advisory workflows.
+        Built on Pandas and SQL with modular processing stages for each reconciliation step.
+      </p>
+      <div class="proj-card__result">Automated reconciliation pipeline &middot; Variance detection and flagging across source systems</div>
+      <div class="proj-card__tags">
+        <span class="ptag">Python</span>
+        <span class="ptag">SQL</span>
+        <span class="ptag">Pandas</span>
+        <span class="ptag">Financial Analytics</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
 </div>
 
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">Chronic Disease Risk Intelligence</a></h3>
-  <p class="project-problem">Where should limited public health budgets be deployed first?</p>
-  <p class="project-desc">20-year CDC surveillance pipeline (900K+ records, 50 states, 17 disease categories). State-level K-Means clustering on row-normalized disease profiles, logistic regression mortality prediction (AUC=0.73), and Random Forest risk classification with honest imbalance-aware evaluation — macro F1=0.85, not the misleading 0.9999 raw accuracy.</p>
-  <div class="project-result">Silhouette=0.635 · Mortality AUC=0.73 · Macro F1=0.85</div>
-  <div class="project-tags">
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-ml">Scikit-learn</span>
-    <span class="tag tag-viz">GeoPandas</span>
-    <span class="tag tag-viz">Plotly</span>
-    <span class="tag tag-ml">Random Forest</span>
+<!-- ── Machine Learning & Predictive Modeling ─────────────────────────────── -->
+<div class="cat-section" data-cat="ml">
+  <div class="cat-header">
+    <span class="cat-label">Machine Learning &amp; Predictive Modeling</span>
+    <span class="cat-line"></span>
+    <span class="cat-count">4 projects</span>
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
-</div>
+  <div class="proj-grid">
 
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">Marathon Performance Analysis</a></h3>
-  <p class="project-problem">Can you predict a runner's finish time from their 5K split — and classify gender from pace alone?</p>
-  <p class="project-desc">Statistical modeling on 26,000 Boston Marathon runners. Custom KDEBayesClassifier (sklearn-compatible) using Gaussian KDE + Bayes theorem for gender prediction. 1-D vs 2-D KDE benchmark against KNN. Linear regression on 5K splits with SGD regularization and learning curve analysis. Pacing strategy segmentation (negative/even/positive split).</p>
-  <div class="project-result">2-D KDE accuracy=77.5% · Linear regression R²=0.85 · 26 unit tests</div>
-  <div class="project-tags">
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-ml">SciPy KDE</span>
-    <span class="tag tag-ml">Scikit-learn</span>
-    <span class="tag tag-viz">Matplotlib</span>
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Classification &amp; Business ROI</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
+          Customer Churn Prediction
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        Binary classification pipeline on Telco data (7,043 customers). XGBoost with SMOTE augmentation,
+        evaluated through Precision@K and a net ROI simulation rather than raw accuracy.
+        SHAP explanations per customer. Top 10% of model scores contains ~67% true churners at $50 per contact cost.
+      </p>
+      <div class="proj-card__result">Precision@10%&#8776;67% &middot; Positive ROI at $50 intervention &middot; SHAP attribution per customer</div>
+      <div class="proj-card__tags">
+        <span class="ptag">XGBoost</span>
+        <span class="ptag">SMOTE</span>
+        <span class="ptag">SHAP</span>
+        <span class="ptag">Scikit-learn</span>
+        <span class="ptag">Precision@K</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Public Health &amp; Risk Classification</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
+          Chronic Disease Risk Intelligence
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        20-year CDC surveillance pipeline across 900K records and 50 states. State-level K-Means clustering
+        on row-normalized disease profiles. Logistic Regression mortality predictor and Random Forest
+        risk classifier with honest imbalance-aware evaluation — macro F1, not misleading raw accuracy.
+      </p>
+      <div class="proj-card__result">Silhouette=0.635 &middot; Mortality AUC=0.73 &middot; Macro F1=0.85 (not 0.9999 raw accuracy)</div>
+      <div class="proj-card__tags">
+        <span class="ptag">Random Forest</span>
+        <span class="ptag">KMeans</span>
+        <span class="ptag">GeoPandas</span>
+        <span class="ptag">Plotly</span>
+        <span class="ptag">Scikit-learn</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Statistical ML &amp; Sports Analytics</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
+          Marathon Performance Analysis
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        26,000 Boston Marathon runners. Custom KDEBayesClassifier using Gaussian KDE and Bayes theorem
+        for gender classification. 2-D KDE (finish time and age) outperforms 1-D by 12pp.
+        Linear regression from 5K split achieves R&#178;=0.85 — adding age and gender barely moves the number,
+        which is itself the key finding.
+      </p>
+      <div class="proj-card__result">2-D KDE accuracy=77.5% &middot; Linear regression R&#178;=0.85 &middot; 26 unit tests</div>
+      <div class="proj-card__tags">
+        <span class="ptag">SciPy KDE</span>
+        <span class="ptag">Bayes Theorem</span>
+        <span class="ptag">KNN</span>
+        <span class="ptag">Linear Regression</span>
+        <span class="ptag">SGD</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Deep Learning &amp; Recommendation</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          Stock Recommendation System
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        LinearSVR price predictor on PCA-compressed technical indicators with walk-forward cross-validation.
+        Deep learning autoencoder encodes stock behavioral profiles into latent space; cosine similarity
+        drives content-based recommendations. Deployed as a FastAPI REST service with Precision@5 and
+        NDCG@5 offline evaluation metrics.
+      </p>
+      <div class="proj-card__result">LinearSVR R&#178;=0.997 under walk-forward CV &middot; FastAPI production &middot; 45 tests</div>
+      <div class="proj-card__tags">
+        <span class="ptag">LinearSVR</span>
+        <span class="ptag">Autoencoder</span>
+        <span class="ptag">TensorFlow</span>
+        <span class="ptag">FastAPI</span>
+        <span class="ptag">Walk-forward CV</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
 </div>
 
-</div>
-
-<p class="section-label">Analytics Engineering & Business Intelligence</p>
-
-<div class="projects-grid">
-
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">GitHub Support Operations Analytics</a></h3>
-  <p class="project-problem">Which repositories are silently destroying developer loyalty — and can we predict SLA breaches before they happen?</p>
-  <p class="project-desc">Developer experience intelligence platform built on a SQL Server star schema (ETL via SQLAlchemy). NLTK/VADER sentiment volatility analysis to flag "frustrated users" — tickets where sentiment shifted negative during resolution. Statistical SLA risk scoring with 5-tier breach probability model. Power BI dashboard with quadrant analysis of "toxic" repos.</p>
-  <div class="project-result">12-hour Golden Hour → 3.5x contributor retention lift · 12% repos identified as toxic</div>
-  <div class="project-tags">
-    <span class="tag tag-sql">SQL Server</span>
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-nlp">VADER NLP</span>
-    <span class="tag tag-viz">Power BI</span>
-    <span class="tag tag-sql">SQLAlchemy</span>
+<!-- ── Data Engineering & ETL Pipeline ───────────────────────────────────── -->
+<div class="cat-section" data-cat="de">
+  <div class="cat-header">
+    <span class="cat-label">Data Engineering &amp; ETL Pipeline</span>
+    <span class="cat-line"></span>
+    <span class="cat-count">1 project</span>
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
-</div>
+  <div class="proj-grid">
 
-<div class="project-card">
-  <h3><a href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">Financial Reconciliation Analytics</a></h3>
-  <p class="project-problem">How do you automate financial data reconciliation and surface discrepancies at scale?</p>
-  <p class="project-desc">Analytics pipeline for financial data reconciliation, variance detection, and automated reporting. Built to identify mismatches between source systems and produce audit-ready outputs.</p>
-  <div class="project-result">Automated reconciliation pipeline · Variance detection & flagging</div>
-  <div class="project-tags">
-    <span class="tag tag-python">Python</span>
-    <span class="tag tag-sql">SQL</span>
-    <span class="tag tag-viz">Pandas</span>
+    <div class="proj-card">
+      <div class="proj-card__accent"></div>
+      <p class="proj-card__type">Large-scale Data Pipeline</p>
+      <h3 class="proj-card__title">
+        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          Stock Market Data Pipeline
+        </a>
+      </h3>
+      <p class="proj-card__desc">
+        PySpark distributed ingestion of 10M+ OHLCV records across 3,600+ NASDAQ tickers.
+        Merged historical price data with NASDAQ ticker metadata (sector, industry, market cap).
+        Engineered 20+ technical indicators (SMA, EMA, RSI, MACD, Bollinger Bands, Ichimoku, ATR, OBV).
+        PCA compression of 20+ features to 5 principal components for downstream modeling.
+        Deployed as a FastAPI REST service with Docker containerization.
+      </p>
+      <div class="proj-card__result">10M+ records &middot; PySpark distributed processing &middot; 20+ indicators &middot; Docker deployment</div>
+      <div class="proj-card__tags">
+        <span class="ptag">PySpark</span>
+        <span class="ptag">Pandas</span>
+        <span class="ptag">PCA</span>
+        <span class="ptag">Docker</span>
+        <span class="ptag">FastAPI</span>
+        <span class="ptag">NASDAQ API</span>
+      </div>
+      <div class="proj-card__footer">
+        <a class="proj-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
+          View on GitHub <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <a class="btn-github" href="https://github.com/vanle2000/Financial-Reconciliation-Analytics" target="_blank">
-    <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    View on GitHub
-  </a>
 </div>
 
+<!-- ── Experimentation & Statistical Inference ───────────────────────────── -->
+<div class="cat-section" data-cat="exp">
+  <div class="cat-header">
+    <span class="cat-label">Experimentation &amp; Statistical Inference</span>
+    <span class="cat-line"></span>
+    <span class="cat-count">in progress</span>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card in-progress">
+      <div class="proj-card__type">Causal Inference &amp; A/B Testing</div>
+      <h3 class="proj-card__title">Experimentation Framework</h3>
+      <p class="proj-card__desc">
+        An end-to-end experiment design and analysis system for business and operational settings.
+        Covers power analysis, randomization strategies, difference-in-differences, regression discontinuity,
+        and sequential testing. Designed for settings where randomization is constrained and decisions carry real costs.
+      </p>
+      <div class="proj-card__result">In progress &middot; Causal inference &middot; A/B testing &middot; Statistical rigor in applied settings</div>
+      <div class="proj-card__tags">
+        <span class="ptag">Python</span>
+        <span class="ptag">Statsmodels</span>
+        <span class="ptag">Causal Inference</span>
+        <span class="ptag">Power Analysis</span>
+      </div>
+      <div class="proj-card__footer">
+        <span class="ip-badge">In Progress</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Data Visualization ────────────────────────────────────────────────── -->
+<div class="cat-section" data-cat="viz">
+  <div class="cat-header">
+    <span class="cat-label">Data Visualization</span>
+    <span class="cat-line"></span>
+    <span class="cat-count">in progress</span>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card in-progress">
+      <div class="proj-card__type">Interactive Dashboard</div>
+      <h3 class="proj-card__title">Tableau Public Health Dashboard</h3>
+      <p class="proj-card__desc">
+        Interactive Tableau dashboard for the CDC Chronic Disease Indicators dataset.
+        State-level choropleth maps, 20-year disease trend lines, demographic breakdowns by
+        race and gender, and risk tier distribution across all 50 states.
+        Designed for public health analysts to identify high-priority intervention targets.
+      </p>
+      <div class="proj-card__result">In progress &middot; CDC CDI &middot; 900K records &middot; 50 states &middot; 2001&#8211;2021</div>
+      <div class="proj-card__tags">
+        <span class="ptag">Tableau Public</span>
+        <span class="ptag">CDC Open Data</span>
+        <span class="ptag">Choropleth</span>
+        <span class="ptag">Public Health</span>
+      </div>
+      <div class="proj-card__footer">
+        <span class="ip-badge">In Progress</span>
+      </div>
+    </div>
+
+  </div>
 </div>
