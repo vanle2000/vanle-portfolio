@@ -235,6 +235,11 @@ classes: wide
   gap: 1rem;
 }
 
+/* 5th item spans full width so it doesn't sit orphaned */
+.focus-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .focus-item {
   display: flex;
   gap: 1rem;
@@ -332,6 +337,16 @@ classes: wide
         <p class="focus-title">Quantifying Uncertainty Under Chaotic Data</p>
         <p class="focus-desc">
           Standardizing how uncertainty is measured, communicated, and propagated in pipelines built on noisy, incomplete, or shifting data distributions. Interested in calibration, conformal prediction, and Bayesian methods as alternatives to point-estimate reporting.
+        </p>
+      </div>
+    </div>
+
+    <div class="focus-item">
+      <span class="focus-num">05</span>
+      <div class="focus-body">
+        <p class="focus-title">AI Fairness, Safety, and Responsible Use</p>
+        <p class="focus-desc">
+          How generative AI systems fail, who they fail for, and what structural measures actually reduce harm in practice. Interested in bias measurement and mitigation in production ML, misuse prevention in Gen AI applications, and the standards and governance frameworks needed to make AI deployment accountable rather than aspirational.
         </p>
       </div>
     </div>
