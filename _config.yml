@@ -9,8 +9,8 @@ minimal_mistakes_skin: "contrast"
 locale: "en-US"
 title: "Elizabeth (Van) Le"
 description: "Data Scientist | Data Analyst | Business Intelligence Engineer"
-url: "https://elizabethvanle.com"
-baseurl: ""
+url: "https://vanle2000.github.io"
+baseurl: "/vanle-portfolio"
 
 masthead_title: ""
 
