@@ -3,7 +3,7 @@
 # =========================
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin: "contrast"
+minimal_mistakes_skin: "air"
 
 # Site
 locale: "en-US"
