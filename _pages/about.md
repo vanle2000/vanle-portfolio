@@ -17,11 +17,11 @@ classes: wide
 /* Section chrome */
 .about-sec {
   font-family: "IBM Plex Mono", monospace;
-  font-size: .63rem;
+  font-size: .62rem;
   font-weight: 700;
-  letter-spacing: .15em;
+  letter-spacing: .16em;
   text-transform: uppercase;
-  color: #0284c7;
+  color: #7A2838;
   display: flex;
   align-items: center;
   gap: .9rem;
@@ -31,18 +31,18 @@ classes: wide
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(2,132,199,.2) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(122,40,56,.18) 0%, transparent 100%);
 }
 
 /* Intro */
 .about-intro { margin-bottom: 3.5rem; }
 
 .about-intro h1 {
-  font-family: "Inter", sans-serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -.03em;
+  color: #1C1410;
+  letter-spacing: -.01em;
   line-height: 1.1;
   margin: 0 0 1rem;
 }
@@ -50,7 +50,7 @@ classes: wide
 .about-intro p {
   font-size: .97rem;
   line-height: 1.82;
-  color: #334155;
+  color: #4A3C34;
   max-width: 640px;
   margin: 0 0 .85rem;
 }
@@ -65,9 +65,9 @@ classes: wide
 
 /* Project card */
 .pj {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  background: #FDFAF5;
+  border: 1px solid #EAE0CE;
+  border-radius: 10px;
   padding: 1.6rem 1.65rem 1.45rem;
   position: relative;
   overflow: hidden;
@@ -83,16 +83,16 @@ classes: wide
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #0284c7, #7c3aed);
-  border-radius: 12px 12px 0 0;
+  background: linear-gradient(90deg, #7A2838, #2C4A3E);
+  border-radius: 10px 10px 0 0;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .3s cubic-bezier(.34,1.2,.64,1);
 }
 
 .pj:hover {
-  border-color: #7dd3fc;
-  box-shadow: 0 8px 32px rgba(2,132,199,.1), 0 2px 8px rgba(0,0,0,.04);
+  border-color: rgba(122,40,56,.28);
+  box-shadow: 0 8px 32px rgba(122,40,56,.09), 0 2px 8px rgba(0,0,0,.03);
   transform: translateY(-3px);
 }
 .pj:hover::before { transform: scaleX(1); }
@@ -103,14 +103,14 @@ classes: wide
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #0284c7;
+  color: #7A2838;
   margin: 0 0 .38rem;
 }
 
 .pj-name {
   font-size: 1.02rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #1C1410;
   letter-spacing: -.02em;
   line-height: 1.25;
   margin: 0 0 .42rem;
@@ -118,7 +118,7 @@ classes: wide
 
 .pj-tagline {
   font-size: .82rem;
-  color: #64748b;
+  color: #7A6A5A;
   line-height: 1.52;
   margin: 0 0 1rem;
 }
@@ -126,7 +126,7 @@ classes: wide
 /* STAR bullets */
 .pj-hr {
   height: 1px;
-  background: #f1f5f9;
+  background: #EAE0CE;
   margin: 0 0 1rem;
   border: none;
 }
@@ -143,7 +143,7 @@ classes: wide
 
 .pj-list li {
   font-size: .82rem;
-  color: #334155;
+  color: #4A3C34;
   line-height: 1.58;
   padding-left: 1.05rem;
   position: relative;
@@ -157,11 +157,11 @@ classes: wide
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0284c7;
+  background: #7A2838;
 }
 
 .pj-list li strong {
-  color: #0f172a;
+  color: #1C1410;
   font-weight: 600;
 }
 
@@ -170,9 +170,9 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: .69rem;
   font-weight: 600;
-  color: #059669;
-  background: #ecfdf5;
-  border-left: 2px solid #34d399;
+  color: #2C4A3E;
+  background: rgba(44,74,62,.07);
+  border-left: 2px solid rgba(44,74,62,.4);
   padding: .28rem .65rem;
   border-radius: 0 5px 5px 0;
   margin-top: .95rem;
@@ -184,7 +184,7 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: .65rem;
   font-weight: 600;
-  color: #0284c7;
+  color: #7A2838;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -192,7 +192,7 @@ classes: wide
   margin-top: .7rem;
   transition: color .15s;
 }
-.pj-link:hover { color: #0369a1; text-decoration: none; }
+.pj-link:hover { color: #5C1A24; text-decoration: none; }
 
 /* Prose sections */
 .about-prose { margin-bottom: 2.75rem; }
@@ -201,16 +201,16 @@ classes: wide
   font-family: "Inter", sans-serif;
   font-size: .95rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #1C1410;
   letter-spacing: -.01em;
   margin: 0 0 .8rem;
   padding-bottom: .38rem;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #EAE0CE;
 }
 
 .about-prose p {
   font-size: .94rem;
-  color: #334155;
+  color: #4A3C34;
   line-height: 1.8;
   margin: 0 0 .8rem;
 }
@@ -222,7 +222,7 @@ classes: wide
 
 .about-prose ul li {
   font-size: .93rem;
-  color: #334155;
+  color: #4A3C34;
   line-height: 1.72;
   margin-bottom: .28rem;
 }
