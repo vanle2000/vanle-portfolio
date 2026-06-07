@@ -1,49 +1,332 @@
 ---
-title: "About"
+title: ""
 permalink: /about/
 layout: single
-author_profile: true
-toc: false
+author_profile: false
+classes: wide
 ---
 
-I'm Van Le, a data analyst and scientist based in Houston, TX.
+<style>
+/* ── About page layout ─────────────────────────────────────────────────────── */
+.about-wrap {
+  max-width: 70%;
+  margin: 3.5rem auto 5rem;
+  padding: 0;
+}
 
-At M&T Tax Firm, I work as a Tax Data Analyst and Business Analyst. Over 1.5 years, I've built reporting pipelines, automated reconciliation workflows, and translated financial records into structured decision support for the tax advisory team. This work sharpened my understanding of when data is reliable, when modeling assumptions fail in production, and what the distance is between a working prototype and something a team depends on daily.
+/* Section chrome */
+.about-sec {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin: 0 0 2rem;
+}
+.about-sec::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(2,132,199,.2) 0%, transparent 100%);
+}
 
-I'm actively looking for my next role in data analytics, business intelligence engineering, or data science. I want to work on problems at scale where the standards for rigor are high and where the output connects to a real decision.
+/* Intro */
+.about-intro { margin-bottom: 3.5rem; }
 
----
+.about-intro h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
 
-## Projects
+.about-intro p {
+  font-size: .97rem;
+  line-height: 1.82;
+  color: #334155;
+  max-width: 640px;
+  margin: 0 0 .85rem;
+}
 
-My independent projects reflect what I find technically interesting: problems with enough structure to model properly and enough scale to make engineering choices matter.
+/* 2×2 project grid */
+.proj-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+  margin-bottom: 3.5rem;
+}
 
-**Stock Recommendation System** processes 10 million OHLCV records across 3,600+ NASDAQ equities using PySpark, 20+ technical indicators (SMA, EMA, RSI, Bollinger Bands, Ichimoku Cloud, ADX, MACD, OBV, ATR), and PCA compression. A deep learning autoencoder encodes each stock's behavioral profile into a latent representation; cosine similarity in this latent space drives content-based recommendations. The price prediction model, LinearSVR, reaches R²=0.997 under walk-forward cross-validation, the correct methodology for sequential data. A standard train-test split on time-series data inflates R² toward 1.0 through lookahead bias; walk-forward validation removes this. The system is deployed as a FastAPI REST service with offline evaluation: Precision@5, NDCG@5, and correlation lift over a Monte Carlo random baseline. A recommendation system with no quality metric is not a recommendation system.
+/* Project card */
+.pj {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.6rem 1.65rem 1.45rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .25s, box-shadow .25s,
+              transform .25s cubic-bezier(.34,1.2,.64,1);
+}
 
-**Customer Churn Prediction** on Telco data (7,043 customers) uses XGBoost with SMOTE augmentation, evaluated through Precision@K and a net ROI simulation rather than raw accuracy. The top 10% of model-scored customers contains approximately 67% true churners. At $50 per customer outreach and $500 revenue recovered per retained churner, this precision produces a measurable positive return. SHAP values attribute risk to specific features per customer, which gives the retention team something actionable beyond a score.
+/* Top accent bar */
+.pj::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #0284c7, #7c3aed);
+  border-radius: 12px 12px 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s cubic-bezier(.34,1.2,.64,1);
+}
 
-**CDC Chronic Disease Intelligence** analyzes 900,000 surveillance records across 20 years and 50 states. K-Means clustering on row-normalized state disease profiles achieves Silhouette=0.635. A Logistic Regression mortality predictor reaches AUC=0.73. A Random Forest risk classifier achieves macro F1=0.85. The headline metric is macro F1, not the 0.9999 raw accuracy. The raw accuracy is dominated by the Low-risk class (238,000 records versus 3 Very High records); reporting it as the result would misrepresent the model entirely.
+.pj:hover {
+  border-color: #7dd3fc;
+  box-shadow: 0 8px 32px rgba(2,132,199,.1), 0 2px 8px rgba(0,0,0,.04);
+  transform: translateY(-3px);
+}
+.pj:hover::before { transform: scaleX(1); }
 
-**GitHub Support Operations Analytics** is a SQL Server star schema pipeline (ETL via SQLAlchemy) with NLTK/VADER sentiment volatility analysis to flag tickets where user sentiment shifted negative during resolution. A statistical SLA breach probability model scores open tickets in real time across five risk tiers. The analysis identified that first response within 12 hours predicts a 3.5x lift in repeat contributor rate.
+.pj-cat {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .59rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #0284c7;
+  margin: 0 0 .38rem;
+}
 
-**Marathon Performance Analysis** builds a custom `KDEBayesClassifier` using Gaussian KDE fitted separately on male and female finish time distributions, combined with Bayes theorem to estimate P(Female given finish time and age). The 2-D KDE (finish time + age joint distribution) reaches 77.5% gender classification accuracy versus 65.3% for 1-D alone. Linear regression from 5K split achieves R²=0.85; adding age and gender barely moves the number, which is itself a finding: the first 5 kilometers contain most of the predictive signal for marathon finish time.
+.pj-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+  margin: 0 0 .42rem;
+}
 
----
+.pj-tagline {
+  font-size: .82rem;
+  color: #64748b;
+  line-height: 1.52;
+  margin: 0 0 1rem;
+}
 
-## What I'm working toward
+/* STAR bullets */
+.pj-hr {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 0 0 1rem;
+  border: none;
+}
 
-My longer-term interest is in probabilistic modeling, latent variable methods, LLM applications, and AI agentic systems.
+.pj-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  flex-grow: 1;
+}
 
-I'm not satisfied with black-box accuracy alone. The difference between knowing what a model outputs and understanding what a model has learned matters when the output drives a real decision. Bayesian inference, deep learning latent representations, and interpretable ML are where I spend time outside of work. I want to be in the space where statistical modeling and large-scale data intersect with rigorous uncertainty quantification.
+.pj-list li {
+  font-size: .82rem;
+  color: #334155;
+  line-height: 1.58;
+  padding-left: 1.05rem;
+  position: relative;
+}
 
-The AI agentic and LLM field is moving fast enough to require consistent foundational investment. I'm building in this direction with purpose, not urgency.
+.pj-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .56em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #0284c7;
+}
 
----
+.pj-list li strong {
+  color: #0f172a;
+  font-weight: 600;
+}
 
-## Education
+/* Result strip */
+.pj-result {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .69rem;
+  font-weight: 600;
+  color: #059669;
+  background: #ecfdf5;
+  border-left: 2px solid #34d399;
+  padding: .28rem .65rem;
+  border-radius: 0 5px 5px 0;
+  margin-top: .95rem;
+  line-height: 1.42;
+}
 
-B.A. in Computational and Applied Mathematics, University at Buffalo (2022 to 2023)
+/* GitHub link */
+.pj-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: .65rem;
+  font-weight: 600;
+  color: #0284c7;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  margin-top: .7rem;
+  transition: color .15s;
+}
+.pj-link:hover { color: #0369a1; text-decoration: none; }
 
-Biochemistry and Molecular Biology, University of Houston (2020 to 2022)
+/* Prose sections */
+.about-prose { margin-bottom: 2.75rem; }
 
-A.S. in Chemistry, A.B. in Finance, North Seattle College (2018 to 2020)
+.about-prose h2 {
+  font-family: "Inter", sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -.01em;
+  margin: 0 0 .8rem;
+  padding-bottom: .38rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.about-prose p {
+  font-size: .94rem;
+  color: #334155;
+  line-height: 1.8;
+  margin: 0 0 .8rem;
+}
+
+.about-prose ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.about-prose ul li {
+  font-size: .93rem;
+  color: #334155;
+  line-height: 1.72;
+  margin-bottom: .28rem;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .about-wrap { max-width: 90%; }
+}
+@media (max-width: 700px) {
+  .about-wrap { max-width: 95%; margin: 2rem auto 4rem; }
+  .proj-2x2 { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="about-wrap">
+
+<!-- ── Intro ─────────────────────────────────────────────────────────────────── -->
+<div class="about-intro">
+  <h1>Van Le</h1>
+  <p>Data Analyst and Scientist based in Houston, TX. At M&amp;T Tax Firm I build reporting pipelines, automate reconciliation workflows, and turn financial records into structured decision support. I'm looking for my next role in data analytics, BI engineering, or data science — problems at scale where rigor is high and the output connects to a real decision.</p>
+</div>
+
+<!-- ── Projects ───────────────────────────────────────────────────────────────── -->
+<span class="about-sec">Selected Projects</span>
+
+<div class="proj-2x2">
+
+  <!-- 1 -->
+  <div class="pj">
+    <p class="pj-cat">Data Pipeline &amp; ML Engineering</p>
+    <p class="pj-name">Stock Recommendation System</p>
+    <p class="pj-tagline">Recommends NASDAQ stocks by behavioral similarity from a 10M-record PySpark pipeline.</p>
+    <hr class="pj-hr">
+    <ul class="pj-list">
+      <li><strong>Business case:</strong> Investment teams needed to identify correlated equities beyond sector labels, with no lookahead bias in the evaluation.</li>
+      <li><strong>Solution:</strong> PySpark on 10M+ OHLCV records → 20+ technical indicators → PCA → deep learning autoencoder → cosine similarity recommendations → LinearSVR price predictor → FastAPI production service.</li>
+      <li><strong>Walk-forward CV</strong> replaces random split to eliminate lookahead bias; standard splits on time-series inflate R² toward 1.0 through data leakage.</li>
+    </ul>
+    <div class="pj-result">R²=0.997 under walk-forward CV &middot; Precision@5 &amp; NDCG@5 &middot; 45 tests</div>
+    <a class="pj-link" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- 2 -->
+  <div class="pj">
+    <p class="pj-cat">Machine Learning &amp; Business Analytics</p>
+    <p class="pj-name">Customer Churn Prediction</p>
+    <p class="pj-tagline">Identifies the 10% of customers most likely to churn, with per-customer SHAP explanations.</p>
+    <hr class="pj-hr">
+    <ul class="pj-list">
+      <li><strong>Business case:</strong> A Telco needed to direct retention spend at highest-risk accounts — raw accuracy on imbalanced data fails as the evaluation criterion.</li>
+      <li><strong>Solution:</strong> XGBoost + SMOTE, evaluated on Precision@K and a net ROI simulation ($50 outreach / $500 revenue recovered). SHAP waterfall charts per customer for the retention team.</li>
+      <li><strong>Precision@K replaces accuracy</strong> — the model is judged on its business intervention, not a classification benchmark with 74% majority-class bias.</li>
+    </ul>
+    <div class="pj-result">67% precision in top 10% &middot; Positive ROI at $50/outreach &middot; SHAP attribution per customer</div>
+    <a class="pj-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- 3 -->
+  <div class="pj">
+    <p class="pj-cat">Public Health &amp; Predictive Modeling</p>
+    <p class="pj-name">CDC Chronic Disease Intelligence</p>
+    <p class="pj-tagline">Clusters 50 US states by disease burden; predicts mortality risk across 20 years of CDC data.</p>
+    <hr class="pj-hr">
+    <ul class="pj-list">
+      <li><strong>Business case:</strong> 900K CDC surveillance records had no systematic structural analysis — and most published models reported inflated accuracy without addressing class imbalance.</li>
+      <li><strong>Solution:</strong> K-Means clustering on row-normalized state profiles, Logistic Regression mortality predictor, Random Forest risk classifier evaluated on macro F1.</li>
+      <li><strong>Macro F1=0.85 reported over raw accuracy</strong> — the dominant Low-risk class (238K records vs. 3 Very High records) makes raw accuracy meaningless; macro F1 weights each class equally.</li>
+    </ul>
+    <div class="pj-result">Silhouette=0.635 &middot; AUC=0.73 &middot; Macro F1=0.85 &middot; 4 state archetypes</div>
+    <a class="pj-link" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+  <!-- 4 -->
+  <div class="pj">
+    <p class="pj-cat">Business Intelligence Engineering</p>
+    <p class="pj-name">GitHub Support Operations Analytics</p>
+    <p class="pj-tagline">BI platform measuring SLA risk and contributor sentiment across GitHub support operations.</p>
+    <hr class="pj-hr">
+    <ul class="pj-list">
+      <li><strong>Business case:</strong> GitHub-scale support teams had no visibility into which repos were damaging contributor retention through slow or frustrating responses — or which open tickets were about to breach SLA.</li>
+      <li><strong>Solution:</strong> SQL Server star schema + SQLAlchemy ETL, VADER NLP sentiment tracking per ticket lifecycle (initial → final → shift delta), 5-tier real-time SLA breach probability model. Power BI dashboard with repo health quadrant.</li>
+      <li><strong>Connected support metrics to retention outcomes</strong> — not just compliance, but repeat contributor conversion rates downstream of each interaction.</li>
+    </ul>
+    <div class="pj-result">12h response predicts 3.5&times; lift in repeat contributors &middot; 12% of repos identified as toxic</div>
+    <a class="pj-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+
+</div>
+
+<!-- ── What I'm working toward ─────────────────────────────────────────────── -->
+<div class="about-prose">
+  <h2>What I'm Working Toward</h2>
+  <p>My longer-term interest is in probabilistic modeling, latent variable methods, LLM applications, and AI agentic systems. The difference between knowing what a model outputs and understanding what it has learned matters when the output drives a real decision. Bayesian inference, deep learning latent representations, and interpretable ML are where I spend time outside of work.</p>
+  <p>I'm building toward roles where statistical modeling and large-scale data intersect with rigorous uncertainty quantification.</p>
+</div>
+
+<!-- ── Education ──────────────────────────────────────────────────────────────── -->
+<div class="about-prose">
+  <h2>Education</h2>
+  <ul>
+    <li>B.A. in Computational and Applied Mathematics — University at Buffalo (2022–2023)</li>
+    <li>Biochemistry and Molecular Biology — University of Houston (2020–2022)</li>
+    <li>A.S. in Chemistry, A.B. in Finance — North Seattle College (2018–2020)</li>
+  </ul>
+</div>
+
+</div>
