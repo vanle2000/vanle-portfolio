@@ -83,6 +83,8 @@ classes: wide
 .n-orb {
   position:absolute; border-radius:50%;
   filter:blur(90px); pointer-events:none;
+  will-change:transform;
+  transform:translateZ(0);
 }
 .n-orb-1 {
   width:520px; height:520px; top:-10%; left:-7%;
@@ -215,6 +217,7 @@ classes: wide
   padding:6rem clamp(2rem,8vw,7rem);
   background:var(--bg0);
   border-top:1px solid var(--bd);
+  overflow:hidden;
 }
 
 .work-list { border-top:1px solid var(--bd); }
@@ -572,7 +575,11 @@ classes: wide
 
 <script>
 (function () {
-  if (!window.IntersectionObserver) return;
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!window.IntersectionObserver) {
+    els.forEach(function (el) { el.classList.add('vis'); });
+    return;
+  }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting) {
@@ -583,8 +590,6 @@ classes: wide
       }
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll('[data-reveal]').forEach(function (el) {
-    io.observe(el);
-  });
+  els.forEach(function (el) { io.observe(el); });
 }());
 </script>
