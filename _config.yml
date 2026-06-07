@@ -7,23 +7,23 @@ minimal_mistakes_skin: "air"
 
 # Site
 locale: "en-US"
-title: "Elizabeth (Van) Le"
-description: "Data Scientist | Data Analyst | Business Intelligence Engineer"
+title: "Van (Elizabeth) Le"
+description: "Business Intelligence Engineer | Data Analyst | Data Scientist"
 url: "https://vanle2000.github.io"
 baseurl: "/vanle-portfolio"
 
 masthead_title: ""
 
-# Author 
+# Author
 author:
-  name: "Elizabeth (Van) Le"
-  avatar: "/assets/images/headshot.jpg" 
-  bio: "Data Scientist | Analytics Engineer | BI Engineer turning data into strategic insights"
+  name: "Van (Elizabeth) Le"
+  avatar: "/assets/images/headshot.jpg"
+  bio: "Business Intelligence Engineer | Data Analyst | Data Scientist"
   location: "Houston, TX"
-  email: "lethaovann28@gmail.com"
+  email: "vanle.vtl2000@gmail.com"
   links:
     - label: "Email"
-      url: "mailto:lethaovann28@gmail.com"
+      url: "mailto:vanle.vtl2000@gmail.com"
     - label: "GitHub"
       url: "https://github.com/vanle2000/"
     - label: "LinkedIn"

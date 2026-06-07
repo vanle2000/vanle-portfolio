@@ -241,7 +241,7 @@ classes: wide
 
 <!-- ── Intro ─────────────────────────────────────────────────────────────────── -->
 <div class="about-intro">
-  <h1>Van Le</h1>
+  <h1>Van (Elizabeth) Le</h1>
   <p>Data Analyst and Scientist based in Houston, TX. At M&amp;T Tax Firm I build reporting pipelines, automate reconciliation workflows, and turn financial records into structured decision support. I'm looking for my next role in data analytics, BI engineering, or data science — problems at scale where rigor is high and the output connects to a real decision.</p>
 </div>
 
