@@ -1,10 +1,40 @@
-﻿---
-title: "Projects"
+---
+title: ""
 permalink: /projects/
 layout: single
 author_profile: false
 classes: wide
 ---
+
+<style>
+.projects-page-wrap {
+  padding: 3rem clamp(2rem, 8vw, 7rem) 5rem;
+  background: #FDFAF5;
+}
+
+/* Page header */
+.proj-page-header {
+  margin-bottom: 2.5rem;
+}
+.proj-page-header h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  font-weight: 800;
+  color: #1C1410;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 0.4rem;
+}
+.proj-page-header p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #A89888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+</style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,20 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <div class="projects-page-wrap">
 
-<!-- Category filter tabs -->
-<div class="cat-filter">
-  <button class="cat-btn active" data-cat="all">All Projects</button>
-  <button class="cat-btn" data-cat="bi">BI &amp; Product Analytics</button>
-  <button class="cat-btn" data-cat="ml">ML &amp; Predictive Modeling</button>
-  <button class="cat-btn" data-cat="de">Data Engineering</button>
-  <button class="cat-btn" data-cat="exp">Experimentation &amp; Statistics</button>
-  <button class="cat-btn" data-cat="viz">Data Visualization</button>
+<div class="proj-page-header">
+  <h1>Projects</h1>
+  <p>End-to-end data projects across BI engineering, ML, and data pipelines</p>
 </div>
 
-<!-- ── Business Intelligence & Product Analytics ──────────────────────────── -->
+<!-- Filter tabs -->
+<div class="cat-filter">
+  <button class="cat-btn active" data-cat="all">All Projects</button>
+  <button class="cat-btn" data-cat="bi">BI &amp; Analytics</button>
+  <button class="cat-btn" data-cat="ml">Machine Learning</button>
+  <button class="cat-btn" data-cat="de">Data Engineering</button>
+  <button class="cat-btn" data-cat="exp">Experimentation</button>
+  <button class="cat-btn" data-cat="viz">Visualization</button>
+</div>
+
+<!-- Business Intelligence -->
 <div class="cat-section" data-cat="bi">
   <div class="cat-header">
-    <span class="cat-label">Business Intelligence &amp; Product Analytics</span>
+    <span class="cat-label">Business Intelligence &amp; Analytics</span>
     <span class="cat-line"></span>
     <span class="cat-count">1 project</span>
   </div>
@@ -68,17 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Business Intelligence Engineering</p>
       <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/github-analytics/">
-          GitHub Support Operations Analytics
-        </a>
+        <a href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">GitHub Support Operations Analytics</a>
       </h3>
       <p class="proj-card__desc">
         End-to-end BI platform on a SQL Server star schema with ETL via SQLAlchemy.
-        VADER NLP tracks sentiment shift across issue lifecycles to flag frustrated contributors.
-        A statistical SLA breach probability model scores all open tickets in real time across five risk tiers.
-        Power BI dashboard with quadrant scatter analysis of repository health versus contributor retention.
+        VADER NLP tracks sentiment change across issue lifecycles to flag frustrated contributors.
+        A statistical SLA breach model scores open tickets in real time across five risk tiers.
+        Power BI dashboard with quadrant analysis of repository health versus contributor retention.
       </p>
-      <div class="proj-card__result">12-hour response threshold predicts 3.5x lift in repeat contributor rate &middot; 12% of repos identified as toxic</div>
+      <div class="proj-card__result">12h response threshold predicts 3.5x lift in repeat contributor rate &middot; 12% of repos identified as SLA-toxic</div>
       <div class="proj-card__tags">
         <span class="ptag">SQL Server</span>
         <span class="ptag">SQLAlchemy</span>
@@ -89,16 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Python</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">
-          GitHub &#8594;
-        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank">GitHub &#8594;</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ── Machine Learning & Predictive Modeling ─────────────────────────────── -->
+<!-- Machine Learning -->
 <div class="cat-section" data-cat="ml">
   <div class="cat-header">
     <span class="cat-label">Machine Learning &amp; Predictive Modeling</span>
@@ -111,16 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Public Health &amp; Risk Classification</p>
       <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/chronic-disease/">
-          Chronic Disease Risk Intelligence
-        </a>
+        <a href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">Chronic Disease Risk Intelligence</a>
       </h3>
       <p class="proj-card__desc">
-        20-year CDC surveillance pipeline across 900K records and 50 states. State-level K-Means clustering
-        on row-normalized disease profiles. Logistic Regression mortality predictor and Random Forest
-        risk classifier with honest imbalance-aware evaluation, macro F1, not misleading raw accuracy.
+        20-year CDC surveillance pipeline across 900K records and 50 states.
+        State-level K-Means clustering on row-normalized disease profiles.
+        Logistic Regression mortality predictor and Random Forest risk classifier
+        evaluated on macro F1, not raw accuracy, to avoid misleading results on imbalanced data.
       </p>
-      <div class="proj-card__result">Silhouette=0.635 &middot; Mortality AUC=0.73 &middot; Macro F1=0.85 (not 0.9999 raw accuracy)</div>
+      <div class="proj-card__result">Silhouette=0.635 &middot; Mortality AUC=0.73 &middot; Macro F1=0.85</div>
       <div class="proj-card__tags">
         <span class="ptag">Random Forest</span>
         <span class="ptag">KMeans</span>
@@ -129,9 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Scikit-learn</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">
-          GitHub &#8594;
-        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank">GitHub &#8594;</a>
       </div>
     </div>
 
@@ -139,17 +167,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Statistical ML &amp; Sports Analytics</p>
       <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/marathon-performance/">
-          Marathon Performance Analysis
-        </a>
+        <a href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">Marathon Performance Analysis</a>
       </h3>
       <p class="proj-card__desc">
         26,000 Boston Marathon runners. Custom KDEBayesClassifier using Gaussian KDE and Bayes theorem
-        for gender classification. 2-D KDE (finish time and age) outperforms 1-D by 12pp.
-        Linear regression from 5K split achieves R&#178;=0.85, adding age and gender barely moves the number,
-        which is itself the key finding.
+        for gender classification. 2-D KDE on finish time and age outperforms 1-D by 12 percentage points.
+        Linear regression from the 5K split achieves R&#178;=0.85; adding age and gender barely moves it,
+        which is the main finding.
       </p>
-      <div class="proj-card__result">2-D KDE accuracy=77.5% &middot; Linear regression R&#178;=0.85 &middot; 26 unit tests</div>
+      <div class="proj-card__result">2-D KDE accuracy 77.5% &middot; Linear regression R&#178;=0.85 &middot; 26 unit tests</div>
       <div class="proj-card__tags">
         <span class="ptag">SciPy KDE</span>
         <span class="ptag">Bayes Theorem</span>
@@ -158,9 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">SGD</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">
-          GitHub &#8594;
-        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Analysis-marathon-result-and-predict-performance-of-runners" target="_blank">GitHub &#8594;</a>
       </div>
     </div>
 
@@ -168,17 +192,15 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Deep Learning &amp; Recommendation</p>
       <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/stock-recommendation/">
-          Stock Recommendation System
-        </a>
+        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">Stock Recommendation System</a>
       </h3>
       <p class="proj-card__desc">
         LinearSVR price predictor on PCA-compressed technical indicators with walk-forward cross-validation.
         Deep learning autoencoder encodes stock behavioral profiles into latent space; cosine similarity
-        drives content-based recommendations. Deployed as a FastAPI REST service with Precision@5 and
-        NDCG@5 offline evaluation metrics.
+        drives content-based recommendations. FastAPI REST service with Precision@5 and NDCG@5
+        offline evaluation.
       </p>
-      <div class="proj-card__result">LinearSVR R&#178;=0.997 under walk-forward CV &middot; FastAPI production &middot; 45 tests</div>
+      <div class="proj-card__result">LinearSVR R&#178;=0.997 under walk-forward CV &middot; FastAPI production service &middot; 45 tests</div>
       <div class="proj-card__tags">
         <span class="ptag">LinearSVR</span>
         <span class="ptag">Autoencoder</span>
@@ -187,19 +209,17 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">Walk-forward CV</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          GitHub &#8594;
-        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">GitHub &#8594;</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ── Data Engineering & ETL Pipeline ───────────────────────────────────── -->
+<!-- Data Engineering -->
 <div class="cat-section" data-cat="de">
   <div class="cat-header">
-    <span class="cat-label">Data Engineering &amp; ETL Pipeline</span>
+    <span class="cat-label">Data Engineering &amp; ETL</span>
     <span class="cat-line"></span>
     <span class="cat-count">1 project</span>
   </div>
@@ -209,16 +229,13 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="proj-card__accent"></div>
       <p class="proj-card__type">Large-scale Data Pipeline</p>
       <h3 class="proj-card__title">
-        <a href="/vanle-portfolio/projects/stock-recommendation/">
-          Stock Market Data Pipeline
-        </a>
+        <a href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">Stock Market Data Pipeline</a>
       </h3>
       <p class="proj-card__desc">
-        PySpark distributed ingestion of 10M+ OHLCV records across 3,600+ NASDAQ tickers.
-        Merged historical price data with NASDAQ ticker metadata (sector, industry, market cap).
-        Engineered 20+ technical indicators (SMA, EMA, RSI, MACD, Bollinger Bands, Ichimoku, ATR, OBV).
+        PySpark ingestion of 10M+ OHLCV records across 3,600+ NASDAQ tickers.
+        Merged historical price data with ticker metadata including sector, industry, and market cap.
+        Engineered 20+ technical indicators including SMA, EMA, RSI, MACD, Bollinger Bands, and ATR.
         PCA compression of 20+ features to 5 principal components for downstream modeling.
-        Deployed as a FastAPI REST service with Docker containerization.
       </p>
       <div class="proj-card__result">10M+ records &middot; PySpark distributed processing &middot; 20+ indicators &middot; Docker deployment</div>
       <div class="proj-card__tags">
@@ -230,16 +247,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="ptag">NASDAQ API</span>
       </div>
       <div class="proj-card__footer">
-        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">
-          GitHub &#8594;
-        </a>
+        <a class="proj-link proj-link--gh" href="https://github.com/vanle2000/Stock-based-Recommendation-System" target="_blank">GitHub &#8594;</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- ── Experimentation & Statistical Inference ───────────────────────────── -->
+<!-- Experimentation -->
 <div class="cat-section" data-cat="exp">
   <div class="cat-header">
     <span class="cat-label">Experimentation &amp; Statistical Inference</span>
@@ -249,14 +264,15 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="proj-grid">
 
     <div class="proj-card in-progress">
-      <div class="proj-card__type">Causal Inference &amp; A/B Testing</div>
+      <p class="proj-card__type">Causal Inference &amp; A/B Testing</p>
       <h3 class="proj-card__title">Experimentation Framework</h3>
       <p class="proj-card__desc">
-        An end-to-end experiment design and analysis system for business and operational settings.
-        Covers power analysis, randomization strategies, difference-in-differences, regression discontinuity,
-        and sequential testing. Designed for settings where randomization is constrained and decisions carry real costs.
+        An end-to-end experiment design and analysis system for business settings.
+        Covers power analysis, randomization strategies, difference-in-differences,
+        regression discontinuity, and sequential testing.
+        Built for settings where randomization is constrained and decisions carry real costs.
       </p>
-      <div class="proj-card__result">In progress &middot; Causal inference &middot; A/B testing &middot; Statistical rigor in applied settings</div>
+      <div class="proj-card__result">In progress &middot; Causal inference &middot; A/B testing &middot; Applied statistics</div>
       <div class="proj-card__tags">
         <span class="ptag">Python</span>
         <span class="ptag">Statsmodels</span>
@@ -271,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
-<!-- ── Data Visualization ────────────────────────────────────────────────── -->
+<!-- Visualization -->
 <div class="cat-section" data-cat="viz">
   <div class="cat-header">
     <span class="cat-label">Data Visualization</span>
@@ -281,13 +297,12 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="proj-grid">
 
     <div class="proj-card in-progress">
-      <div class="proj-card__type">Interactive Dashboard</div>
+      <p class="proj-card__type">Interactive Dashboard</p>
       <h3 class="proj-card__title">Tableau Public Health Dashboard</h3>
       <p class="proj-card__desc">
         Interactive Tableau dashboard for the CDC Chronic Disease Indicators dataset.
-        State-level choropleth maps, 20-year disease trend lines, demographic breakdowns by
-        race and gender, and risk tier distribution across all 50 states.
-        Designed for public health analysts to identify high-priority intervention targets.
+        State-level choropleth maps, 20-year disease trend lines, demographic breakdowns by race and gender,
+        and risk tier distribution across all 50 states.
       </p>
       <div class="proj-card__result">In progress &middot; CDC CDI &middot; 900K records &middot; 50 states &middot; 2001&#8211;2021</div>
       <div class="proj-card__tags">
@@ -304,4 +319,15 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 
-</div><!-- /projects-page-wrap -->
+<!-- CTA -->
+<div class="page-cta" style="margin:3rem 0 0;">
+  <p class="page-cta__title">Let's get in touch!</p>
+  <p class="page-cta__desc">Always excited to discuss new opportunities, collaborate on projects, or have a coffee chat.</p>
+  <div class="page-cta__links">
+    <a class="page-cta__link" href="mailto:vanle.vtl2000@gmail.com">vanle.vtl2000@gmail.com</a>
+    <a class="page-cta__link" href="https://www.linkedin.com/in/elizabethvanle/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="page-cta__link" href="https://github.com/vanle2000" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+
+</div>

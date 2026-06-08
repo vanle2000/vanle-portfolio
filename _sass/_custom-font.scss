@@ -535,6 +535,65 @@ tbody tr:hover td { background: rgba(122,40,56,.03); }
   border-bottom: 1px solid #EAE0CE;
 }
 
+// ── Page CTA (Let's get in touch) ─────────────────────────────────────────────
+.page-cta {
+  margin-top: 4rem;
+  padding: 2.5rem 2rem;
+  background: #F4EDE0;
+  border: 1px solid #EAE0CE;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.page-cta__title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1C1410;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.page-cta__desc {
+  font-size: 0.88rem;
+  color: #7A6A5A;
+  line-height: 1.72;
+  margin: 0 0 1.5rem;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-cta__links {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.page-cta__link {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #7A2838;
+  text-decoration: none;
+  padding: 0.55rem 1.15rem;
+  border-radius: 6px;
+  background: #FDFAF5;
+  border: 1.5px solid rgba(122,40,56,.2);
+  transition: background 0.2s, color 0.2s, border-color 0.2s,
+              transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+}
+
+.page-cta__link:hover {
+  background: #7A2838;
+  color: #FDFAF5;
+  border-color: #7A2838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(122,40,56,.22);
+  text-decoration: none;
+}
+
 // ── Reduced motion ────────────────────────────────────────────────────────────
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

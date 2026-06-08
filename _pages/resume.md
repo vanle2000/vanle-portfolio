@@ -174,7 +174,7 @@ classes: wide
     <iframe
       class="pdf-frame"
       src="{{ site.baseurl }}/assets/files/VanLe_DataScientist_resume.pdf"
-      title="Van (Elizabeth) Le — Data Scientist Resume"
+      title="Van (Elizabeth) Le, Data Scientist Resume"
       aria-label="Resume PDF viewer">
       <div class="pdf-fallback">
         <p>Your browser does not support inline PDF viewing.</p>

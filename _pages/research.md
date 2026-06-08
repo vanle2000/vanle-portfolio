@@ -1,5 +1,5 @@
 ---
-title: "Research"
+title: ""
 permalink: /research/
 layout: single
 author_profile: false
@@ -7,357 +7,192 @@ classes: wide
 ---
 
 <style>
-/* ── Page container ────────────────────────────────────────────────────────── */
+/* ── Page layout ───────────────────────────────────────────────────────────── */
 .research-wrap {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 3.5rem clamp(2rem, 6vw, 4rem) 5rem;
+  max-width: 70%;
+  margin: 3rem auto 5rem;
+  padding: 0;
 }
 
 /* ── Section labels ────────────────────────────────────────────────────────── */
-.rs-label {
+.rs-lbl {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.63rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #7A2838;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #EAE0CE;
-  margin: 0 0 2rem;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.85rem;
+  margin: 0 0 2rem;
 }
-.rs-label::after {
+.rs-lbl::after {
   content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, rgba(122,40,56,.18) 0%, transparent 100%);
-  border: none;
-  padding: 0;
 }
 
-/* ── Research statement ────────────────────────────────────────────────────── */
-.interest-statement { margin-bottom: 3rem; }
-
-.interest-statement__lead {
-  font-size: 0.97rem;
+/* ── Page intro ─────────────────────────────────────────────────────────────── */
+.rs-intro {
+  font-size: 0.96rem;
   line-height: 1.82;
   color: #4A3C34;
-  max-width: 720px;
-  margin: 0 0 1.5rem;
+  max-width: 640px;
+  margin: 0 0 2.75rem;
 }
 
-/* ── Focus grid (other interests) ─────────────────────────────────────────── */
-.focus-grid {
+/* ── Research interest 2x2 grid ────────────────────────────────────────────── */
+.int-2x2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
 }
 
-.focus-item {
-  display: flex;
-  gap: 1rem;
-  padding: 1.1rem 1.2rem;
+.ri-card {
+  background: #FDFAF5;
   border: 1px solid #EAE0CE;
-  border-radius: 8px;
-  background: #FDFAF5;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.focus-item:hover {
-  border-color: rgba(122,40,56,.25);
-  box-shadow: 0 4px 16px rgba(122,40,56,.07);
-}
-
-.focus-num {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.67rem;
-  font-weight: 700;
-  color: #7A2838;
-  letter-spacing: 0.05em;
-  flex-shrink: 0;
-  padding-top: 0.1rem;
-}
-
-.focus-title {
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: #1C1410;
-  margin: 0 0 0.35rem;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.focus-desc {
-  font-size: 0.78rem;
-  color: #7A6A5A;
-  line-height: 1.62;
-  margin: 0;
-}
-
-/* ── Human-AI Collaboration featured section ───────────────────────────────── */
-.hai-section {
-  border: 1px solid rgba(122,40,56,.18);
-  border-radius: 12px;
-  padding: 2rem 2.25rem;
-  background: #FDFAF5;
-  margin-bottom: 3rem;
-  position: relative;
+  border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .25s, box-shadow .25s,
+              transform .25s cubic-bezier(.34,1.2,.64,1);
 }
-
-.hai-section::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #7A2838, #2C4A3E);
-  border-radius: 12px 12px 0 0;
-}
-
-.hai-eyebrow {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #7A2838;
-  margin: 0 0 0.5rem;
-}
-
-.hai-title {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #1C1410;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  margin: 0 0 1.4rem;
-}
-
-.hai-lead {
-  font-size: 0.94rem;
-  line-height: 1.82;
-  color: #4A3C34;
-  margin: 0 0 0.85rem;
-  max-width: 700px;
-}
-
-.hai-lead strong { color: #1C1410; font-weight: 600; }
-
-/* ── Why it matters callout ────────────────────────────────────────────────── */
-.hai-why {
-  background: #F4EDE0;
-  border-left: 2px solid #7A2838;
-  border-radius: 0 6px 6px 0;
-  padding: 0.9rem 1.15rem;
-  margin: 1.25rem 0 1.5rem;
-}
-
-.hai-why p {
-  font-size: 0.85rem;
-  color: #4A3C34;
-  line-height: 1.72;
-  margin: 0;
-}
-
-.hai-why strong { color: #7A2838; font-weight: 600; }
-
-/* ── 4D Framework grid ─────────────────────────────────────────────────────── */
-.hai-sub {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #A89888;
-  margin: 0 0 1rem;
-}
-
-.four-d {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-
-.d-card {
-  padding: 1.05rem 1.15rem;
-  border: 1px solid #EAE0CE;
-  border-radius: 8px;
-  background: #ffffff;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.d-card:hover {
-  border-color: rgba(44,74,62,.3);
+.ri-card:hover {
+  border-color: rgba(122,40,56,.25);
+  box-shadow: 0 6px 24px rgba(122,40,56,.08);
   transform: translateY(-2px);
 }
 
-.d-header {
+/* Visualization area */
+.ri-viz {
+  padding: 1.2rem 1.5rem 0.9rem;
+  background: #F4EDE0;
+  border-bottom: 1px solid #EAE0CE;
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  margin-bottom: 0.45rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.d-letter {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #2C4A3E;
-  line-height: 1;
-  flex-shrink: 0;
-}
+/* Body */
+.ri-body { padding: 1.3rem 1.45rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
 
-.d-name {
-  font-size: 0.85rem;
+.ri-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #7A2838;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.38rem;
+}
+.ri-title {
+  font-size: 0.94rem;
   font-weight: 700;
   color: #1C1410;
+  margin: 0 0 0.75rem;
   letter-spacing: -0.01em;
+  line-height: 1.25;
 }
-
-.d-desc {
-  font-size: 0.77rem;
-  color: #7A6A5A;
-  line-height: 1.6;
+.ri-desc {
+  font-size: 0.81rem;
+  color: #4A3C34;
+  line-height: 1.74;
   margin: 0;
+  flex: 1;
 }
-
-/* ── Research directions ───────────────────────────────────────────────────── */
-.hai-directions {
-  border-top: 1px solid #EAE0CE;
-  padding-top: 1.25rem;
-  margin-top: 0;
+.ri-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.9rem;
 }
-
-.hai-directions-title {
+.ri-tag {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #A89888;
-  margin: 0 0 1rem;
+  font-size: 0.59rem;
+  font-weight: 500;
+  color: #7A6A5A;
+  background: #EAE0CE;
+  border-radius: 3px;
+  padding: 0.18rem 0.5rem;
 }
 
-.direction-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* ── Research experience timeline ──────────────────────────────────────────── */
+.exp-list {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0;
+  margin-bottom: 3.5rem;
 }
 
-.direction-list li {
-  display: flex;
-  gap: 0.7rem;
-  font-size: 0.83rem;
-  color: #4A3C34;
-  line-height: 1.62;
+.exp-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 0 1.75rem;
+  padding-bottom: 2.25rem;
 }
 
-.direction-list li::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #7A2838;
-  flex-shrink: 0;
-  margin-top: 0.6em;
+.exp-period {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.67rem;
+  color: #A89888;
+  text-align: right;
+  padding-top: 0.12rem;
+  white-space: nowrap;
+  line-height: 1.5;
 }
 
-.direction-list li strong { color: #1C1410; font-weight: 600; }
-
-/* ── Lab cards ─────────────────────────────────────────────────────────────── */
-.lab-card {
-  border: 1px solid #EAE0CE;
-  border-radius: 10px;
-  padding: 1.6rem 1.75rem;
-  margin-bottom: 1.25rem;
-  background: #FDFAF5;
-}
-
-.lab-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
-  flex-wrap: wrap;
-}
-
-.lab-card__name {
-  font-size: 1rem;
+.exp-lab {
+  font-size: 0.95rem;
   font-weight: 700;
   color: #1C1410;
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.15rem;
   letter-spacing: -0.01em;
 }
-
-.lab-card__name a {
+.exp-lab a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1.5px solid rgba(122,40,56,.25);
+  border-bottom: 1.5px solid rgba(122,40,56,.2);
   transition: color 0.15s, border-color 0.15s;
 }
+.exp-lab a:hover { color: #7A2838; border-color: #7A2838; }
 
-.lab-card__name a:hover { color: #7A2838; border-color: #7A2838; }
-
-.lab-card__pi { font-size: 0.8rem; color: #7A6A5A; margin: 0; }
-.lab-card__pi a { color: #7A2838; text-decoration: none; }
-.lab-card__pi a:hover { text-decoration: underline; }
-
-.lab-card__meta { text-align: right; flex-shrink: 0; }
-
-.lab-card__period {
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #A89888;
-  background: #F4EDE0;
-  border: 1px solid #EAE0CE;
-  border-radius: 4px;
-  padding: 0.2rem 0.6rem;
-  white-space: nowrap;
+.exp-meta {
+  font-size: 0.77rem;
+  color: #7A6A5A;
+  margin: 0 0 0.95rem;
+  line-height: 1.45;
 }
 
-.lab-card__role { font-size: 0.73rem; color: #7A6A5A; margin-top: 0.3rem; text-align: right; }
-
-/* ── Research list ─────────────────────────────────────────────────────────── */
-.research-list {
+.exp-items {
   list-style: none;
   padding: 0; margin: 0;
   display: flex; flex-direction: column; gap: 0.65rem;
 }
 
-.research-list li {
-  display: flex;
-  gap: 0.75rem;
-  font-size: 0.86rem;
+.exp-item-title {
+  font-size: 0.79rem;
+  font-weight: 600;
   color: #4A3C34;
-  line-height: 1.65;
+  margin: 0 0 0.18rem;
+  line-height: 1.35;
 }
 
-.research-list li::before {
-  content: "";
-  width: 5px; height: 5px; border-radius: 50%;
-  background: #7A2838;
-  flex-shrink: 0; margin-top: 0.6rem;
+.exp-item-desc {
+  font-size: 0.79rem;
+  color: #7A6A5A;
+  line-height: 1.62;
+  margin: 0;
 }
-
-.research-list li strong { color: #1C1410; font-weight: 600; }
 
 /* ── Publications ──────────────────────────────────────────────────────────── */
-.pub-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3rem; }
+.pub-list { display: flex; flex-direction: column; gap: 1rem; }
 
 .pub-card {
   border-left: 2px solid #7A2838;
-  padding: 0.9rem 1.1rem;
+  padding: 0.85rem 1.1rem;
   background: #FDFAF5;
   border-radius: 0 8px 8px 0;
   border-top: 1px solid #EAE0CE;
@@ -365,262 +200,258 @@ classes: wide
   border-bottom: 1px solid #EAE0CE;
 }
 
-.pub-card.pending { border-left-color: #C4784A; }
-
-.pub-card__title { font-size: 0.88rem; font-weight: 700; color: #1C1410; margin: 0 0 0.25rem; line-height: 1.4; }
-.pub-card__title a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(122,40,56,.22); transition: color 0.15s; }
-.pub-card__title a:hover { color: #7A2838; }
-
-.pub-card__authors { font-size: 0.78rem; color: #7A6A5A; margin: 0 0 0.25rem; line-height: 1.5; }
-.pub-card__authors strong { color: #4A3C34; font-weight: 600; }
-
-.pub-card__venue { font-size: 0.76rem; color: #A89888; margin: 0; }
-.pub-card__venue em { font-style: italic; color: #7A6A5A; }
-
-.pub-badge {
-  display: inline-block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.62rem; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: uppercase;
-  padding: 0.15rem 0.5rem; border-radius: 4px;
-  margin-left: 0.4rem; vertical-align: middle;
+.pub-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1C1410;
+  margin: 0 0 0.22rem;
+  line-height: 1.4;
 }
+.pub-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(122,40,56,.2);
+  transition: color 0.15s;
+}
+.pub-title a:hover { color: #7A2838; }
 
-.pub-badge.under-review { background: rgba(196,120,74,.08); color: #7A2838; border: 1px solid rgba(196,120,74,.25); }
-.pub-badge.published { background: rgba(44,74,62,.07); color: #2C4A3E; border: 1px solid rgba(44,74,62,.25); }
+.pub-authors { font-size: 0.77rem; color: #7A6A5A; margin: 0 0 0.2rem; }
+.pub-authors strong { color: #4A3C34; font-weight: 600; }
+
+.pub-venue { font-size: 0.75rem; color: #A89888; margin: 0; }
+.pub-venue em { font-style: italic; color: #7A6A5A; }
 
 /* ── Responsive ────────────────────────────────────────────────────────────── */
-@media (max-width: 700px) {
-  .focus-grid { grid-template-columns: 1fr; }
-  .four-d { grid-template-columns: 1fr; }
-  .lab-card__header { flex-direction: column; }
-  .lab-card__meta { text-align: left; }
-  .lab-card__role { text-align: left; }
-  .hai-section { padding: 1.5rem; }
+@media (max-width: 900px) {
+  .research-wrap { max-width: 90%; }
+  .int-2x2 { grid-template-columns: 1fr; }
+  .exp-row { grid-template-columns: 70px 1fr; gap: 0 1.2rem; }
+}
+@media (max-width: 560px) {
+  .research-wrap { max-width: 95%; margin: 2rem auto 4rem; }
+  .exp-row { grid-template-columns: 1fr; gap: 0.3rem 0; }
+  .exp-period { text-align: left; }
 }
 </style>
 
 <div class="research-wrap">
 
+<p class="rs-intro">I work on applied problems where statistical methods and human judgment intersect. The questions I find most useful are the ones that connect a technical choice to whether an organization makes a better or worse decision.</p>
+
 <!-- ── Research Interests ──────────────────────────────────────────────────── -->
-<p class="rs-label">Research Interests</p>
+<span class="rs-lbl">Research Interests</span>
 
-<div class="interest-statement">
-  <p class="interest-statement__lead">
-    My research direction centers on how data systems, AI tools, and the people who use them jointly produce — or fail to produce — reliable, actionable decisions. The problems I find most tractable sit at the boundary between statistical methodology and the organizational and cognitive realities of applied analytics.
-  </p>
-</div>
+<div class="int-2x2">
 
-<!-- ── Human-AI Collaboration — Featured ───────────────────────────────────── -->
-<div class="hai-section">
-
-  <p class="hai-eyebrow">Primary Research Interest</p>
-  <h2 class="hai-title">Human-AI Collaboration in Analytics Workflows</h2>
-
-  <p class="hai-lead">
-    The hypothesis driving this line of work is that <strong>effective human-AI collaboration in analytics is not primarily a technical problem — it is a competency problem.</strong> As AI automates an expanding share of the execution layer in data workflows — feature engineering, model selection, code generation, narrative summarization — the bottleneck shifts from whether analysts can perform these tasks to whether they can <em>direct, evaluate, and govern</em> AI-assisted performance of them. That shift is under-studied and under-prepared for at both the individual and organizational level.
-  </p>
-
-  <p class="hai-lead">
-    Most organizations are deploying AI in analytics workflows without frameworks for assessing whether their teams can effectively use them. Capability evaluations focus on tool familiarity, not on the underlying skills that determine whether tool use produces reliable outputs. The result is a predictable failure mode: pipelines that look AI-enabled but whose outputs have quietly degraded because no one maintained the critical human contributions at scale.
-  </p>
-
-  <div class="hai-why">
-    <p>
-      <strong>Why this matters in HCI:</strong> Prior work in human-automation interaction (Parasuraman &amp; Riley, 1997; Bainbridge, 1983) established that removing humans from routine tasks does not eliminate their cognitive role — it changes it. In analytics, this manifests as a shift from execution to oversight. But oversight is not a passive or automatic skill. It requires the analyst to maintain an accurate model of what the AI is doing, when to trust its outputs, and when to intervene. HCI research has a structural role to play in understanding how that oversight capability can be measured, developed, and supported through interface design.
-    </p>
+  <!-- 01 Causal Inference -->
+  <div class="ri-card">
+    <div class="ri-viz">
+      <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <marker id="ci-a1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3z" fill="#7A2838"/>
+          </marker>
+          <marker id="ci-a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3z" fill="#D4C8B8"/>
+          </marker>
+        </defs>
+        <!-- Confounder (top center) -->
+        <circle cx="88" cy="20" r="15" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
+        <text x="88" y="25" text-anchor="middle" font-size="9" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Z</text>
+        <!-- Treatment (bottom left) -->
+        <circle cx="30" cy="72" r="15" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
+        <text x="30" y="77" text-anchor="middle" font-size="9" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">T</text>
+        <!-- Outcome (bottom right) -->
+        <circle cx="146" cy="72" r="15" fill="rgba(44,74,62,.1)" stroke="rgba(44,74,62,.3)" stroke-width="1.5"/>
+        <text x="146" y="77" text-anchor="middle" font-size="9" fill="#2C4A3E" font-family="IBM Plex Mono, monospace">Y</text>
+        <!-- Z to T dashed -->
+        <line x1="76" y1="31" x2="41" y2="61" stroke="#D4C8B8" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
+        <!-- Z to Y dashed -->
+        <line x1="100" y1="31" x2="135" y2="61" stroke="#D4C8B8" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
+        <!-- T to Y solid (causal path) -->
+        <line x1="46" y1="72" x2="130" y2="72" stroke="#7A2838" stroke-width="1.5" marker-end="url(#ci-a1)"/>
+        <!-- causal label -->
+        <text x="88" y="85" text-anchor="middle" font-size="7" fill="#A89888" font-family="IBM Plex Mono, monospace">causal effect</text>
+      </svg>
+    </div>
+    <div class="ri-body">
+      <p class="ri-num">01</p>
+      <p class="ri-title">Causal Inference &amp; Experiment Design</p>
+      <p class="ri-desc">Most analytics tells you what happened. Causal inference tells you what caused it, and whether an action would change an outcome.<br><br>Standard correlation analysis cannot answer whether a retention program reduced churn or whether churned customers simply were not the ones enrolled. Without identifying the causal structure, decisions based on correlations fail when tested.<br><br>I work with methods that estimate causal effects when randomized experiments are not possible: difference-in-differences for comparing trends before and after an intervention, regression discontinuity for threshold-based decisions, and matching methods for observational data where treatment assignment was not random. The goal is producing estimates an organization can act on with some confidence they reflect real effects, not confounding.</p>
+    </div>
   </div>
 
-  <p class="hai-sub">The 4D Framework: Core Competencies for Effective AI Collaboration</p>
-
-  <div class="four-d">
-
-    <div class="d-card">
-      <div class="d-header">
-        <span class="d-letter">D</span>
-        <span class="d-name">Delegation</span>
+  <!-- 02 Human-AI Collaboration -->
+  <div class="ri-card">
+    <div class="ri-viz">
+      <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <marker id="hai-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L6,3z" fill="#A89888"/>
+          </marker>
+        </defs>
+        <!-- Human circle -->
+        <circle cx="38" cy="36" r="26" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
+        <text x="38" y="41" text-anchor="middle" font-size="12" fill="#4A3C34" font-weight="700" font-family="Inter, sans-serif">H</text>
+        <!-- AI circle -->
+        <circle cx="138" cy="36" r="26" fill="rgba(44,74,62,.1)" stroke="rgba(44,74,62,.28)" stroke-width="1.5"/>
+        <text x="138" y="41" text-anchor="middle" font-size="11" fill="#2C4A3E" font-weight="700" font-family="Inter, sans-serif">AI</text>
+        <!-- Arrows -->
+        <line x1="65" y1="32" x2="111" y2="32" stroke="#A89888" stroke-width="1.2" marker-end="url(#hai-r)"/>
+        <line x1="111" y1="40" x2="65" y2="40" stroke="#A89888" stroke-width="1.2" marker-end="url(#hai-r)"/>
+        <!-- 4D labels -->
+        <text x="8" y="76" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Delegation</text>
+        <text x="8" y="87" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Description</text>
+        <text x="103" y="76" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Discernment</text>
+        <text x="103" y="87" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Diligence</text>
+      </svg>
+    </div>
+    <div class="ri-body">
+      <p class="ri-num">02</p>
+      <p class="ri-title">Human-AI Collaboration in Analytics</p>
+      <p class="ri-desc">AI tools now handle tasks that used to require analyst effort: writing queries, generating charts, flagging anomalies, summarizing data. This changes what analysts need to be good at, not whether they are needed.<br><br>The skills that become more important are not technical. They are about working with AI effectively: knowing what to hand off, writing clear enough instructions that the AI does the right thing, catching errors in output that look correct but are not, and maintaining the same quality standards you would apply if you had done the work yourself.<br><br>I am interested in how these skills develop, how they differ across people, and whether analytics tool design makes them easier or harder to practice.</p>
+      <div class="ri-tags">
+        <span class="ri-tag">Delegation</span>
+        <span class="ri-tag">Description</span>
+        <span class="ri-tag">Discernment</span>
+        <span class="ri-tag">Diligence</span>
       </div>
-      <p class="d-desc">
-        The capacity to allocate tasks appropriately between human judgment and AI execution — informed by an accurate mental model of what AI does well, where it fails silently, and what the downstream cost of errors is per task type. Miscalibrated delegation is a root failure: over-delegation transfers judgment to a system that cannot reliably exercise it; under-delegation leaves value on the table and creates bottlenecks.
-      </p>
-    </div>
-
-    <div class="d-card">
-      <div class="d-header">
-        <span class="d-letter">D</span>
-        <span class="d-name">Description</span>
-      </div>
-      <p class="d-desc">
-        The ability to formulate analytical intent as a precise, unambiguous specification — defining the question, the data context, the acceptance criteria, and anticipated edge cases. This is not "prompt engineering" in a shallow sense; it is an epistemic skill about how to communicate intent across a representation gap. Poor description means garbage-in at the task allocation level, independent of the AI's capabilities.
-      </p>
-    </div>
-
-    <div class="d-card">
-      <div class="d-header">
-        <span class="d-letter">D</span>
-        <span class="d-name">Discernment</span>
-      </div>
-      <p class="d-desc">
-        Critical evaluation of AI-generated outputs — detecting when outputs are plausible but incorrect, contextually inappropriate, or missing important nuance. Discernment requires domain knowledge (to recognize violations of business logic or statistical assumptions) and epistemic calibration (to resist the seductiveness of confident, well-formatted AI outputs). It is the competency most eroded by automation complacency.
-      </p>
-    </div>
-
-    <div class="d-card">
-      <div class="d-header">
-        <span class="d-letter">D</span>
-        <span class="d-name">Diligence</span>
-      </div>
-      <p class="d-desc">
-        Sustained quality maintenance in a high-automation environment. Automation complacency — the gradual erosion of vigilance as AI handles routine work — is a documented failure mode in aviation, medical imaging, and process control (Parasuraman et al., 2010). The question is whether analytics is structurally vulnerable to the same dynamic, and what practices, interfaces, and team norms prevent quality degradation as workflows become more AI-mediated.
-      </p>
-    </div>
-
-  </div>
-
-  <div class="hai-directions">
-    <p class="hai-directions-title">Research Directions — What Would Make This Happen</p>
-    <ul class="direction-list">
-      <li>
-        <strong>Operationalization and measurement.</strong> Translate each competency into behavioral indicators measurable through think-aloud protocols, log analysis, and output quality scoring. Develop and validate a 4D Competency Scale (4DCS) as a psychometric instrument usable in field settings.
-      </li>
-      <li>
-        <strong>Controlled experiments linking competency to quality.</strong> Design analytical tasks where ground-truth output quality is measurable. Assign participants with varied 4D competency profiles to AI-assisted and unaided conditions. Test whether competency scores predict quality outcomes independently of technical skill.
-      </li>
-      <li>
-        <strong>Cognitive task analysis of expert versus novice analysts.</strong> Use think-aloud protocols during naturalistic AI-assisted analysis to surface how delegation and discernment decisions are actually made — and how they fail. Build a taxonomy of failure modes mapped back to deficits in specific 4D competencies.
-      </li>
-      <li>
-        <strong>Interface design for discernment scaffolding.</strong> Analytics tool interfaces currently optimize for task completion speed. Redesign and evaluate interfaces that scaffold discernment: calibrated confidence displays, source attribution, structured uncertainty flags, and "override trails" that document when and why analysts rejected AI suggestions.
-      </li>
-      <li>
-        <strong>Longitudinal study of teams adopting AI tools.</strong> Track analytics teams over 12–18 months as they integrate LLM-based tools. Measure how individual 4D competency profiles evolve, whether they diverge across team members, and what organizational factors (culture, process, incentives) predict competency retention versus atrophy.
-      </li>
-      <li>
-        <strong>Training intervention design.</strong> Develop deliberate practice exercises for each competency and evaluate their effectiveness in a randomized design. Identify which competencies respond to structured training versus requiring extended on-the-job calibration.
-      </li>
-    </ul>
-  </div>
-
-</div>
-
-<!-- ── Other Research Interests ─────────────────────────────────────────────── -->
-<div class="focus-grid" style="margin-bottom:3rem;">
-
-  <div class="focus-item">
-    <span class="focus-num">01</span>
-    <div class="focus-body">
-      <p class="focus-title">Causal Inference &amp; Experiment Design</p>
-      <p class="focus-desc">
-        Designing and analyzing experiments in business and operational settings where randomization is constrained, data is observational, and decisions have real costs. Interested in difference-in-differences, regression discontinuity, and matched observational designs applied outside academic contexts.
-      </p>
     </div>
   </div>
 
-  <div class="focus-item">
-    <span class="focus-num">03</span>
-    <div class="focus-body">
-      <p class="focus-title">Uncertainty Quantification Under Chaotic Data</p>
-      <p class="focus-desc">
-        Standardizing how uncertainty is measured, communicated, and propagated in pipelines built on noisy, incomplete, or shifting data. Interested in calibration, conformal prediction, and Bayesian methods as alternatives to point-estimate reporting.
-      </p>
+  <!-- 03 Uncertainty Quantification -->
+  <div class="ri-card">
+    <div class="ri-viz">
+      <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Bell curve fill -->
+        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76Z" fill="rgba(122,40,56,.07)"/>
+        <!-- Bell curve stroke -->
+        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76" stroke="#7A2838" stroke-width="1.5" fill="none"/>
+        <!-- Axis -->
+        <line x1="18" y1="76" x2="158" y2="76" stroke="#EAE0CE" stroke-width="1"/>
+        <!-- Center line -->
+        <line x1="88" y1="16" x2="88" y2="76" stroke="#7A2838" stroke-width="1" stroke-dasharray="3,2.5"/>
+        <!-- CI ticks -->
+        <line x1="56" y1="60" x2="56" y2="76" stroke="#D4C8B8" stroke-width="1.2"/>
+        <line x1="120" y1="60" x2="120" y2="76" stroke="#D4C8B8" stroke-width="1.2"/>
+        <!-- CI bracket -->
+        <line x1="56" y1="82" x2="120" y2="82" stroke="#2C4A3E" stroke-width="1.5"/>
+        <line x1="56" y1="79" x2="56" y2="85" stroke="#2C4A3E" stroke-width="1.5"/>
+        <line x1="120" y1="79" x2="120" y2="85" stroke="#2C4A3E" stroke-width="1.5"/>
+        <text x="88" y="88" text-anchor="middle" font-size="7" fill="#2C4A3E" font-family="IBM Plex Mono, monospace">95% CI</text>
+        <text x="88" y="11" text-anchor="middle" font-size="7" fill="#A89888" font-family="IBM Plex Mono, monospace">point estimate</text>
+      </svg>
+    </div>
+    <div class="ri-body">
+      <p class="ri-num">03</p>
+      <p class="ri-title">Uncertainty Quantification</p>
+      <p class="ri-desc">Most analytical models report a point estimate: predicted revenue, expected churn rate, estimated treatment effect. That number comes from a model trained on noisy or incomplete data. The number alone hides how uncertain the estimate actually is.<br><br>When a model reports 80% confidence and is right 60% of the time, decisions based on it are less reliable than they appear. Uncalibrated uncertainty compounds when models feed automated systems or influence resource allocation.<br><br>I focus on making uncertainty quantification practical in production settings. Conformal prediction generates coverage-guaranteed intervals without strong distributional assumptions. Calibration testing identifies whether a model's stated confidence matches its actual accuracy. These are not refinements on the margin. They determine whether a model is trustworthy in a specific operational context.</p>
     </div>
   </div>
 
-  <div class="focus-item">
-    <span class="focus-num">04</span>
-    <div class="focus-body">
-      <p class="focus-title">AI Fairness, Safety &amp; Responsible Deployment</p>
-      <p class="focus-desc">
-        How generative AI systems fail, who they fail for, and what structural measures reduce harm in practice. Interested in bias measurement in production ML, misuse prevention in Gen AI applications, and governance frameworks that make deployment accountable rather than aspirational.
-      </p>
+  <!-- 04 AI Fairness -->
+  <div class="ri-card">
+    <div class="ri-viz">
+      <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Axes -->
+        <line x1="28" y1="12" x2="28" y2="76" stroke="#EAE0CE" stroke-width="1"/>
+        <line x1="28" y1="76" x2="164" y2="76" stroke="#EAE0CE" stroke-width="1"/>
+        <!-- Group A bar -->
+        <rect x="44" y="26" width="26" height="50" fill="rgba(122,40,56,.14)" stroke="rgba(122,40,56,.3)" stroke-width="1" rx="2"/>
+        <!-- Group B bar -->
+        <rect x="88" y="42" width="26" height="34" fill="rgba(44,74,62,.14)" stroke="rgba(44,74,62,.3)" stroke-width="1" rx="2"/>
+        <!-- Group C bar -->
+        <rect x="132" y="54" width="26" height="22" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1" rx="2"/>
+        <!-- Dashed equity line -->
+        <line x1="30" y1="42" x2="162" y2="42" stroke="#7A2838" stroke-width="1" stroke-dasharray="4,2.5"/>
+        <!-- Labels -->
+        <text x="57" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">A</text>
+        <text x="101" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">B</text>
+        <text x="145" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">C</text>
+        <text x="164" y="40" font-size="7" fill="#7A2838" font-family="IBM Plex Mono, monospace">equity</text>
+      </svg>
+    </div>
+    <div class="ri-body">
+      <p class="ri-num">04</p>
+      <p class="ri-title">AI Fairness &amp; Safety</p>
+      <p class="ri-desc">AI systems in hiring, lending, healthcare, and content moderation do not fail uniformly. They tend to fail more for specific groups, often in ways that track race, gender, or socioeconomic status. Most of these failures come from training data that reflects historical disparities, evaluation metrics that average over groups, and deployment conditions that differ from training conditions.<br><br>A model can be accurate on average while performing substantially worse for a minority group. Aggregate metrics hide this until someone specifically looks for it.<br><br>I am interested in rigorous evaluation of AI systems across demographic groups, measurement of failure patterns in production, and what governance structures make AI deployment accountable. Internal audits by the teams that built the system are not sufficient. Accountability requires external standards and transparent reporting.</p>
     </div>
   </div>
 
 </div>
 
 <!-- ── Research Experience ────────────────────────────────────────────────── -->
-<p class="rs-label">Research Experience</p>
+<span class="rs-lbl">Research Experience</span>
 
-<div class="lab-card">
-  <div class="lab-card__header">
-    <div class="lab-card__left">
-      <p class="lab-card__name">
-        <a href="https://monjegroup.myportfolio.com/" target="_blank">Monje Lab</a>
-      </p>
-      <p class="lab-card__pi">
-        Principal Investigator: <a href="https://engineering.buffalo.edu/chemical-biological/people/faculty-directory.host.html/content/shared/engineering/chemical-biological/profiles/faculty/monje-viviana.detail.html" target="_blank">Dr. Viviana Monje-Galvan</a>
-        &middot; Department of Chemical and Biological Engineering, University at Buffalo
-      </p>
-    </div>
-    <div class="lab-card__meta">
-      <span class="lab-card__period">2022 &ndash; 2023</span>
-      <p class="lab-card__role">Undergraduate Researcher</p>
+<div class="exp-list">
+
+  <div class="exp-row">
+    <div class="exp-period">2022&ndash;2023</div>
+    <div class="exp-content">
+      <p class="exp-lab"><a href="https://monjegroup.myportfolio.com/" target="_blank">Monje Lab</a></p>
+      <p class="exp-meta">Undergraduate Researcher &middot; Dr. Viviana Monje-Galvan &middot; Chemical and Biological Engineering, University at Buffalo</p>
+      <ul class="exp-items">
+        <li>
+          <p class="exp-item-title">Molecular dynamics data analysis</p>
+          <p class="exp-item-desc">Processed and analyzed large-scale MD simulation trajectories of lipid bilayer systems, extracting structural and thermodynamic properties to characterize membrane behavior under physiological conditions.</p>
+        </li>
+        <li>
+          <p class="exp-item-title">Simulation modeling</p>
+          <p class="exp-item-desc">Contributed to constructing and validating all-atom membrane models using CHARMM force fields, parameterizing lipid compositions to replicate organelle-specific membrane environments.</p>
+        </li>
+        <li>
+          <p class="exp-item-title">Protein membrane modeling with deep learning</p>
+          <p class="exp-item-desc">Applied deep learning methods to identify patterns in protein-lipid interaction data from MD simulation outputs, supporting classification of membrane protein insertion mechanisms.</p>
+        </li>
+      </ul>
     </div>
   </div>
-  <ul class="research-list">
-    <li>
-      <strong>Molecular Dynamics Data Analysis.</strong>
-      Processed and analyzed large-scale MD simulation trajectories of lipid bilayer systems, extracting structural and thermodynamic properties to characterize membrane behavior under physiologically relevant conditions.
-    </li>
-    <li>
-      <strong>Simulation Modeling.</strong>
-      Contributed to constructing and validating all-atom membrane models using CHARMM force fields, parameterizing lipid compositions to replicate organelle-specific membrane environments for computational biophysics studies.
-    </li>
-    <li>
-      <strong>Protein Membrane Modeling with Deep Learning.</strong>
-      Applied deep learning methods to identify patterns in protein-lipid interaction data from MD simulation outputs, supporting classification of membrane protein insertion mechanisms and lipid binding site characterization.
-    </li>
-  </ul>
-</div>
 
-<div class="lab-card">
-  <div class="lab-card__header">
-    <div class="lab-card__left">
-      <p class="lab-card__name">
-        <a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Liu Lab</a>
-      </p>
-      <p class="lab-card__pi">
-        Principal Investigator: <a href="https://www.uh.edu/pharmacy/about-us/directory-home/pps-faculty/xinli-liu/" target="_blank">Dr. Xinli Liu</a>
-        &middot; The Institute for Drug Education and Research, College of Pharmacy, University of Houston
-      </p>
-    </div>
-    <div class="lab-card__meta">
-      <span class="lab-card__period">2020 &ndash; 2022</span>
-      <p class="lab-card__role">Undergraduate Researcher</p>
+  <div class="exp-row">
+    <div class="exp-period">2020&ndash;2022</div>
+    <div class="exp-content">
+      <p class="exp-lab"><a href="https://www.uh.edu/pharmacy/directory-home/pps-faculty/xinli-liu/" target="_blank">Liu Lab</a></p>
+      <p class="exp-meta">Undergraduate Researcher &middot; Dr. Xinli Liu &middot; College of Pharmacy, University of Houston</p>
+      <ul class="exp-items">
+        <li>
+          <p class="exp-item-title">Targeted drug delivery systems</p>
+          <p class="exp-item-desc">Supported research on nanoparticle and nanoconjugate design for tumor-specific drug delivery, contributing to data collection and analysis for preclinical evaluations of novel drug combination systems.</p>
+        </li>
+        <li>
+          <p class="exp-item-title">Pharmacometabolomics data pipelines</p>
+          <p class="exp-item-desc">Assisted with data processing workflows for Mass Spectrometry Imaging experiments, applying computational methods to spatial pharmacometabolomics datasets to support drug discovery analysis.</p>
+        </li>
+        <li>
+          <p class="exp-item-title">Nanomedicine and drug resistance</p>
+          <p class="exp-item-desc">Contributed to investigations of nanomedicine-based approaches to overcome multidrug resistance in cancer and infectious disease models, including quantitative analysis of experimental results.</p>
+        </li>
+      </ul>
     </div>
   </div>
-  <ul class="research-list">
-    <li>
-      <strong>Targeted Drug Delivery Systems.</strong>
-      Supported research on nanoparticle and nanoconjugate design for tumor-specific drug delivery, contributing to data collection and analysis for preclinical evaluations of novel drug combination systems.
-    </li>
-    <li>
-      <strong>Pharmacometabolomics Data Pipelines.</strong>
-      Assisted with data processing workflows for Mass Spectrometry Imaging (MSI) experiments, applying computational methods to spatial pharmacometabolomics datasets to support drug discovery and development analysis.
-    </li>
-    <li>
-      <strong>Nanomedicine and Drug Resistance.</strong>
-      Contributed to investigations of nanomedicine-based approaches to overcome multidrug resistance in cancer and infectious disease models, including data organization and quantitative analysis of experimental results.
-    </li>
-  </ul>
+
 </div>
 
 <!-- ── Publications ─────────────────────────────────────────────────────────── -->
-<p class="rs-label" style="margin-top:3rem;">Publications</p>
+<span class="rs-lbl">Publications</span>
 
 <div class="pub-list">
   <div class="pub-card">
-    <p class="pub-card__title">
-      <a href="https://www.jove.com/t/65712" target="_blank">
-        Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies
-      </a>
+    <p class="pub-title">
+      <a href="https://www.jove.com/t/65712" target="_blank">Realistic Membrane Modeling Using Complex Lipid Mixtures in Simulation Studies</a>
     </p>
-    <p class="pub-card__authors">
-      O. Campbell, <strong>V. Le</strong>, A. Aguirre, V. Monje-Galvan
-    </p>
-    <p class="pub-card__venue">
-      <em>JoVE (Journal of Visualized Experiments)</em>, e65712 &middot; 2023
-    </p>
+    <p class="pub-authors">O. Campbell, <strong>V. Le</strong>, A. Aguirre, V. Monje-Galvan</p>
+    <p class="pub-venue"><em>JoVE (Journal of Visualized Experiments)</em>, e65712 &middot; 2023</p>
+  </div>
+</div>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
+<div class="page-cta">
+  <p class="page-cta__title">Let's get in touch!</p>
+  <p class="page-cta__desc">Always excited to discuss new opportunities, collaborate on projects, or have a coffee chat.</p>
+  <div class="page-cta__links">
+    <a class="page-cta__link" href="mailto:vanle.vtl2000@gmail.com">vanle.vtl2000@gmail.com</a>
+    <a class="page-cta__link" href="https://www.linkedin.com/in/elizabethvanle/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="page-cta__link" href="https://github.com/vanle2000" target="_blank" rel="noopener">GitHub</a>
   </div>
 </div>
 

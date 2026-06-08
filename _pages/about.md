@@ -242,7 +242,7 @@ classes: wide
 <!-- ── Intro ─────────────────────────────────────────────────────────────────── -->
 <div class="about-intro">
   <h1>Van (Elizabeth) Le</h1>
-  <p>Data Analyst and Scientist based in Houston, TX. At M&amp;T Tax Firm I build reporting pipelines, automate reconciliation workflows, and turn financial records into structured decision support. I'm looking for my next role in data analytics, BI engineering, or data science — problems at scale where rigor is high and the output connects to a real decision.</p>
+  <p>Data Analyst and Scientist based in Houston, TX. At M&amp;T Tax Firm I build reporting pipelines, automate reconciliation workflows, and turn financial records into structured decision support. I am looking for my next role in data analytics, BI engineering, or data science, working on problems at scale where rigor is high and the output connects to a real decision.</p>
 </div>
 
 <!-- ── Projects ───────────────────────────────────────────────────────────────── -->
@@ -272,9 +272,9 @@ classes: wide
     <p class="pj-tagline">Identifies the 10% of customers most likely to churn, with per-customer SHAP explanations.</p>
     <hr class="pj-hr">
     <ul class="pj-list">
-      <li><strong>Business case:</strong> A Telco needed to direct retention spend at highest-risk accounts — raw accuracy on imbalanced data fails as the evaluation criterion.</li>
+      <li><strong>Business case:</strong> A Telco needed to direct retention spend at highest-risk accounts. Raw accuracy on imbalanced data fails as the evaluation criterion.</li>
       <li><strong>Solution:</strong> XGBoost + SMOTE, evaluated on Precision@K and a net ROI simulation ($50 outreach / $500 revenue recovered). SHAP waterfall charts per customer for the retention team.</li>
-      <li><strong>Precision@K replaces accuracy</strong> — the model is judged on its business intervention, not a classification benchmark with 74% majority-class bias.</li>
+      <li><strong>Precision@K replaces accuracy.</strong> The model is judged on its business intervention, not a classification benchmark with 74% majority-class bias.</li>
     </ul>
     <div class="pj-result">67% precision in top 10% &middot; Positive ROI at $50/outreach &middot; SHAP attribution per customer</div>
     <a class="pj-link" href="https://github.com/vanle2000/Churn-Predictive-Modeling" target="_blank" rel="noopener">GitHub ↗</a>
@@ -287,9 +287,9 @@ classes: wide
     <p class="pj-tagline">Clusters 50 US states by disease burden; predicts mortality risk across 20 years of CDC data.</p>
     <hr class="pj-hr">
     <ul class="pj-list">
-      <li><strong>Business case:</strong> 900K CDC surveillance records had no systematic structural analysis — and most published models reported inflated accuracy without addressing class imbalance.</li>
+      <li><strong>Business case:</strong> 900K CDC surveillance records had no systematic structural analysis. Most published models reported inflated accuracy without addressing class imbalance.</li>
       <li><strong>Solution:</strong> K-Means clustering on row-normalized state profiles, Logistic Regression mortality predictor, Random Forest risk classifier evaluated on macro F1.</li>
-      <li><strong>Macro F1=0.85 reported over raw accuracy</strong> — the dominant Low-risk class (238K records vs. 3 Very High records) makes raw accuracy meaningless; macro F1 weights each class equally.</li>
+      <li><strong>Macro F1=0.85 reported over raw accuracy.</strong> The dominant Low-risk class (238K records vs. 3 Very High records) makes raw accuracy meaningless. Macro F1 weights each class equally.</li>
     </ul>
     <div class="pj-result">Silhouette=0.635 &middot; AUC=0.73 &middot; Macro F1=0.85 &middot; 4 state archetypes</div>
     <a class="pj-link" href="https://github.com/vanle2000/Chronic-disease-risks-in-US" target="_blank" rel="noopener">GitHub ↗</a>
@@ -302,9 +302,9 @@ classes: wide
     <p class="pj-tagline">BI platform measuring SLA risk and contributor sentiment across GitHub support operations.</p>
     <hr class="pj-hr">
     <ul class="pj-list">
-      <li><strong>Business case:</strong> GitHub-scale support teams had no visibility into which repos were damaging contributor retention through slow or frustrating responses — or which open tickets were about to breach SLA.</li>
+      <li><strong>Business case:</strong> GitHub-scale support teams had no visibility into which repos were damaging contributor retention through slow or frustrating responses, or which open tickets were about to breach SLA.</li>
       <li><strong>Solution:</strong> SQL Server star schema + SQLAlchemy ETL, VADER NLP sentiment tracking per ticket lifecycle (initial → final → shift delta), 5-tier real-time SLA breach probability model. Power BI dashboard with repo health quadrant.</li>
-      <li><strong>Connected support metrics to retention outcomes</strong> — not just compliance, but repeat contributor conversion rates downstream of each interaction.</li>
+      <li><strong>Connected support metrics to retention outcomes,</strong> not just SLA compliance. Repeat contributor conversion rates downstream of each interaction.</li>
     </ul>
     <div class="pj-result">12h response predicts 3.5&times; lift in repeat contributors &middot; 12% of repos identified as toxic</div>
     <a class="pj-link" href="https://github.com/vanle2000/GitHub-support-operations-analytics" target="_blank" rel="noopener">GitHub ↗</a>
@@ -323,10 +323,21 @@ classes: wide
 <div class="about-prose">
   <h2>Education</h2>
   <ul>
-    <li>B.A. in Computational and Applied Mathematics — University at Buffalo (2022–2023)</li>
-    <li>Biochemistry and Molecular Biology — University of Houston (2020–2022)</li>
-    <li>A.S. in Chemistry, A.B. in Finance — North Seattle College (2018–2020)</li>
+    <li>B.A. in Computational and Applied Mathematics, University at Buffalo (2022–2023)</li>
+    <li>Biochemistry and Molecular Biology, University of Houston (2020–2022)</li>
+    <li>A.S. in Chemistry and A.B. in Finance, North Seattle College (2018–2020)</li>
   </ul>
+</div>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
+<div class="page-cta">
+  <p class="page-cta__title">Let's get in touch!</p>
+  <p class="page-cta__desc">Always excited to discuss new opportunities, collaborate on projects, or have a coffee chat.</p>
+  <div class="page-cta__links">
+    <a class="page-cta__link" href="mailto:vanle.vtl2000@gmail.com">vanle.vtl2000@gmail.com</a>
+    <a class="page-cta__link" href="https://www.linkedin.com/in/elizabethvanle/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="page-cta__link" href="https://github.com/vanle2000" target="_blank" rel="noopener">GitHub</a>
+  </div>
 </div>
 
 </div>
