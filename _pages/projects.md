@@ -9,7 +9,7 @@ classes: wide
 <style>
 .projects-page-wrap {
   padding: 3rem clamp(2rem, 8vw, 7rem) 5rem;
-  background: #FDFAF5;
+  background: var(--color-bg-primary);
 }
 
 /* Page header */
@@ -20,7 +20,7 @@ classes: wide
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.6rem, 4vw, 2.1rem);
   font-weight: 800;
-  color: #1C1410;
+  color: var(--color-text-primary);
   letter-spacing: -0.01em;
   line-height: 1.15;
   margin: 0 0 0.4rem;
@@ -29,7 +29,7 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
   font-weight: 500;
-  color: #A89888;
+  color: var(--color-text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0;

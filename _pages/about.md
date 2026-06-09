@@ -21,7 +21,7 @@ classes: wide
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: #7A2838;
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   gap: .9rem;
@@ -31,7 +31,7 @@ classes: wide
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(122,40,56,.18) 0%, transparent 100%);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 100%);
 }
 
 /* Intro */
@@ -41,7 +41,7 @@ classes: wide
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   font-weight: 800;
-  color: #1C1410;
+  color: var(--color-text-primary);
   letter-spacing: -.01em;
   line-height: 1.1;
   margin: 0 0 1rem;
@@ -50,7 +50,7 @@ classes: wide
 .about-intro p {
   font-size: .97rem;
   line-height: 1.82;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   max-width: 640px;
   margin: 0 0 .85rem;
 }
@@ -65,8 +65,8 @@ classes: wide
 
 /* Project card */
 .pj {
-  background: #FDFAF5;
-  border: 1px solid #EAE0CE;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 1.6rem 1.65rem 1.45rem;
   position: relative;
@@ -83,7 +83,7 @@ classes: wide
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #7A2838, #2C4A3E);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
   border-radius: 10px 10px 0 0;
   transform: scaleX(0);
   transform-origin: left;
@@ -91,8 +91,8 @@ classes: wide
 }
 
 .pj:hover {
-  border-color: rgba(122,40,56,.28);
-  box-shadow: 0 8px 32px rgba(122,40,56,.09), 0 2px 8px rgba(0,0,0,.03);
+  border-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--color-accent) 9%, transparent), 0 2px 8px rgba(0,0,0,.03);
   transform: translateY(-3px);
 }
 .pj:hover::before { transform: scaleX(1); }
@@ -103,14 +103,14 @@ classes: wide
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #7A2838;
+  color: var(--color-accent);
   margin: 0 0 .38rem;
 }
 
 .pj-name {
   font-size: 1.02rem;
   font-weight: 800;
-  color: #1C1410;
+  color: var(--color-text-primary);
   letter-spacing: -.02em;
   line-height: 1.25;
   margin: 0 0 .42rem;
@@ -118,7 +118,7 @@ classes: wide
 
 .pj-tagline {
   font-size: .82rem;
-  color: #7A6A5A;
+  color: var(--color-text-muted);
   line-height: 1.52;
   margin: 0 0 1rem;
 }
@@ -126,7 +126,7 @@ classes: wide
 /* STAR bullets */
 .pj-hr {
   height: 1px;
-  background: #EAE0CE;
+  background: var(--color-border);
   margin: 0 0 1rem;
   border: none;
 }
@@ -143,7 +143,7 @@ classes: wide
 
 .pj-list li {
   font-size: .82rem;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   line-height: 1.58;
   padding-left: 1.05rem;
   position: relative;
@@ -157,11 +157,11 @@ classes: wide
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7A2838;
+  background: var(--color-accent);
 }
 
 .pj-list li strong {
-  color: #1C1410;
+  color: var(--color-text-primary);
   font-weight: 600;
 }
 
@@ -170,9 +170,9 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: .69rem;
   font-weight: 600;
-  color: #2C4A3E;
-  background: rgba(44,74,62,.07);
-  border-left: 2px solid rgba(44,74,62,.4);
+  color: var(--color-accent-light);
+  background: color-mix(in srgb, var(--color-accent-light) 7%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--color-accent-light) 40%, transparent);
   padding: .28rem .65rem;
   border-radius: 0 5px 5px 0;
   margin-top: .95rem;
@@ -184,7 +184,7 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: .65rem;
   font-weight: 600;
-  color: #7A2838;
+  color: var(--color-accent);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -192,7 +192,7 @@ classes: wide
   margin-top: .7rem;
   transition: color .15s;
 }
-.pj-link:hover { color: #5C1A24; text-decoration: none; }
+.pj-link:hover { color: var(--color-accent-light); text-decoration: none; }
 
 /* Prose sections */
 .about-prose { margin-bottom: 2.75rem; }
@@ -201,16 +201,16 @@ classes: wide
   font-family: "Inter", sans-serif;
   font-size: .95rem;
   font-weight: 700;
-  color: #1C1410;
+  color: var(--color-text-primary);
   letter-spacing: -.01em;
   margin: 0 0 .8rem;
   padding-bottom: .38rem;
-  border-bottom: 1px solid #EAE0CE;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .about-prose p {
   font-size: .94rem;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   line-height: 1.8;
   margin: 0 0 .8rem;
 }
@@ -222,7 +222,7 @@ classes: wide
 
 .about-prose ul li {
   font-size: .93rem;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   line-height: 1.72;
   margin-bottom: .28rem;
 }

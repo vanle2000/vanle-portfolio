@@ -28,7 +28,7 @@ classes: wide
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 800;
-  color: #1C1410;
+  color: var(--color-text-primary);
   letter-spacing: -0.01em;
   line-height: 1.15;
   margin: 0 0 0.3rem;
@@ -38,7 +38,7 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.7rem;
   font-weight: 500;
-  color: #A89888;
+  color: var(--color-text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: 0;
@@ -58,8 +58,8 @@ classes: wide
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #FDFAF5;
-  background: #7A2838;
+  color: var(--color-text-inverse);
+  background: var(--color-accent);
   border: none;
   border-radius: 6px;
   padding: 0.62rem 1.25rem;
@@ -69,11 +69,11 @@ classes: wide
   cursor: pointer;
 }
 .btn-download:hover {
-  background: #5C1A24;
+  background: var(--color-accent-light);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(122,40,56,.28);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-accent) 28%, transparent);
   text-decoration: none;
-  color: #FDFAF5;
+  color: var(--color-text-inverse);
 }
 
 .btn-open {
@@ -84,29 +84,29 @@ classes: wide
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #7A2838;
-  background: rgba(122,40,56,.07);
-  border: 1.5px solid rgba(122,40,56,.22);
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
   border-radius: 6px;
   padding: 0.62rem 1.25rem;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(.34,1.56,.64,1);
 }
 .btn-open:hover {
-  background: rgba(122,40,56,.12);
-  border-color: rgba(122,40,56,.4);
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
   transform: translateY(-1px);
   text-decoration: none;
-  color: #7A2838;
+  color: var(--color-accent);
 }
 
 /* PDF viewer container */
 .pdf-frame-wrap {
-  border: 1px solid #EAE0CE;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(28,20,16,.07), 0 1px 4px rgba(28,20,16,.04);
-  background: #F4EDE0;
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-text-primary) 7%, transparent), 0 1px 4px color-mix(in srgb, var(--color-text-primary) 4%, transparent);
+  background: var(--color-bg-secondary);
 }
 
 .pdf-frame {
@@ -125,7 +125,7 @@ classes: wide
 
 .pdf-fallback p {
   font-size: 0.9rem;
-  color: #7A6A5A;
+  color: var(--color-text-muted);
   margin: 0 0 1.25rem;
 }
 

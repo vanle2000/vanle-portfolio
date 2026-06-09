@@ -12,16 +12,19 @@ $header-font-family: $sans-serif;
 $doc-font-size:     16;
 
 // ── Colors ─────────────────────────────────────────────────────────────────
-$text-color:             #1C1410;
-$muted-text-color:       #7A6A5A;
-$background-color:       #FDFAF5;
-$code-background-color:  #F4EDE0;
-$border-color:           #E8DFD0;
-$footer-background-color:#F4EDE0;
-$primary-color:          #7A2838;
-$link-color:             #7A2838;
-$focus-color:            #7A2838;
-$active-color:           rgba(122,40,56,.08);
+// All values are CSS custom properties defined in _anthropic.scss — the
+// single source of truth for color. No hex literals here.
+$text-color:             var(--color-text-primary);
+$muted-text-color:       var(--color-text-muted);
+$background-color:       var(--color-bg-primary);
+$code-background-color:  var(--color-bg-secondary);
+$border-color:           var(--color-border);
+$footer-background-color:var(--color-bg-secondary);
+$primary-color:          var(--color-accent);
+$link-color:             var(--color-accent);
+$focus-color:            var(--color-accent);
+$active-color:           color-mix(in srgb, var(--color-accent) 8%, transparent);
 
+@import "anthropic";
 @import "minimal-mistakes";
 @import "custom-font";

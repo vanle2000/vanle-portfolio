@@ -21,7 +21,7 @@ classes: wide
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #7A2838;
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -31,14 +31,14 @@ classes: wide
   content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, rgba(122,40,56,.18) 0%, transparent 100%);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 100%);
 }
 
 /* ── Page intro ─────────────────────────────────────────────────────────────── */
 .rs-intro {
   font-size: 0.96rem;
   line-height: 1.82;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   max-width: 640px;
   margin: 0 0 2.75rem;
 }
@@ -52,8 +52,8 @@ classes: wide
 }
 
 .ri-card {
-  background: #FDFAF5;
-  border: 1px solid #EAE0CE;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -62,16 +62,16 @@ classes: wide
               transform .25s cubic-bezier(.34,1.2,.64,1);
 }
 .ri-card:hover {
-  border-color: rgba(122,40,56,.25);
-  box-shadow: 0 6px 24px rgba(122,40,56,.08);
+  border-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--color-accent) 8%, transparent);
   transform: translateY(-2px);
 }
 
 /* Visualization area */
 .ri-viz {
   padding: 1.2rem 1.5rem 0.9rem;
-  background: #F4EDE0;
-  border-bottom: 1px solid #EAE0CE;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,21 +84,21 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.6rem;
   font-weight: 700;
-  color: #7A2838;
+  color: var(--color-accent);
   letter-spacing: 0.06em;
   margin: 0 0 0.38rem;
 }
 .ri-title {
   font-size: 0.94rem;
   font-weight: 700;
-  color: #1C1410;
+  color: var(--color-text-primary);
   margin: 0 0 0.75rem;
   letter-spacing: -0.01em;
   line-height: 1.25;
 }
 .ri-desc {
   font-size: 0.81rem;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   line-height: 1.74;
   margin: 0;
   flex: 1;
@@ -113,8 +113,8 @@ classes: wide
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.59rem;
   font-weight: 500;
-  color: #7A6A5A;
-  background: #EAE0CE;
+  color: var(--color-text-muted);
+  background: var(--color-border);
   border-radius: 3px;
   padding: 0.18rem 0.5rem;
 }
@@ -137,7 +137,7 @@ classes: wide
 .exp-period {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.67rem;
-  color: #A89888;
+  color: var(--color-text-muted);
   text-align: right;
   padding-top: 0.12rem;
   white-space: nowrap;
@@ -147,21 +147,21 @@ classes: wide
 .exp-lab {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #1C1410;
+  color: var(--color-text-primary);
   margin: 0 0 0.15rem;
   letter-spacing: -0.01em;
 }
 .exp-lab a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1.5px solid rgba(122,40,56,.2);
+  border-bottom: 1.5px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
   transition: color 0.15s, border-color 0.15s;
 }
-.exp-lab a:hover { color: #7A2838; border-color: #7A2838; }
+.exp-lab a:hover { color: var(--color-accent); border-color: var(--color-accent); }
 
 .exp-meta {
   font-size: 0.77rem;
-  color: #7A6A5A;
+  color: var(--color-text-muted);
   margin: 0 0 0.95rem;
   line-height: 1.45;
 }
@@ -175,14 +175,14 @@ classes: wide
 .exp-item-title {
   font-size: 0.79rem;
   font-weight: 600;
-  color: #4A3C34;
+  color: var(--color-text-secondary);
   margin: 0 0 0.18rem;
   line-height: 1.35;
 }
 
 .exp-item-desc {
   font-size: 0.79rem;
-  color: #7A6A5A;
+  color: var(--color-text-muted);
   line-height: 1.62;
   margin: 0;
 }
@@ -191,35 +191,35 @@ classes: wide
 .pub-list { display: flex; flex-direction: column; gap: 1rem; }
 
 .pub-card {
-  border-left: 2px solid #7A2838;
+  border-left: 2px solid var(--color-accent);
   padding: 0.85rem 1.1rem;
-  background: #FDFAF5;
+  background: var(--color-bg-primary);
   border-radius: 0 8px 8px 0;
-  border-top: 1px solid #EAE0CE;
-  border-right: 1px solid #EAE0CE;
-  border-bottom: 1px solid #EAE0CE;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .pub-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #1C1410;
+  color: var(--color-text-primary);
   margin: 0 0 0.22rem;
   line-height: 1.4;
 }
 .pub-title a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid rgba(122,40,56,.2);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
   transition: color 0.15s;
 }
-.pub-title a:hover { color: #7A2838; }
+.pub-title a:hover { color: var(--color-accent); }
 
-.pub-authors { font-size: 0.77rem; color: #7A6A5A; margin: 0 0 0.2rem; }
-.pub-authors strong { color: #4A3C34; font-weight: 600; }
+.pub-authors { font-size: 0.77rem; color: var(--color-text-muted); margin: 0 0 0.2rem; }
+.pub-authors strong { color: var(--color-text-secondary); font-weight: 600; }
 
-.pub-venue { font-size: 0.75rem; color: #A89888; margin: 0; }
-.pub-venue em { font-style: italic; color: #7A6A5A; }
+.pub-venue { font-size: 0.75rem; color: var(--color-text-muted); margin: 0; }
+.pub-venue em { font-style: italic; color: var(--color-text-muted); }
 
 /* ── Responsive ────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
@@ -249,29 +249,29 @@ classes: wide
       <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <marker id="ci-a1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3z" fill="#7A2838"/>
+            <path d="M0,0 L0,6 L6,3z" fill="var(--color-accent)"/>
           </marker>
           <marker id="ci-a2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3z" fill="#D4C8B8"/>
+            <path d="M0,0 L0,6 L6,3z" fill="var(--color-border-strong)"/>
           </marker>
         </defs>
         <!-- Confounder (top center) -->
-        <circle cx="88" cy="20" r="15" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
-        <text x="88" y="25" text-anchor="middle" font-size="9" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Z</text>
+        <circle cx="88" cy="20" r="15" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
+        <text x="88" y="25" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Z</text>
         <!-- Treatment (bottom left) -->
-        <circle cx="30" cy="72" r="15" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
-        <text x="30" y="77" text-anchor="middle" font-size="9" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">T</text>
+        <circle cx="30" cy="72" r="15" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
+        <text x="30" y="77" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">T</text>
         <!-- Outcome (bottom right) -->
-        <circle cx="146" cy="72" r="15" fill="rgba(44,74,62,.1)" stroke="rgba(44,74,62,.3)" stroke-width="1.5"/>
-        <text x="146" y="77" text-anchor="middle" font-size="9" fill="#2C4A3E" font-family="IBM Plex Mono, monospace">Y</text>
+        <circle cx="146" cy="72" r="15" fill="color-mix(in srgb, var(--color-accent-light) 10%, transparent)" stroke="color-mix(in srgb, var(--color-accent-light) 30%, transparent)" stroke-width="1.5"/>
+        <text x="146" y="77" text-anchor="middle" font-size="9" fill="var(--color-accent-light)" font-family="IBM Plex Mono, monospace">Y</text>
         <!-- Z to T dashed -->
-        <line x1="76" y1="31" x2="41" y2="61" stroke="#D4C8B8" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
+        <line x1="76" y1="31" x2="41" y2="61" stroke="var(--color-border-strong)" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
         <!-- Z to Y dashed -->
-        <line x1="100" y1="31" x2="135" y2="61" stroke="#D4C8B8" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
+        <line x1="100" y1="31" x2="135" y2="61" stroke="var(--color-border-strong)" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
         <!-- T to Y solid (causal path) -->
-        <line x1="46" y1="72" x2="130" y2="72" stroke="#7A2838" stroke-width="1.5" marker-end="url(#ci-a1)"/>
+        <line x1="46" y1="72" x2="130" y2="72" stroke="var(--color-accent)" stroke-width="1.5" marker-end="url(#ci-a1)"/>
         <!-- causal label -->
-        <text x="88" y="85" text-anchor="middle" font-size="7" fill="#A89888" font-family="IBM Plex Mono, monospace">causal effect</text>
+        <text x="88" y="85" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">causal effect</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -287,23 +287,23 @@ classes: wide
       <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <marker id="hai-r" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3z" fill="#A89888"/>
+            <path d="M0,0 L0,6 L6,3z" fill="var(--color-text-muted)"/>
           </marker>
         </defs>
         <!-- Human circle -->
-        <circle cx="38" cy="36" r="26" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1.5"/>
-        <text x="38" y="41" text-anchor="middle" font-size="12" fill="#4A3C34" font-weight="700" font-family="Inter, sans-serif">H</text>
+        <circle cx="38" cy="36" r="26" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
+        <text x="38" y="41" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)" font-weight="700" font-family="Inter, sans-serif">H</text>
         <!-- AI circle -->
-        <circle cx="138" cy="36" r="26" fill="rgba(44,74,62,.1)" stroke="rgba(44,74,62,.28)" stroke-width="1.5"/>
-        <text x="138" y="41" text-anchor="middle" font-size="11" fill="#2C4A3E" font-weight="700" font-family="Inter, sans-serif">AI</text>
+        <circle cx="138" cy="36" r="26" fill="color-mix(in srgb, var(--color-accent-light) 10%, transparent)" stroke="color-mix(in srgb, var(--color-accent-light) 28%, transparent)" stroke-width="1.5"/>
+        <text x="138" y="41" text-anchor="middle" font-size="11" fill="var(--color-accent-light)" font-weight="700" font-family="Inter, sans-serif">AI</text>
         <!-- Arrows -->
-        <line x1="65" y1="32" x2="111" y2="32" stroke="#A89888" stroke-width="1.2" marker-end="url(#hai-r)"/>
-        <line x1="111" y1="40" x2="65" y2="40" stroke="#A89888" stroke-width="1.2" marker-end="url(#hai-r)"/>
+        <line x1="65" y1="32" x2="111" y2="32" stroke="var(--color-text-muted)" stroke-width="1.2" marker-end="url(#hai-r)"/>
+        <line x1="111" y1="40" x2="65" y2="40" stroke="var(--color-text-muted)" stroke-width="1.2" marker-end="url(#hai-r)"/>
         <!-- 4D labels -->
-        <text x="8" y="76" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Delegation</text>
-        <text x="8" y="87" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Description</text>
-        <text x="103" y="76" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Discernment</text>
-        <text x="103" y="87" font-size="7.5" fill="#7A6A5A" font-family="IBM Plex Mono, monospace">Diligence</text>
+        <text x="8" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Delegation</text>
+        <text x="8" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Description</text>
+        <text x="103" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Discernment</text>
+        <text x="103" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Diligence</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -324,22 +324,22 @@ classes: wide
     <div class="ri-viz">
       <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Bell curve fill -->
-        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76Z" fill="rgba(122,40,56,.07)"/>
+        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76Z" fill="color-mix(in srgb, var(--color-accent) 7%, transparent)"/>
         <!-- Bell curve stroke -->
-        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76" stroke="#7A2838" stroke-width="1.5" fill="none"/>
+        <path d="M18,76 C30,76 44,22 88,16 C132,22 146,76 158,76" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/>
         <!-- Axis -->
-        <line x1="18" y1="76" x2="158" y2="76" stroke="#EAE0CE" stroke-width="1"/>
+        <line x1="18" y1="76" x2="158" y2="76" stroke="var(--color-border)" stroke-width="1"/>
         <!-- Center line -->
-        <line x1="88" y1="16" x2="88" y2="76" stroke="#7A2838" stroke-width="1" stroke-dasharray="3,2.5"/>
+        <line x1="88" y1="16" x2="88" y2="76" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="3,2.5"/>
         <!-- CI ticks -->
-        <line x1="56" y1="60" x2="56" y2="76" stroke="#D4C8B8" stroke-width="1.2"/>
-        <line x1="120" y1="60" x2="120" y2="76" stroke="#D4C8B8" stroke-width="1.2"/>
+        <line x1="56" y1="60" x2="56" y2="76" stroke="var(--color-border-strong)" stroke-width="1.2"/>
+        <line x1="120" y1="60" x2="120" y2="76" stroke="var(--color-border-strong)" stroke-width="1.2"/>
         <!-- CI bracket -->
-        <line x1="56" y1="82" x2="120" y2="82" stroke="#2C4A3E" stroke-width="1.5"/>
-        <line x1="56" y1="79" x2="56" y2="85" stroke="#2C4A3E" stroke-width="1.5"/>
-        <line x1="120" y1="79" x2="120" y2="85" stroke="#2C4A3E" stroke-width="1.5"/>
-        <text x="88" y="88" text-anchor="middle" font-size="7" fill="#2C4A3E" font-family="IBM Plex Mono, monospace">95% CI</text>
-        <text x="88" y="11" text-anchor="middle" font-size="7" fill="#A89888" font-family="IBM Plex Mono, monospace">point estimate</text>
+        <line x1="56" y1="82" x2="120" y2="82" stroke="var(--color-accent-light)" stroke-width="1.5"/>
+        <line x1="56" y1="79" x2="56" y2="85" stroke="var(--color-accent-light)" stroke-width="1.5"/>
+        <line x1="120" y1="79" x2="120" y2="85" stroke="var(--color-accent-light)" stroke-width="1.5"/>
+        <text x="88" y="88" text-anchor="middle" font-size="7" fill="var(--color-accent-light)" font-family="IBM Plex Mono, monospace">95% CI</text>
+        <text x="88" y="11" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">point estimate</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -354,21 +354,21 @@ classes: wide
     <div class="ri-viz">
       <svg width="176" height="88" viewBox="0 0 176 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Axes -->
-        <line x1="28" y1="12" x2="28" y2="76" stroke="#EAE0CE" stroke-width="1"/>
-        <line x1="28" y1="76" x2="164" y2="76" stroke="#EAE0CE" stroke-width="1"/>
+        <line x1="28" y1="12" x2="28" y2="76" stroke="var(--color-border)" stroke-width="1"/>
+        <line x1="28" y1="76" x2="164" y2="76" stroke="var(--color-border)" stroke-width="1"/>
         <!-- Group A bar -->
-        <rect x="44" y="26" width="26" height="50" fill="rgba(122,40,56,.14)" stroke="rgba(122,40,56,.3)" stroke-width="1" rx="2"/>
+        <rect x="44" y="26" width="26" height="50" fill="color-mix(in srgb, var(--color-accent) 14%, transparent)" stroke="color-mix(in srgb, var(--color-accent) 30%, transparent)" stroke-width="1" rx="2"/>
         <!-- Group B bar -->
-        <rect x="88" y="42" width="26" height="34" fill="rgba(44,74,62,.14)" stroke="rgba(44,74,62,.3)" stroke-width="1" rx="2"/>
+        <rect x="88" y="42" width="26" height="34" fill="color-mix(in srgb, var(--color-accent-light) 14%, transparent)" stroke="color-mix(in srgb, var(--color-accent-light) 30%, transparent)" stroke-width="1" rx="2"/>
         <!-- Group C bar -->
-        <rect x="132" y="54" width="26" height="22" fill="#EAE0CE" stroke="#D4C8B8" stroke-width="1" rx="2"/>
+        <rect x="132" y="54" width="26" height="22" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1" rx="2"/>
         <!-- Dashed equity line -->
-        <line x1="30" y1="42" x2="162" y2="42" stroke="#7A2838" stroke-width="1" stroke-dasharray="4,2.5"/>
+        <line x1="30" y1="42" x2="162" y2="42" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="4,2.5"/>
         <!-- Labels -->
-        <text x="57" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">A</text>
-        <text x="101" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">B</text>
-        <text x="145" y="86" text-anchor="middle" font-size="7.5" fill="#A89888" font-family="IBM Plex Mono, monospace">C</text>
-        <text x="164" y="40" font-size="7" fill="#7A2838" font-family="IBM Plex Mono, monospace">equity</text>
+        <text x="57" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">A</text>
+        <text x="101" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">B</text>
+        <text x="145" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">C</text>
+        <text x="164" y="40" font-size="7" fill="var(--color-accent)" font-family="IBM Plex Mono, monospace">equity</text>
       </svg>
     </div>
     <div class="ri-body">

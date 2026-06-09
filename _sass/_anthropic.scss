@@ -1,0 +1,27 @@
+// =============================================================================
+// Anthropic-inspired palette — Terracotta · Coral · Warm Cream
+// Single source of truth: every color in the site is a var(--color-*) lookup.
+// =============================================================================
+
+:root {
+  // Backgrounds
+  --color-bg-primary:    #F5F0E8;   // warm cream — main page background
+  --color-bg-secondary:  #EDE8DC;   // slightly deeper sand — section alternates
+  --color-bg-surface:    #FAF7F2;   // near-white — cards, code blocks
+  --color-bg-dark:       #1A1814;   // near-black — footer, dark hero variant
+
+  // Text
+  --color-text-primary:  #1A1814;   // near-black — headings, body
+  --color-text-secondary:#4A4540;   // warm dark grey — subtext, captions
+  --color-text-muted:    #8C8278;   // muted warm grey — metadata, labels
+  --color-text-inverse:  #F5F0E8;   // cream — text on dark backgrounds
+
+  // Accent — Anthropic Terracotta / Coral
+  --color-accent:        #C96442;   // terracotta — primary accent
+  --color-accent-light:  #E8845E;   // lighter coral — hover states
+  --color-accent-subtle: #F2E0D8;   // pale blush — accent backgrounds, tags
+
+  // Borders
+  --color-border:        #D6CFC2;   // warm light border
+  --color-border-strong: #B0A898;   // stronger divider
+}
