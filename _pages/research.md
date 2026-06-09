@@ -16,7 +16,7 @@ classes: wide
 
 /* ── Section labels ────────────────────────────────────────────────────────── */
 .rs-lbl {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -81,7 +81,7 @@ classes: wide
 .ri-body { padding: 1.3rem 1.45rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
 
 .ri-num {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   font-weight: 700;
   color: var(--color-accent);
@@ -110,7 +110,7 @@ classes: wide
   margin-top: 0.9rem;
 }
 .ri-tag {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.59rem;
   font-weight: 500;
   color: var(--color-text-muted);
@@ -135,7 +135,7 @@ classes: wide
 }
 
 .exp-period {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.67rem;
   color: var(--color-text-muted);
   text-align: right;
@@ -257,13 +257,13 @@ classes: wide
         </defs>
         <!-- Confounder (top center) -->
         <circle cx="88" cy="20" r="15" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
-        <text x="88" y="25" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Z</text>
+        <text x="88" y="25" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="var(--font-mono)">Z</text>
         <!-- Treatment (bottom left) -->
         <circle cx="30" cy="72" r="15" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
-        <text x="30" y="77" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">T</text>
+        <text x="30" y="77" text-anchor="middle" font-size="9" fill="var(--color-text-muted)" font-family="var(--font-mono)">T</text>
         <!-- Outcome (bottom right) -->
         <circle cx="146" cy="72" r="15" fill="color-mix(in srgb, var(--color-accent-light) 10%, transparent)" stroke="color-mix(in srgb, var(--color-accent-light) 30%, transparent)" stroke-width="1.5"/>
-        <text x="146" y="77" text-anchor="middle" font-size="9" fill="var(--color-accent-light)" font-family="IBM Plex Mono, monospace">Y</text>
+        <text x="146" y="77" text-anchor="middle" font-size="9" fill="var(--color-accent-light)" font-family="var(--font-mono)">Y</text>
         <!-- Z to T dashed -->
         <line x1="76" y1="31" x2="41" y2="61" stroke="var(--color-border-strong)" stroke-width="1.2" stroke-dasharray="3,2.5" marker-end="url(#ci-a2)"/>
         <!-- Z to Y dashed -->
@@ -271,7 +271,7 @@ classes: wide
         <!-- T to Y solid (causal path) -->
         <line x1="46" y1="72" x2="130" y2="72" stroke="var(--color-accent)" stroke-width="1.5" marker-end="url(#ci-a1)"/>
         <!-- causal label -->
-        <text x="88" y="85" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">causal effect</text>
+        <text x="88" y="85" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="var(--font-mono)">causal effect</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -292,18 +292,18 @@ classes: wide
         </defs>
         <!-- Human circle -->
         <circle cx="38" cy="36" r="26" fill="var(--color-border)" stroke="var(--color-border-strong)" stroke-width="1.5"/>
-        <text x="38" y="41" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)" font-weight="700" font-family="Inter, sans-serif">H</text>
+        <text x="38" y="41" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)" font-weight="700" font-family="var(--font-body)">H</text>
         <!-- AI circle -->
         <circle cx="138" cy="36" r="26" fill="color-mix(in srgb, var(--color-accent-light) 10%, transparent)" stroke="color-mix(in srgb, var(--color-accent-light) 28%, transparent)" stroke-width="1.5"/>
-        <text x="138" y="41" text-anchor="middle" font-size="11" fill="var(--color-accent-light)" font-weight="700" font-family="Inter, sans-serif">AI</text>
+        <text x="138" y="41" text-anchor="middle" font-size="11" fill="var(--color-accent-light)" font-weight="700" font-family="var(--font-body)">AI</text>
         <!-- Arrows -->
         <line x1="65" y1="32" x2="111" y2="32" stroke="var(--color-text-muted)" stroke-width="1.2" marker-end="url(#hai-r)"/>
         <line x1="111" y1="40" x2="65" y2="40" stroke="var(--color-text-muted)" stroke-width="1.2" marker-end="url(#hai-r)"/>
         <!-- 4D labels -->
-        <text x="8" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Delegation</text>
-        <text x="8" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Description</text>
-        <text x="103" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Discernment</text>
-        <text x="103" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">Diligence</text>
+        <text x="8" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">Delegation</text>
+        <text x="8" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">Description</text>
+        <text x="103" y="76" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">Discernment</text>
+        <text x="103" y="87" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">Diligence</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -338,8 +338,8 @@ classes: wide
         <line x1="56" y1="82" x2="120" y2="82" stroke="var(--color-accent-light)" stroke-width="1.5"/>
         <line x1="56" y1="79" x2="56" y2="85" stroke="var(--color-accent-light)" stroke-width="1.5"/>
         <line x1="120" y1="79" x2="120" y2="85" stroke="var(--color-accent-light)" stroke-width="1.5"/>
-        <text x="88" y="88" text-anchor="middle" font-size="7" fill="var(--color-accent-light)" font-family="IBM Plex Mono, monospace">95% CI</text>
-        <text x="88" y="11" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">point estimate</text>
+        <text x="88" y="88" text-anchor="middle" font-size="7" fill="var(--color-accent-light)" font-family="var(--font-mono)">95% CI</text>
+        <text x="88" y="11" text-anchor="middle" font-size="7" fill="var(--color-text-muted)" font-family="var(--font-mono)">point estimate</text>
       </svg>
     </div>
     <div class="ri-body">
@@ -365,10 +365,10 @@ classes: wide
         <!-- Dashed equity line -->
         <line x1="30" y1="42" x2="162" y2="42" stroke="var(--color-accent)" stroke-width="1" stroke-dasharray="4,2.5"/>
         <!-- Labels -->
-        <text x="57" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">A</text>
-        <text x="101" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">B</text>
-        <text x="145" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="IBM Plex Mono, monospace">C</text>
-        <text x="164" y="40" font-size="7" fill="var(--color-accent)" font-family="IBM Plex Mono, monospace">equity</text>
+        <text x="57" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">A</text>
+        <text x="101" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">B</text>
+        <text x="145" y="86" text-anchor="middle" font-size="7.5" fill="var(--color-text-muted)" font-family="var(--font-mono)">C</text>
+        <text x="164" y="40" font-size="7" fill="var(--color-accent)" font-family="var(--font-mono)">equity</text>
       </svg>
     </div>
     <div class="ri-body">

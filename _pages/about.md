@@ -16,7 +16,7 @@ classes: wide
 
 /* Section chrome */
 .about-sec {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .16em;
@@ -38,7 +38,7 @@ classes: wide
 .about-intro { margin-bottom: 3.5rem; }
 
 .about-intro h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4.5vw, 2.8rem);
   font-weight: 800;
   color: var(--color-text-primary);
@@ -98,7 +98,7 @@ classes: wide
 .pj:hover::before { transform: scaleX(1); }
 
 .pj-cat {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: .59rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -167,7 +167,7 @@ classes: wide
 
 /* Result strip */
 .pj-result {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: .69rem;
   font-weight: 600;
   color: var(--color-accent-light);
@@ -181,7 +181,7 @@ classes: wide
 
 /* GitHub link */
 .pj-link {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: .65rem;
   font-weight: 600;
   color: var(--color-accent);
@@ -198,7 +198,7 @@ classes: wide
 .about-prose { margin-bottom: 2.75rem; }
 
 .about-prose h2 {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: .95rem;
   font-weight: 700;
   color: var(--color-text-primary);

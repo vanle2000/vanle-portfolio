@@ -4,11 +4,12 @@ search: false
 ---
 
 // ── Typography ─────────────────────────────────────────────────────────────
-$sans-serif:        "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-$serif:             Georgia, "Times New Roman", serif;
-$monospace:         "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-$global-font-family: $sans-serif;
-$header-font-family: $sans-serif;
+// Token values live in _anthropic.scss; SCSS vars pass var() through to MM theme.
+$sans-serif:         var(--font-body);
+$serif:              var(--font-body);
+$monospace:          var(--font-mono);
+$global-font-family: var(--font-body);
+$header-font-family: var(--font-body);
 $doc-font-size:     16;
 
 // ── Colors ─────────────────────────────────────────────────────────────────

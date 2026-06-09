@@ -115,7 +115,7 @@ classes: wide
 
 .avail-badge {
   display:inline-flex; align-items:center; gap:.55rem;
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.62rem; font-weight:600;
   letter-spacing:.07em; text-transform:uppercase;
   color:color-mix(in srgb, var(--color-text-inverse) 75%, transparent);
@@ -135,7 +135,7 @@ classes: wide
 }
 
 .hero-name {
-  font-family:"Playfair Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size:clamp(1.9rem,3.8vw,2.9rem);
   font-weight:700;
   letter-spacing:-.01em; line-height:1.1;
@@ -145,7 +145,7 @@ classes: wide
 }
 
 .hero-tagline {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:clamp(.72rem,1.18vw,.88rem);
   font-weight:500;
   color:color-mix(in srgb, var(--color-text-inverse) 50%, transparent);
@@ -163,7 +163,7 @@ classes: wide
 }
 
 .hero-bio-label {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.6rem;
   font-weight:600;
   letter-spacing:.14em;
@@ -181,7 +181,7 @@ classes: wide
 
 .cta-fill {
   display:inline-flex; align-items:center; gap:.4rem;
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.78rem; font-weight:600; letter-spacing:.04em;
   color:var(--burg-dp);
   background:linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
@@ -199,7 +199,7 @@ classes: wide
 
 .cta-ghost {
   display:inline-flex; align-items:center; gap:.4rem;
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.78rem; font-weight:600; letter-spacing:.04em;
   color:color-mix(in srgb, var(--color-text-inverse) 80%, transparent);
   border:1.5px solid color-mix(in srgb, var(--color-text-inverse) 22%, transparent);
@@ -221,7 +221,7 @@ classes: wide
   margin-bottom:3rem;
 }
 .sec-tag {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.62rem; font-weight:700;
   letter-spacing:.16em; text-transform:uppercase;
   color:var(--burg); white-space:nowrap;
@@ -269,13 +269,13 @@ classes: wide
 .work-row.coming:hover::after { opacity:0; }
 
 .work-num {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.67rem; font-weight:600;
   color:color-mix(in srgb, var(--color-accent) 25%, transparent); letter-spacing:.06em;
   padding-top:.22rem;
 }
 .work-type {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.61rem; font-weight:600;
   letter-spacing:.1em; text-transform:uppercase;
   color:var(--burg); margin:0 0 .45rem;
@@ -294,7 +294,7 @@ classes: wide
 }
 .work-tags { display:flex; flex-wrap:wrap; gap:.28rem; }
 .wtag {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.59rem;
   padding:.12rem .42rem; border-radius:3px;
   background:var(--cream-3);
@@ -308,18 +308,18 @@ classes: wide
 }
 .work-meta { padding-top:.2rem; text-align:right; }
 .work-result {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.64rem; font-weight:600;
   color:var(--grn); line-height:1.55; margin:0 0 .65rem;
 }
 .work-gh {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.62rem; color:var(--ink-4);
   text-decoration:none; transition:color .15s;
 }
 .work-gh:hover { color:var(--burg); text-decoration:none; }
 .work-badge {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.61rem; font-weight:600;
   color:var(--burg);
   background:color-mix(in srgb, var(--color-accent) 7%, transparent);
@@ -363,7 +363,7 @@ classes: wide
 .int-card:hover::before { opacity:1; }
 
 .int-num {
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.61rem; font-weight:700;
   color:var(--grn); margin:0 0 .6rem; letter-spacing:.05em;
 }
@@ -406,7 +406,7 @@ classes: wide
 
 .conn-link {
   display:inline-flex; align-items:center; gap:.5rem;
-  font-family:"IBM Plex Mono",monospace;
+  font-family: var(--font-mono);
   font-size:.8rem; font-weight:600;
   color:color-mix(in srgb, var(--color-text-inverse) 88%, transparent); text-decoration:none;
   padding:.7rem 1.4rem;

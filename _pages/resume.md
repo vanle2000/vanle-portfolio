@@ -25,7 +25,7 @@ classes: wide
 }
 
 .resume-header-left h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 800;
   color: var(--color-text-primary);
@@ -35,7 +35,7 @@ classes: wide
 }
 
 .resume-header-left p {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 500;
   color: var(--color-text-muted);
@@ -54,7 +54,7 @@ classes: wide
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -80,7 +80,7 @@ classes: wide
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;

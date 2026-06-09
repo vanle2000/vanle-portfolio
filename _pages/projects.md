@@ -17,7 +17,7 @@ classes: wide
   margin-bottom: 2.5rem;
 }
 .proj-page-header h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 4vw, 2.1rem);
   font-weight: 800;
   color: var(--color-text-primary);
@@ -26,7 +26,7 @@ classes: wide
   margin: 0 0 0.4rem;
 }
 .proj-page-header p {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 500;
   color: var(--color-text-muted);

@@ -24,4 +24,42 @@
   // Borders
   --color-border:        #D6CFC2;   // warm light border
   --color-border-strong: #B0A898;   // stronger divider
+
+  // ── Typography ──────────────────────────────────────────────────────────
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Source Serif 4', 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  // Type scale
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1.0625rem;   // 17px
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  2.75rem;
+  --text-4xl:  3.75rem;
+
+  // Line heights
+  --leading-tight:   1.2;
+  --leading-body:    1.7;
+  --leading-relaxed: 1.85;
+
+  // ── Spacing & Layout ────────────────────────────────────────────────────
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  --max-width-prose: 68ch;
+  --max-width-site:  1200px;
+  --max-width-wide:  1440px;
+
+  // ── Motion ──────────────────────────────────────────────────────────────
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration-fast: 150ms;
+  --duration-base: 280ms;
+  --duration-slow: 500ms;
 }
